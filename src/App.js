@@ -1,26 +1,43 @@
 import React from 'react';
-import logo from './logo.svg';
+import Routes from './Routes'
 import './App.css';
+import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import Navbar from './components/Navbar/Navbar';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+
+  showMenu = (routes) => {
+    var menu = null;
+    if (routes.length > 0) {
+      menu = routes.map((item, index) => {
+        return <Route
+          key={index}
+          path={item.path}
+          exact={item.exact}
+          component={item.main}
+        ></Route>
+      })
+    }
+    return <Switch>
+      {menu}
+    </Switch>
+  }
+
+  render() {
+    return (
+      <BrowserRouter>
+        <div className="App">
+          <Header></Header>
+          <Navbar />
+          {this.showMenu(Routes)}
+          {/* <Routes /> */}
+          <Footer></Footer>
+        </div>
+      </BrowserRouter>
+    );
+  }
 }
 
 export default App;

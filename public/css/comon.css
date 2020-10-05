@@ -1,0 +1,73 @@
+html {
+    scroll-behavior: smooth;
+    font-size: 62.5%;
+    line-height: 1.6rem;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+:root {
+    --white-color: #fff;
+    --black-color: #000;
+    --primary-color: #e2e01a;
+    --border-color: #e2e01a;
+    --text-color: #333333;
+    --red-color: #e63535;
+    --footer-color: #9e9e9e;
+    --text-red-color: #db2121;
+}
+
+button:focus {
+    box-shadow: none;
+    outline: none;
+}
+
+
+/*------ Animation ------*/
+
+
+/* ----------------- */
+
+.line {
+    width: 100%;
+    display: block;
+    border: 1px solid #222;
+    margin: 10px 0;
+}
+
+.open {
+    display: block !important;
+}
+
+.show {
+    display: block !important;
+    position: relative;
+} 
+
+.btn {
+    display: inline-block;
+
+} 
+
+.btn-readmore {
+    background-color: var(--white-color);
+    color: var(--text-color);
+    font-size: 1.4rem;
+    font-weight: 500;
+    position: relative;
+    padding: 0 30px;
+    text-transform: uppercase;
+    height: 36px;
+    line-height: 36px;
+    transition: background-color 0.3s, box-shadow 0.3s, color 0.3s, opacity 0.3s;
+    cursor: pointer;
+    box-shadow: 0 2px 1px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.btn-readmore:hover {
+    background-color: var(--red-color);
+    color: var(--white-color);
+}
