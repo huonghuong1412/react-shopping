@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 class Navbar extends Component {
     render() {
         return (
@@ -20,22 +21,22 @@ class Navbar extends Component {
                         <div className="navbar__main">
                             <ul className="navbar__main--menu">
                                 <li>
-                                    <a href="/" className="navbar__main--link active">
+                                    <Link to="/" className="navbar__main--link active">
                                         <span>Trang chủ</span>
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li>
-                                    <a href="/" className="navbar__main--link">
+                                    <Link to="/collections/all" className="navbar__main--link">
                                         <span>Sản phẩm</span>
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li className="hasDropdown">
-                                    <a href="/" data-toggle="collapse" className="navbar__main--link">
+                                    <Link to="/pages/huong-dan" className="navbar__main--link">
                                         <span>Hướng dẫn</span>
                                         <span>
                                             <i className="fas fa-caret-down navbar__main--link-icon"></i>
                                         </span>
-                                    </a>
+                                    </Link>
                                     <ul className="dropdown-list">
                                         <li className="dropdown-title">
                                             <span className="dropdown-title-icon">
@@ -44,14 +45,14 @@ class Navbar extends Component {
                                             <span className="dropdown-title-text">Hướng dẫn</span>
                                         </li>
                                         <li className="dropdown-item">
-                                            <a href="/" className="navbar__main--link">
+                                            <Link to="/pages/tai-khoan-ngan-hang" className="navbar__main--link">
                                                 Tài khoản ngân hàng
-                                    </a>
+                                    </Link>
                                         </li>
                                         <li className="dropdown-item">
-                                            <a href="/" className="navbar__main--link">
+                                            <Link to="/pages/huong-dan-mua-hang" className="navbar__main--link">
                                                 Hướng dẫn mua hàng
-                                    </a>
+                                    </Link>
                                         </li>
                                     </ul>
                                     <span className="navbar__main--link-right">
@@ -59,12 +60,12 @@ class Navbar extends Component {
                                     </span>
                                 </li>
                                 <li className="hasDropdown">
-                                    <a href="/" className="navbar__main--link">
+                                    <Link to="/pages/chinh-sach-van-chuyen" className="navbar__main--link">
                                         <span>Chính sách</span>
                                         <span>
                                             <i className="fas fa-caret-down navbar__main--link-icon"></i>
                                         </span>
-                                    </a>
+                                    </Link>
                                     <ul className="dropdown-list">
                                         <li className="dropdown-title">
                                             <span className="dropdown-title-icon">
@@ -73,29 +74,29 @@ class Navbar extends Component {
                                             <span className="dropdown-title-text">Chính sách</span>
                                         </li>
                                         <li className="dropdown-item">
-                                            <a href="/" className="navbar__main--link">
+                                            <Link to="/pages/chinh-sach-van-chuyen" className="navbar__main--link">
                                                 Chính sách vận chuyển
-                                    </a>
+                                    </Link>
                                         </li>
                                         <li className="dropdown-item">
-                                            <a href="/" className="navbar__main--link">
+                                            <Link to="/pages/chinh-sach-doi-tra" className="navbar__main--link">
                                                 Chính sách đổi trả
-                                    </a>
+                                    </Link>
                                         </li>
                                         <li className="dropdown-item">
-                                            <a href="/" className="navbar__main--link">
+                                            <Link to="/pages/chinh-sach-thanh-toan" className="navbar__main--link">
                                                 Chính sách thanh toán
-                                    </a>
+                                    </Link>
                                         </li>
                                         <li className="dropdown-item">
-                                            <a href="/" className="navbar__main--link">
+                                            <Link to="/pages/chinh-sach-bao-mat" className="navbar__main--link">
                                                 Chính sách bảo mật
-                                    </a>
+                                    </Link>
                                         </li>
                                         <li className="dropdown-item">
-                                            <a href="/" className="navbar__main--link">
+                                            <Link to="/pages/chinh-sach-bao-hanh" className="navbar__main--link">
                                                 Chính sách bảo hành
-                                    </a>
+                                    </Link>
                                         </li>
                                     </ul>
                                     <span className="navbar__main--link-right">
@@ -103,23 +104,23 @@ class Navbar extends Component {
                                     </span>
                                 </li>
                                 <li>
-                                    <a href="/" className="navbar__main--link">
+                                    <Link to="/blogs/news" className="navbar__main--link">
                                         <span>Tin tức</span>
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li>
-                                    <a href="/" className="navbar__main--link">
+                                    <Link to="/pages/about-us" className="navbar__main--link">
                                         <span>Giới thiệu</span>
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li>
-                                    <a href="/" className="navbar__main--link">
+                                    <Link to="/pages/lien-he" className="navbar__main--link">
                                         <span>Liên hệ</span>
-                                    </a>
+                                    </Link>
                                 </li>
                             </ul>
                             <div className="navbar__main--phone">
-                                <span href="#" className="navbar__main--phone-icon">
+                                <span className="navbar__main--phone-icon">
                                     <i className="fas fa-phone-alt"></i>
                                 </span>
                                 <span className="navbar__main--phone-number">08.88.37.29.29</span>

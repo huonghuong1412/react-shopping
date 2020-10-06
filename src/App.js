@@ -8,7 +8,7 @@ import Navbar from './components/Navbar/Navbar';
 
 class App extends React.Component {
 
-  showMenu = (routes) => {
+  showPageComponent = (routes) => {
     var menu = null;
     if (routes.length > 0) {
       menu = routes.map((item, index) => {
@@ -31,7 +31,7 @@ class App extends React.Component {
         <div className="App">
           <Header></Header>
           <Navbar />
-          {this.showMenu(Routes)}
+          {this.showPageComponent(Routes)}
           {/* <Routes /> */}
           <Footer></Footer>
         </div>

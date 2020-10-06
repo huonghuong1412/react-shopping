@@ -1,12 +1,35 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import * as actions from '../../actions/HomeActions'
+import { showModal, hideModal } from '../../actions/ModalActions'
+import { addToCart } from '../../actions/CartActions'
+import ModalRoot from '../Modal/ModalRoot';
 
-class HomeProducts extends Component {
+class HomeProducts extends PureComponent {
 
     componentDidMount() {
         this.props.getListProduct();
+    }
+
+    closeModal = () => {
+        this.props.hideModal();
+    }
+
+    openModalCart = (product) => {
+        this.props.showModal({
+            open: true,
+            closeModal: this.closeModal
+        }, 'alert');
+        this.props.addToCart(product);
+    }
+
+    openQuickView = (product) => {
+        this.props.showModal({
+            open: true,
+            closeModal: this.closeModal,
+            product: product
+        }, 'quickview');
     }
 
     removeVietnameseTones(str) {
@@ -17,7 +40,7 @@ class HomeProducts extends Component {
     }
 
     format_curency = ((money) => {
-        money = money.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.");
+        money = money.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
         return money + "₫";
     });
 
@@ -40,7 +63,11 @@ class HomeProducts extends Component {
                                     </Link>
                                     <div className="products__item--actions">
                                         <div className="products__item--actions-cart">
-                                            <button type="button" className="products__item--actions-link" onClick={() => alert(item.id)}>
+                                            <button
+                                                type="button"
+                                                className="products__item--actions-link"
+                                                onClick={() => this.openModalCart(item)}
+                                            >
                                                 <i className="fa fa-shopping-bag"></i>
                                             </button>
                                         </div>
@@ -50,7 +77,10 @@ class HomeProducts extends Component {
                                             </Link>
                                         </div>
                                         <div className="products__item--actions-quick">
-                                            <button className="products__item--actions-link">
+                                            <button 
+                                                className="products__item--actions-link"
+                                                onClick={() => this.openQuickView(item)}
+                                            >
                                                 <i className="fa fa-eye"></i>
                                             </button>
                                         </div>
@@ -81,6 +111,9 @@ class HomeProducts extends Component {
                 <div className="row products__list">
                     {this.showProductItem(products, textFilter)}
                 </div>
+                {/* <ModalCart hideModal={this.props.hideModal} />
+                <ModalView hideModal={this.props.hideModal} /> */}
+                <ModalRoot hideModal={this.props.hideModal} />
             </>
         );
     }
@@ -88,7 +121,8 @@ class HomeProducts extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        products: state.listProducts
+        products: state.listProducts,
+        ...state.modal
     }
 }
 
@@ -96,6 +130,15 @@ const mapDispatchToProps = (dispatch) => {
     return {
         getListProduct: () => {
             dispatch(actions.fetchAllProductRequest())
+        },
+        hideModal: () => {
+            dispatch(hideModal())
+        },
+        showModal: (modalProps, modalType) => {
+            dispatch(showModal({ modalProps, modalType }))
+        },
+        addToCart: (product) => {
+            dispatch(addToCart(product, 1, 35))
         }
     }
 }

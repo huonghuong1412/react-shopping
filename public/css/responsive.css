@@ -216,7 +216,13 @@
 
     .products__item--img {
         height: 211px;
-    }    
+    }
+}
+
+@media (min-width: 992px) {
+    .modal-lg, .modal-xl {
+        max-width: 940px; 
+    }
 }
 
 @media only screen and (max-width: 991px) {

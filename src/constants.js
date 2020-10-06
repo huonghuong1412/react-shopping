@@ -11,8 +11,14 @@ export const GET_PRODUCT_HOME_CATEGORY_LIMIT = "GET_PRODUCT_HOME_CATEGORY_LIMIT"
 
 // cart
 export const ADD_TO_CART = "ADD_TO_CART"
-export const EDIT_ITEM_CART = "EDIT_ITEM_CART"
+export const UPDATE_ITEM_CART = "UPDATE_ITEM_CART"
 export const DELETE_ITEM_CART = "DELETE_ITEM_CART"
+export const CART_COMPLETE = "CART_COMPLETE"
+
+// modal
+
+export const SHOW_MODAL = "SHOW_MODAL"
+export const HIDE_MODAL = "HIDE_MODAL"
 
 // order
 export const FETCH_ORDERS = 'FETCH_ORDERS';

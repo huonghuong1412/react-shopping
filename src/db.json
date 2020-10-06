@@ -3,6 +3,7 @@
         {
             "id": 1,
             "name": "A1527-Áo Len Cotton Cổ V Sọc Ngang Túi Lệch",
+            "url": "a1527-ao-len-cotton-co-v-soc-ngang-tui-lech",
             "sku": "A1527",
             "category": "ao",
             "price": 428000,
@@ -18,6 +19,7 @@
         {
             "id": 2,
             "name": "A1513-Áo Cotton Hoa Nghệ Thuật Cổ V",
+            "url": "a1513-ao-cotton-hoa-nghe-thuat-co-v",
             "sku": "A1513",
             "category": "ao",
             "price": 428000,
@@ -35,6 +37,7 @@
         {
             "id": 3,
             "name": "A1508-Áo Sơ Mi Cotton Cổ V Phối Màu",
+            "url": "a1508-ao-so-mi-cotton-co-v-phoi-mau",
             "sku": "A1508-1",
             "category": "ao",
             "price": "418000",
@@ -52,6 +55,7 @@
         {
             "id": 4,
             "name": "AK0205-Áo Khoác Có Nón Dệt In Nghệ Thuật",
+            "url": "ak0205-ao-khoac-co-non-det-in-nghe-thuat",
             "sku": "AK0205-1",
             "category": "ao-khoac",
             "price": 598000,
@@ -69,6 +73,7 @@
         {
             "id": 5,
             "name": "AK0206-Áo Khoác Jean Denim Có Nón",
+            "url": "ak0206-ao-khoac-jean-denim-co-non",
             "sku": "AK0206-1",
             "category": "ao-khoac",
             "price": 618000,
@@ -87,6 +92,7 @@
         {
             "id": 6,
             "name": "AK0204-Áo Khoác Len Dệt Kim Có Nón Retro Sọc",
+            "url": "ak0204-ao-khoac-len-det-kim-co-non-retro-soc",
             "category": "ao-khoac",
             "sku": "AK0204-2",
             "price": 478000,
@@ -103,6 +109,7 @@
         {
             "id": 7,
             "name": "AK0203-Áo Khoác Thêu Cổ Điển",
+            "url": "ak0203-ao-khoac-theu-co-dien",
             "sku": "AK0203-1",
             "category": "ao-khoac",
             "price": 478000,
@@ -121,6 +128,7 @@
         {
             "id": 8,
             "name": "AK0201-Áo Khoác Denim Linh Hoạt",
+            "url": "ak0201-ao-khoac-denim-linh-hoat",
             "category": "ao-khoac",
             "sku": "AK0201-1",
             "price": 568000,
@@ -137,6 +145,7 @@
         {
             "id": 9,
             "name": "Q0991-Quần Jean Harem Gấu In Chữ",
+            "url": "q0991-quan-jean-harem-gau-in-chu",
             "sku": "Q0991-1",
             "category": "quan",
             "price": 458000,
@@ -155,6 +164,7 @@
         {
             "id": 10,
             "name": "Q0987-Quần Linen Harem Retro Văn Học",
+            "url": "q0987-quan-linen-harem-retro-van-hoc",
             "sku": "Q0987-1",
             "category": "quan",
             "price": 530000,
@@ -172,6 +182,7 @@
         {
             "id": 11,
             "name": "Q1004-Quần Jean Harem Ống Bo Co Dãn Điểm Túi",
+            "url": "q1004-quan-jean-harem-ong-bo-co-dan-diem-tui",
             "sku": "Q1004-1",
             "category": "quan",
             "price": 568000,
@@ -190,6 +201,7 @@
         {
             "id": 12,
             "name": "D095-Đầm Linen Họa Tiết Dáng Suông",
+            "url": "d095-dam-linen-hoa-tiet-dang-suong",
             "sku": "D095-1",
             "category": "vay-dam",
             "price": 830000,
@@ -205,6 +217,7 @@
         {
             "id": 13,
             "name": "Q0948_Chân Váy Ramie Sắc Cầu Vòng",
+            "url": "q0948-chan-vay-ramie-sac-cau-vong",
             "sku": "Q0948",
             "category": "vay-dam",
             "price": 670000,
@@ -220,6 +233,7 @@
         {
             "id": 14,
             "name": "D081_ Đầm Retro Hoa Văn Nghệ Thuật",
+            "url": "d081-dam-retro-hoa-van-nghe-thuat",
             "sku": "D081",
             "category": "vay-dam",
             "price": 1180000,
@@ -236,6 +250,7 @@
         {
             "id": 15,
             "name": "D079_ Đầm Linen Hoa Văn Dáng Suông",
+            "url": "d079-dam-linen-hoa-van-dang-suong",
             "sku": "D079",
             "category": "vay-dam",
             "price": 980000,
@@ -254,6 +269,7 @@
         {
             "id": 16,
             "name": "D078_ Đầm Tơ In Hoa Form Rộng",
+            "url": "d078-dam-to-in-hoa-form-rong",
             "sku": "D078-1",
             "category": "vay-dam",
             "price": 860000,
@@ -271,6 +287,7 @@
         {
             "id": 17,
             "name": "B0017_Bộ Mặc Nhà Cotton Lụa Cổ Nghệ Thuật",
+            "url": "b0017-bo-mac-nha-cotton-lua-co-nghe-thuat",
             "sku": "B0017-1",
             "category": "bo-mac-nha",
             "price": 628000,
@@ -288,6 +305,7 @@
         {
             "id": 18,
             "name": "B0014_Bộ Mặc Nhà Dài Tay Cotton Nhấn Gấu",
+            "url": "b0014-bo-mac-nha-dai-tay-cotton-nhan-gau",
             "sku": "B0014-3",
             "category": "bo-mac-nha",
             "price": 618000,
@@ -305,6 +323,7 @@
         {
             "id": 19,
             "name": "B0013_Bộ Mặc Nhà Cotton Lụa Ren Hồng Phấn",
+            "url": "b0013-bo-mac-nha-cotton-lua-ren-hong-phan",
             "sku": "B0013-1",
             "category": "bo-mac-nha",
             "price": 498000,
@@ -322,6 +341,7 @@
         {
             "id": 20,
             "name": "TT039-Giày Thể Thao Cột Dây Năng Động",
+            "url": "tt039-giay-the-thao-cot-day-nang-dong",
             "sku": "TT039-1",
             "category": "giay",
             "price": 860000,
@@ -341,6 +361,7 @@
         {
             "id": 21,
             "name": "TT038-Giày Thể Thao Nữ Cột Dây Mũi Tròn",
+            "url": "tt038-giay-the-thao-nu-cot-day-mui-tron",
             "sku": "TT038-1",
             "category": "giay",
             "price": 818000,
@@ -358,6 +379,7 @@
         {
             "id": 22,
             "name": "TT037-Giày Thể Thao Nữ Lưới Bố Thoáng Cao 5cm",
+            "url": "tt037-giay-the-thao-nu-luoi-bo-thoang-cao-5cm",
             "sku": "TT037-1",
             "category": "giay",
             "price": 860000,
@@ -373,6 +395,7 @@
         {
             "id": 23,
             "name": "TT036-Giày Thể Thao Nữ Lưới Thoáng Juku",
+            "url": "tt036-giay-the-thao-nu-luoi-thoang-juku",
             "sku": "TT036-1",
             "category": "giay",
             "price": 888000,
@@ -389,23 +412,27 @@
         },
         {
             "id": 24,
-            "name": "G068_Giày Velcro Retro Đan Nghệ Thuật",
-            "sku": "G068-5",
+            "name": "TT025_Giày Thể Thao Trắng Dây Đen",
+            "url": "tt025-giay-the-thao-trang-day-den",
+            "sku": "TT025-1",
             "category": "giay",
             "price": 1588000,
             "createAt": "2020-04-05T18:25:43.511Z",
             "material": "Từ  chất liệu da thật được cắt may và sơn vẽ thủ công, qua bàn tay khéo léo của các nghệ nhân hàng chục năm kinh nghiệm cùng nhau chăm chút kỹ lưỡng tạo nên những sản phẩm sắc sảo, độc đáo, phục vụ nhu cầu làm đẹp của những khách hàng tinh tế. Giày Handmade Da Thật mang màu sắc thanh lịch và trang nhã tạo sự cổ kính sang trọng.",
             "img": [
-                "https://file.hstatic.net/1000239816/file/giay-velcro-retro-dan-nghe-thuat_a07485f8b02b4cd39c98a483aefb9fa1_grande.jpg",
-                "https://file.hstatic.net/1000239816/file/giay-velcro-retro-dan-nghe-thuat-0_00fba82997b3490fb2f16033b6998d71_grande.jpg",
-                "https://file.hstatic.net/1000239816/file/giay-velcro-retro-dan-nghe-thuat-1_f7d8c98c112d4555ac1f6ba16ed69b5c_grande.jpg",
-                "https://file.hstatic.net/1000239816/file/giay-velcro-retro-dan-nghe-thuat-2_2818e1a0721d4e33870e41508776c8f5_grande.jpg",
-                "https://file.hstatic.net/1000239816/file/giay-velcro-retro-dan-nghe-thuat-3_b7728f9caecd4961a86f38a98c43d791_grande.jpg"
+                "https://file.hstatic.net/1000239816/file/8eb3672ac5c722997bd6_64cc7cd845864a4895fab4bd27c4655a_grande.jpg",
+                "https://file.hstatic.net/1000239816/file/5b10e9b14b5cac02f54d_7275c5a544ad47cc8cf8b6e262eadd11_grande.jpg",
+                "https://file.hstatic.net/1000239816/file/64ff7a57d8ba3fe466ab_47365e7b20e1406bb9a474bac8cd43fd_grande.jpg",
+                "https://file.hstatic.net/1000239816/file/bea02d058fe868b631f9_f3542d3f84f04f8988be1fa1b481a9bf_grande.jpg",
+                "https://file.hstatic.net/1000239816/file/356508deaa334d6d1422_8f70857259424a5bb4f9d4f977d858b5_grande.jpg",
+                "https://file.hstatic.net/1000239816/file/3f22f69f5472b32cea63_e67cad05d9d74a5383291d57ef5fdd84_grande.jpg",
+                "https://file.hstatic.net/1000239816/file/8eb3672ac5c722997bd6_5aad9af7dad945c2b2197d2d29ccbb20_grande.jpg"
             ]
         },
         {
             "id": 25,
             "name": "TT035_Giày Thể Thao Bệt Đế Bằng",
+            "url": "tt035-giay-the-thao-bet-de-bang",
             "sku": "TT035-2",
             "category": "giay",
             "price": 780000,
@@ -424,6 +451,7 @@
         {
             "id": 26,
             "name": "TT033-Giày Sneaker Chỉ Đỏ",
+            "url": "tt033-giay-sneaker-chi-do",
             "sku": "TT033-1",
             "category": "giay",
             "price": 860000,
@@ -444,6 +472,7 @@
         {
             "id": 27,
             "name": "TT034_Giày Martin Boots Cổ Ngắn",
+            "url": "tt034-giay-martin-boots-co-ngan",
             "sku": "TT034-1",
             "category": "giay",
             "price": 830000,
@@ -463,6 +492,7 @@
         {
             "id": 28,
             "name": "TX058-Túi Da Thật Hộp Thư Cầm Tay Đeo Chéo",
+            "url": "tx058-tui-da-that-hop-thu-cam-tay-deo-cheo",
             "sku": "TX058-1",
             "category": "tui-xach",
             "price": 1338000,
@@ -480,6 +510,7 @@
         {
             "id": 29,
             "name": "TX057-Túi Da Thật Yên Ngựa Cầm Tay Đeo Vai",
+            "url": "tx057-tui-da-that-yen-ngua-cam-tay-deo-vai",
             "sku": "TX057",
             "category": "tui-xach",
             "price": "1368000",
@@ -497,6 +528,7 @@
         {
             "id": 30,
             "name": "TX055_Túi Da Thật Đeo Vai Cá Tính",
+            "url": "tx055-tui-da-that-deo-vai-ca-tinh",
             "sku": "TX055-2",
             "category": "tui-xach",
             "price": 888000,
