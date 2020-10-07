@@ -46,4 +46,22 @@ window.addEventListener('DOMContentLoaded', function () {
         dropdownList[1].classList.remove('navbar-resposive-2');
     })
 
+    var sidebar = document.querySelector('.sidebar__inner--menu');
+    var sidebarItem = document.querySelector('.sidebar__inner--link');
+    var sidebarIcon = document.querySelector('.sidebar__inner--title');
+
+    // sidebarIcon.onclick = function () {
+    //     sidebar.classList.toggle('show')
+    // }
+    if (sidebarIcon) {
+        sidebarIcon.addEventListener('click', function () {
+            sidebar.classList.toggle('show')
+        })
+    }
+    if (sidebarItem) {
+        sidebarItem.onclick = function () {
+            sidebar.classList.toggle('show')
+        }
+    }
+
 }, false);

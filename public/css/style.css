@@ -382,6 +382,10 @@
     color: var(--red-color);
 }
 
+.navbar__main--link span {
+    margin-right: 5px;
+}
+
 .dropdown-list {
     position: absolute;
     top: 100%;

@@ -1,8 +1,4 @@
 @media only screen and (max-width: 1199px) {
-    .container {
-        max-width: 100%;
-    }
-
     .header__logo-img {
         max-height: 45px;
     }
@@ -20,13 +16,12 @@
 
     .header__aside--info-top,
     .header__aside--info-bottom {
-        display: none !important;
+        display: none;
     }
 
     .header__aside--info-user {
         font-size: 2rem;
         color: var(--text-color);
-        display: block;
     }
 
     .header__aside {
@@ -161,12 +156,16 @@
         transition: 0.3s all ease-in-out;
     }
 
+    .navbar__main--menu>li:hover .dropdown-list {
+        display: none;
+    }
+
     .guest {
         width: 100%;
         display: flex;
         align-items: center;
         padding: 3rem;
-        background: url(https://kt.city/static/img-square.png) 5% 15% / 12% no-repeat #72b8ee;
+        background: url(../img/img-square.png) 5% 15% / 12% no-repeat #72b8ee;
     }
     .close {
         cursor: pointer;
@@ -195,7 +194,20 @@
         position: relative;
     }
 
+    .container {
+        max-width: 100%;
+    }
+
+    .main__content .container {
+        width: 960px;
+    }
+
     .slide {
+        margin-top: 50px;
+    }
+
+    .bg-banner {
+        position: relative;
         margin-top: 50px;
     }
 }
@@ -216,12 +228,6 @@
 
     .products__item--img {
         height: 211px;
-    }
-}
-
-@media (min-width: 992px) {
-    .modal-lg, .modal-xl {
-        max-width: 940px; 
     }
 }
 
@@ -256,6 +262,28 @@
 
     .btn-readmore {
         margin-top: 30px;
+    }
+
+    .main__content--heading  {
+        padding: 10px 0;
+        border-top: 1px solid #e8e8e8;
+        border-bottom: 1px solid #e8e8e8;
+    }
+
+    .sidebar__inner--menu {
+        display: none;
+    }
+
+    .sidebar__inner--responsive {
+        display: inline-block;
+        padding: 4px;
+        margin-left: 6px;
+        cursor: pointer;
+    }
+
+    .sidebar__inner--title {
+        cursor: pointer;
+        width: 150px;
     }
 }
 

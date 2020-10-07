@@ -42,6 +42,11 @@ select,
 textarea {
     margin: 0;
 }
+
+textarea {
+    resize: none !important;
+}
+
 html {
     box-sizing: border-box;
 }

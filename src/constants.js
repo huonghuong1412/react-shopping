@@ -32,3 +32,9 @@ export const SEARCH_LIST_PRODUCTS = "SEARCH_LIST_PRODUCTS"
 
 
 // accounts
+export const LOGIN_REQUEST = "LOGIN_REQUEST"
+export const LOGIN_SUCCESS = "LOGIN_SUCCESS"
+export const LOGIN_FAILURE = "LOGIN_FAILURE"
+
+// comments 
+export const SEND_COMMENT = "SEND_COMMENT"

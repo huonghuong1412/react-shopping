@@ -164,11 +164,14 @@ class Footer extends Component {
                                             Kết nối với chúng tôi
                                         </h3>
                                         <div className="footer__iframe">
-                                            <iframe name="f38727a04d197ec"
-                                                data-testid="fb:page Facebook Social Plugin" title="fb:page Facebook Social Plugin"
-                                                frameBorder={0} allowtransparency="true" allowFullScreen={true} scrolling="no"
-                                                allow="encrypted-media"
-                                                src="https://www.facebook.com/v7.0/plugins/page.php?adapt_container_width=true&amp;app_id=&amp;channel=https%3A%2F%2Fstaticxx.facebook.com%2Fx%2Fconnect%2Fxd_arbiter%2F%3Fversion%3D46%23cb%3Df111d9bcfebebc8%26domain%3Denda.vn%26origin%3Dhttps%253A%252F%252Fenda.vn%252Ff1494585978857c%26relation%3Dparent.parent&amp;container_width=360&amp;height=300&amp;hide_cover=false&amp;to=https%3A%2F%2Fwww.facebook.com%2Fkisuhi&amp;locale=en_US&amp;sdk=joey&amp;show_facepile=true&amp;show_posts=false&amp;small_header=false"></iframe>
+                                            <iframe 
+                                                name="f38727a04d197ec" 
+                                                data-testid="fb:page Facebook Social Plugin" 
+                                                title="fb:page Facebook Social Plugin" 
+                                                frameBorder={0} 
+                                                scrolling="no" 
+                                                allow="encrypted-media" 
+                                                src="https://www.facebook.com/v7.0/plugins/page.php?adapt_container_width=true&app_id=&channel=https%3A%2F%2Fstaticxx.facebook.com%2Fx%2Fconnect%2Fxd_arbiter%2F%3Fversion%3D46%23cb%3Df111d9bcfebebc8%26domain%3Denda.vn%26origin%3Dhttps%253A%252F%252Fenda.vn%252Ff1494585978857c%26relation%3Dparent.parent&container_width=360&height=300&hide_cover=false&href=https%3A%2F%2Fwww.facebook.com%2Fkisuhi&locale=en_US&sdk=joey&show_facepile=true&show_posts=false&small_header=false" />
                                         </div>
                                     </div>
                                 </div>

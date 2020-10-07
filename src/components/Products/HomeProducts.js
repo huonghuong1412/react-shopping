@@ -5,8 +5,22 @@ import * as actions from '../../actions/HomeActions'
 import { showModal, hideModal } from '../../actions/ModalActions'
 import { addToCart } from '../../actions/CartActions'
 import ModalRoot from '../Modal/ModalRoot';
+import Heading from './Heading';
+
+const styleDiv = {
+    width: "100%"
+}
+
 
 class HomeProducts extends PureComponent {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            sortBy: '',
+            sortValue: 0
+        }
+    }
 
     componentDidMount() {
         this.props.getListProduct();
@@ -32,6 +46,13 @@ class HomeProducts extends PureComponent {
         }, 'quickview');
     }
 
+    sortProducts = (sortBy, sortValue) => {
+        this.setState({
+            sortBy: sortBy,
+            sortValue: sortValue
+        })
+    }
+
     removeVietnameseTones(str) {
         return str.toLowerCase().normalize('NFD')
             .replace(/[\u0300-\u036f]/g, '')
@@ -47,11 +68,59 @@ class HomeProducts extends PureComponent {
     showProductItem = (products, textFilter) => {
         if (products.length > 0) {
             var productsTmp;
-            textFilter === '' ? productsTmp = products : productsTmp = products.filter(product => {
-                return product.category === 'giay'
-            })
+            switch (textFilter) {
+                case 'All':
+                    productsTmp = products.slice(0, 8);
+                    break;
+                case 'Giày':
+                    productsTmp = products.filter(product => {
+                        return product.category === 'giay'
+                    }).slice(0, 8)
+                    break;
+                case 'all':
+                    productsTmp = products
+                    break;
+                case 'ao-khoac':
+                    productsTmp = products.filter(product => {
+                        return product.category === 'ao-khoac'
+                    })
+                    break;
+                case 'ao':
+                    productsTmp = products.filter(product => {
+                        return product.category === 'ao'
+                    })
+                    break;
+                case 'quan':
+                    productsTmp = products.filter(product => {
+                        return product.category === 'quan'
+                    })
+                    break;
+                case 'vay-dam':
+                    productsTmp = products.filter(product => {
+                        return product.category === 'vay-dam'
+                    })
+                    break;
+                case 'bo-mac-nha':
+                    productsTmp = products.filter(product => {
+                        return product.category === 'bo-mac-nha'
+                    })
+                    break;
+                case 'giay':
+                    productsTmp = products.filter(product => {
+                        return product.category === 'giay'
+                    })
+                    break;
+                case 'tui-xach':
+                    productsTmp = products.filter(product => {
+                        return product.category === 'tui-xach'
+                    })
+                    break;
+                default:
+                    productsTmp = []
+                    break;
+            }
             return (
-                productsTmp.slice(0, 8).map((item, index) => {
+                productsTmp.map((item, index) => {
                     var name = this.removeVietnameseTones(item.name);
                     var price = this.format_curency(item.price);
                     return (
@@ -77,7 +146,7 @@ class HomeProducts extends PureComponent {
                                             </Link>
                                         </div>
                                         <div className="products__item--actions-quick">
-                                            <button 
+                                            <button
                                                 className="products__item--actions-link"
                                                 onClick={() => this.openQuickView(item)}
                                             >
@@ -105,17 +174,55 @@ class HomeProducts extends PureComponent {
     }
 
     render() {
-        var { products, textFilter } = this.props;
-        return (
-            <>
-                <div className="row products__list">
-                    {this.showProductItem(products, textFilter)}
-                </div>
-                {/* <ModalCart hideModal={this.props.hideModal} />
-                <ModalView hideModal={this.props.hideModal} /> */}
-                <ModalRoot hideModal={this.props.hideModal} />
-            </>
-        );
+        var { products, textFilter, match } = this.props;
+        var { sortBy, sortValue } = this.state;
+        if (sortBy === "name") {
+            products = products.sort((a, b) => {
+                if (a.name > b.name) return sortValue;
+                else if (a.name < b.name) return -sortValue;
+                else return 0;
+            })
+        } else if (sortBy === 'price') {
+            products = products.sort((a, b) => {
+                if (a.price > b.price) return -sortValue;
+                else if (a.price < b.price) return sortValue;
+                else return 0;
+            })
+        }
+
+        if (match) {
+            return (
+                <>
+                    <div className="main__content-products" style={styleDiv}>
+                        <Heading
+                            textHeading={textFilter}
+                            sortValue={sortValue}
+                            sortBy={sortBy}
+                            sortProducts={this.sortProducts}
+                        />
+                        <div className="col-12">
+                            <div className="row products__list">
+                                {this.showProductItem(products, textFilter)}
+                            </div>
+                        </div>
+                    </div>
+                    {/* <ModalCart hideModal={this.props.hideModal} />
+                    <ModalView hideModal={this.props.hideModal} /> */}
+                    <ModalRoot hideModal={this.props.hideModal} />
+                </>
+            );
+        } else {
+            return (
+                <>
+                    <div className="row products__list">
+                        {this.showProductItem(products, textFilter)}
+                    </div>
+                    {/* <ModalCart hideModal={this.props.hideModal} />
+                    <ModalView hideModal={this.props.hideModal} /> */}
+                    <ModalRoot hideModal={this.props.hideModal} />
+                </>
+            );
+        }
     }
 }
 

@@ -16,7 +16,7 @@ class HomePage extends Component {
                             title='Sản phẩm'
                             img="https://theme.hstatic.net/1000239816/1000467243/14/icon_featured.png?v=186"
                         />
-                        <HomeProducts textFilter="" />
+                        <HomeProducts textFilter="All" />
                         <LoadMore link="/collections/all" />
                         <Banner />
                         <Title
