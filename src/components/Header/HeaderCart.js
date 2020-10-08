@@ -68,6 +68,10 @@ class HeaderCart extends Component {
                     </li>
                 )
             })
+        } else {
+            return (
+                <p>Hiện chưa có sản phẩm</p>
+            )
         }
     }
 

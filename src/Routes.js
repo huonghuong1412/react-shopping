@@ -15,6 +15,7 @@ import PolicyPayment from './pages/PolicyPage/PolicyPayment';
 import PolicySecurity from './pages/PolicyPage/PolicySecurity';
 import PolicyShip from './pages/PolicyPage/PolicyShip';
 import ProductsPage from './pages/ProductsPage/ProductsPage'
+import Change from './pages/UserPage/Change';
 import Login from './pages/UserPage/Login';
 import Register from './pages/UserPage/Register';
 import User from './pages/UserPage/User';
@@ -104,6 +105,11 @@ const Routes = [
         path: '/account/login',
         exact: false,
         main: ({ history }) => <Login history={history} />
+    },
+    {
+        path: '/account/change',
+        exact: false,
+        main: ({ history }) => <Change history={history} />
     },
     {
         path: '/pages/lien-he',

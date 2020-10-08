@@ -36,7 +36,7 @@
 }
 
 .account__sidebar--link {
-    display: block;
+    display: inline-block;
     position: relative;
     padding: 5px 0px;
     color: var(--text-color);
@@ -46,17 +46,12 @@
     color: var(--red-color);
 }
 
-
-.account__info {
-
-}
-
 .account__info--title {
-color: #e63535;
+    color: var(--red-color);;
     padding-bottom: 10px;
     font-size: 15px;
     margin-bottom: 10px !important;
-    border-bottom: 1px solid #e2e01a;
+    border-bottom: 1px solid var(--primary-color);;
 }
 
 .account__info--name {
@@ -75,4 +70,38 @@ color: #e63535;
 .account__info--address {
     font-size: 1.4rem;
     color: var(--text-color);
+}
+
+.address_title {
+    margin-bottom: 0;
+    font-size: 16px;
+    padding: 10px 0 10px 10px;
+    background-color: #d9edf7;
+    border-color: #bce8f1;
+}
+
+.address_table {
+    margin-bottom: 10px;
+    border-top: 0px solid #ddd;
+    background: #fafafa;
+    padding: 8px;
+}
+
+.view_address p > strong {
+    font-weight: 500;
+    font-size: 15px;
+    color: var(--red-color);
+}
+
+.change-btn {
+    padding-bottom: 10px;
+    display: inline-block;
+    padding: 10px;
+    background: var(--red-color);
+    color: #ffffff !important;
+    border: 0;
+}
+
+.change-btn:hover {
+    background-color: #e87070;
 }

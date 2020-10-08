@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import HeaderCart from './HeaderCart';
+import { decodeString } from '../../actions/HashString'
+import { connect } from 'react-redux';
 class Header extends Component {
-
-
-    checkUserLogined = (user) => {
-        if (user) {
+    
+    checkUserLogined = (user, isLoginSuccess) => {
+        if (user && isLoginSuccess===false) {
             return (
                 <ul className="header__aside--info-top">
                     <li>
@@ -35,7 +36,8 @@ class Header extends Component {
 
 
     render() {
-        var user = JSON.parse(sessionStorage.getItem('user'));
+        var user = sessionStorage.getItem('user') ? JSON.parse(decodeString(sessionStorage.getItem('user'))) : '';
+        var { isLoginSuccess } = this.props;
         return (
             <>
                 <header className="header" id="header">
@@ -56,7 +58,7 @@ class Header extends Component {
                         </div>
                         <div className="header__aside">
                             <div className="header__aside--info">
-                                {this.checkUserLogined(user)}
+                                {this.checkUserLogined(user, isLoginSuccess)}
                                 <Link to="/account/login" className="header__aside--info-user">
                                     <i className="fa fa-user"></i>
                                 </Link>
@@ -73,4 +75,13 @@ class Header extends Component {
     }
 }
 
-export default Header;
+const mapStateToProps = (state) => {
+    return {
+        isLoginRequest: state.user.isLoginRequest,
+        isLoginSuccess: state.user.isLoginSuccess,
+        isLoginFail: state.user.isLoginFail
+    }
+}
+
+
+export default connect(mapStateToProps, null)(Header);

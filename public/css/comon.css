@@ -378,3 +378,9 @@ table.table th {
 .read-more:hover {
     color: #e63535;
 }
+
+.customer-login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

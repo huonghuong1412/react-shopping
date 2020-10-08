@@ -1,0 +1,88 @@
+.login__page--title {
+    line-height: 20px;
+    font-size: 18px;
+    text-transform: uppercase;
+    padding: 10px 0;
+    margin: 30px 0 20px 0px;
+}
+
+.customer-login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.large_form {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.icon-field {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary-color) !important;
+    color: white;
+    border: solid 1px var(--primary-color);
+    text-align: center;
+    height: 40px;
+    line-height: 33px;
+    width: 35px;
+    margin: 0;
+}
+
+.icon-login {
+    display: inline;
+    line-height: normal;
+    color: var(--text-color);
+    font-size: 1.4rem;
+}
+
+.customer_input {
+    max-width: calc(100% - 30px)!important;
+    width: 270px !important;
+    height: 40px;
+    display: inline-block !important;
+    background-color: var(--white-color);
+    border: solid 1px var(--primary-color);
+    margin-left: -5px;
+    padding-left: 10px;
+    outline: none;
+    margin-bottom: 0px !important;
+    padding-top: 2px;
+}
+
+.btn-signin {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--white-color);
+    text-decoration: none;
+    height: 35px;
+    width: calc(270px + 32px);
+    background: #e63535;
+    text-align: center;
+    border: none;
+    margin-top: 15px;
+}
+
+.btn-signin:hover {
+    color: var(--white-color);;
+}
+
+.req_pass {
+    margin-top: 20px;
+    font-size: 1.3rem;
+}
+
+.req_pass span {
+    margin: 0 5px;
+}
+
+.req_pass a {
+    color: var(--text-color);
+}
+
+.req_pass a:hover {
+    color: var(--red-color);
+}

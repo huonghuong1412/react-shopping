@@ -5,50 +5,42 @@
       "name": "Nguyễn Công Hướng",
       "email": "huongzz@gmail.com",
       "comment": "Hướng đẹp trai"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "email": "huong@gmail.com",
+      "fullname": "Nguyen Cong Huong",
+      "address": "Ha Dong, Ha Noi",
+      "company": "PTIT",
+      "phone": "0888888888"
     },
     {
-      "name": {
-        "name": "huong",
-        "email": "zzz@gmail.com",
-        "comment": "hello shop"
-      },
-      "id": 2
+      "id": 2,
+      "email": "huongzz@gmail.com",
+      "password": "VjFaV2IxWXlVblJUYmxKYVpXcEJPUT09",
+      "fullname": "Huong ZZ",
+      "address": "Ha Noi",
+      "company": "PTIT",
+      "phone": "0123456789"
     },
     {
-      "name": "huong",
-      "email": "zzz@gmail.com",
-      "comment": "hello",
+      "email": "as@gmail.com",
+      "fullname": "Nguyen Tri",
+      "address": "Ha Noi",
+      "company": "Huong",
+      "phone": "0123456985",
       "id": 3
     },
     {
-      "name": "huong",
-      "email": "123123@gmail.com",
-      "comment": "huongdeptrai",
+      "email": "huongz@gmail.com",
+      "password": "VmtaYVUxTnRWbkpPVlZaWFZrVndVRnBYTVdwTlVUMDk=",
+      "fullname": "Nguyen Tri",
+      "address": "Ha Tay",
+      "company": "Huong",
+      "phone": "113",
       "id": 4
-    },
-    {
-      "name": "huong",
-      "email": "123123@gmail.com",
-      "comment": "huongdeptrai",
-      "id": 5
-    },
-    {
-      "name": "huong",
-      "email": "123123@gmail.com",
-      "comment": "huongdeptrai",
-      "id": 6
-    },
-    {
-      "name": "HuongZZ",
-      "email": "huongzz@gmail.com",
-      "comment": "Huong dep trai",
-      "id": 7
-    },
-    {
-      "name": "huong",
-      "email": "zzz@gmail.com",
-      "comment": "scascascasc",
-      "id": 8
     }
   ],
   "products": [

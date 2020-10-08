@@ -32,8 +32,13 @@ export const SEARCH_LIST_PRODUCTS = "SEARCH_LIST_PRODUCTS"
 
 
 // accounts
+export const LIST_USER = "LIST_USER"
+export const ADD_USER = "ADD_USER"
+export const CHANGE_INFOMATION = "CHANGE_INFOMATION"
+export const EDIT_INFO_BY_ACCOUNT = "EDIT_INFO_BY_ACCOUNT"
 export const LOGIN_REQUEST = "LOGIN_REQUEST"
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS"
+export const IS_LOGINED = "IS_LOGINED"
 export const LOGIN_FAILURE = "LOGIN_FAILURE"
 
 // comments 

@@ -1,5 +1,5 @@
 import * as api_url from './../constants'
-export default function callAPI(path, method, data) {
+export default function callAPIFetch(path, method, data) {
     let objFetch
     if (method === "GET") {
         objFetch = {
