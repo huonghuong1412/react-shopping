@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { hashString } from '../../actions/HashString';
+import { hideModal, showModal } from '../../actions/ModalActions';
+import ModalRoot from '../../components/Modal/ModalRoot';
 import * as actions from './../../actions/UserActions'
 import './index.css'
 
@@ -29,10 +31,26 @@ class Register extends Component {
         if (user && user !== 'undefined') {
             this.props.history.push('/account');
         }
+        this.props.getAllUser();
+    }
+
+    closeModal = () => {
+        this.props.hideModal();
+    }
+
+    openModalAlert = () => {
+        this.props.showModal({
+            open: true,
+            title: "Đăng ký thành công",
+            message: "Tới đăng nhập",
+            redirect: "/account/login",
+            closeModal: this.closeModal
+        }, 'notify');
     }
 
     handleSubmit = () => {
         var { email, fullname, password, address, company, phone } = this.state;
+        var { listUser } = this.props;
         var account = {
             email,
             password,
@@ -41,9 +59,16 @@ class Register extends Component {
             company,
             phone
         }
-        this.props.addUser(account)
-        // sessionStorage.setItem('user', hashString(JSON.stringify(this.state)))
-        alert("Đăng ký thành công!");
+        for (var i = 0; i < listUser.length; i++) {
+            if (email === listUser[i].email) {
+                alert("Email đã được đăng ký")
+                break;
+            } else {
+                this.props.addUser(account)
+                this.openModalAlert();
+                break;
+            }
+        }
     }
 
     render() {
@@ -172,8 +197,15 @@ class Register extends Component {
                         </div>
                     </div>
                 </div>
+                <ModalRoot hideModal={this.props.hideModal} />
             </>
         );
+    }
+}
+
+const mapSateToProps = (state) => {
+    return {
+        listUser: state.user.listUser,
     }
 }
 
@@ -181,8 +213,17 @@ const mapDispatchToProps = (dispatch) => {
     return {
         addUser: (account) => {
             dispatch(actions.fetchAddUserRequest(account))
+        },
+        hideModal: () => {
+            dispatch(hideModal())
+        },
+        showModal: (modalProps, modalType) => {
+            dispatch(showModal({ modalProps, modalType }))
+        },
+        getAllUser: () => {
+            dispatch(actions.fetchAccountsRequest())
         }
     }
 }
 
-export default connect(null, mapDispatchToProps)(Register);
+export default connect(mapSateToProps, mapDispatchToProps)(Register);

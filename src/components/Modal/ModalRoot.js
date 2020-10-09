@@ -6,7 +6,8 @@ import * as modalTypes from './index'
 const MODAL_TYPES = {
     'alert': modalTypes.modalCart,
     'quickview': modalTypes.modalView,
-    'change': modalTypes.modalUser
+    'change': modalTypes.modalUser,
+    'notify': modalTypes.modalAlert
 }
 
 const mapStateToProps = state => ({

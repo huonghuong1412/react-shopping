@@ -21,10 +21,11 @@ function setLoginFail(isLoginFail) {
     }
 }
 
-function isLogined(isLogined) {
+function isLogined(isLogined, user) {
     return {
         type: types.IS_LOGINED,
-        isLogined
+        isLogined,
+        user
     }
 }
 
@@ -38,7 +39,7 @@ export function login({ account, user }) {
         sendLoginRequest({ account, user }).then((success) => {
             dispatch(setLoginRequest(false))
             dispatch(setLoginSuccess(true))
-            dispatch(isLogined(true))
+            dispatch(isLogined(true, user))
         }).catch(err => {
             dispatch(setLoginRequest(false))
             dispatch(setLoginFail(err))

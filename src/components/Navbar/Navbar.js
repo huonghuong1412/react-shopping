@@ -25,10 +25,59 @@ class Navbar extends Component {
                                         <span>Trang chủ</span>
                                     </Link>
                                 </li>
-                                <li>
+                                <li className="hasDropdown">
                                     <Link to="/collections/all" className="navbar__main--link">
                                         <span>Sản phẩm</span>
+                                        <span>
+                                            <i className="fas fa-caret-down navbar__main--link-icon"></i>
+                                        </span>
                                     </Link>
+                                    <ul className="dropdown-list">
+                                        <li className="dropdown-title">
+                                            <span className="dropdown-title-icon">
+                                                <i className="fas fa-chevron-left"></i>
+                                            </span>
+                                            <span className="dropdown-title-text">Sản phẩm</span>
+                                        </li>
+                                        <li className="dropdown-item">
+                                            <Link to="/collections/ao-khoac" className="navbar__main--link">
+                                                Áo khoác
+                                            </Link>
+                                        </li>
+                                        <li className="dropdown-item">
+                                            <Link to="/collections/ao" className="navbar__main--link">
+                                                Áo
+                                            </Link>
+                                        </li>
+                                        <li className="dropdown-item">
+                                            <Link to="/collections/quan" className="navbar__main--link">
+                                                Quần
+                                            </Link>
+                                        </li>
+                                        <li className="dropdown-item">
+                                            <Link to="/collections/vay-dam" className="navbar__main--link">
+                                                Váy đầm
+                                            </Link>
+                                        </li>
+                                        <li className="dropdown-item">
+                                            <Link to="/collections/bo-mac-nha" className="navbar__main--link">
+                                                Bộ mặc nhà
+                                            </Link>
+                                        </li>
+                                        <li className="dropdown-item">
+                                            <Link to="/collections/giay" className="navbar__main--link">
+                                                Giày
+                                            </Link>
+                                        </li>
+                                        <li className="dropdown-item">
+                                            <Link to="/collections/tui-xach" className="navbar__main--link">
+                                                Túi xách
+                                            </Link>
+                                        </li>
+                                    </ul>
+                                    <span className="navbar__main--link-right">
+                                        <i className="fas fa-angle-right"></i>
+                                    </span>
                                 </li>
                                 <li className="hasDropdown">
                                     <Link to="/pages/huong-dan" className="navbar__main--link">

@@ -11,6 +11,7 @@
     {
       "id": 1,
       "email": "huong@gmail.com",
+      "password": "VjFaV2IxWXlVblJUYmxKYVpXcEJPUT09",
       "fullname": "Nguyen Cong Huong",
       "address": "Ha Dong, Ha Noi",
       "company": "PTIT",
@@ -26,21 +27,31 @@
       "phone": "0123456789"
     },
     {
-      "email": "as@gmail.com",
+      "email": "huong1@gmail.com",
+      "password": "VmtaYVUxTnRWbkpPVlZaWFZrUkJPUT09",
       "fullname": "Nguyen Tri",
-      "address": "Ha Noi",
-      "company": "Huong",
-      "phone": "0123456985",
+      "address": "12345",
+      "company": "123",
+      "phone": "123",
       "id": 3
     },
     {
-      "email": "huongz@gmail.com",
-      "password": "VmtaYVUxTnRWbkpPVlZaWFZrVndVRnBYTVdwTlVUMDk=",
+      "email": "huong1@gmail.com",
+      "password": "VmtaYVUxTnRWbkpPVlZaWFZrUkJPUT09",
       "fullname": "Nguyen Tri",
-      "address": "Ha Tay",
-      "company": "Huong",
-      "phone": "113",
+      "address": "12345",
+      "company": "123",
+      "phone": "123",
       "id": 4
+    },
+    {
+      "email": "huong2@gmail.com",
+      "password": "VmtaYVUxTnRWbkpPVlZaWFZrUkJPUT09",
+      "fullname": "Nguyen Tri 11",
+      "address": "12345",
+      "company": "12345",
+      "phone": "12345",
+      "id": 5
     }
   ],
   "products": [

@@ -127,7 +127,7 @@ class HomeProducts extends PureComponent {
                         <div className="col-lg-3 col-md-3 col-sm-6 col-no-padding" key={index}>
                             <div className="products__item">
                                 <div className="products__item--img">
-                                    <Link to={`products/${item.id}/${name}`}>
+                                    <Link to={`/products/${item.id}/${name}`}>
                                         <img src={item.img[0]} alt={item.img[0]} />
                                     </Link>
                                     <div className="products__item--actions">
@@ -141,7 +141,7 @@ class HomeProducts extends PureComponent {
                                             </button>
                                         </div>
                                         <div className="products__item--actions-detail">
-                                            <Link to={`products/${item.id}/${name}`} className="products__item--actions-link">
+                                            <Link to={`/products/${item.id}/${name}`} className="products__item--actions-link">
                                                 <i className="far fa-clone"></i>
                                             </Link>
                                         </div>
@@ -157,7 +157,7 @@ class HomeProducts extends PureComponent {
                                 </div>
                                 <div className="products__item--info">
                                     <h3 className="products__item--info-name">
-                                        <Link to={`products/${item.id}/${name}`} className="products__item--info-link">
+                                        <Link to={`/products/${item.id}/${name}`} className="products__item--info-link">
                                             {item.name}
                                         </Link>
                                     </h3>

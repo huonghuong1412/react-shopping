@@ -99,12 +99,12 @@ const Routes = [
     {
         path: '/account/register',
         exact: false,
-        main: ({ history }) => <Register history={history} />
+        main: ({ history, location }) => <Register history={history} location={location} />
     },
     {
         path: '/account/login',
         exact: false,
-        main: ({ history }) => <Login history={history} />
+        main: ({ history, location }) => <Login history={history} location={location} />
     },
     {
         path: '/account/change',

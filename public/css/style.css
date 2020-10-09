@@ -390,7 +390,7 @@
     position: absolute;
     top: 100%;
     max-width: 225px;
-    width: auto;
+    width: 200px;
     background-color: var(--white-color);
     padding: 13px 15px;
     border-top: 4px solid var(--red-color);
@@ -398,7 +398,7 @@
     text-align: left;
     display: none;
     animation: topToDown ease-in-out 0.3s;
-    z-index: 99;
+    z-index: 9999;
 }
 
 .dropdown-title {
@@ -575,6 +575,7 @@
     margin-bottom: 30px;
     position: relative;
     border: 1px solid transparent;
+    animation: growth 0.5s ease-in-out;
 }
 
 .products__item:hover .products__item--actions {

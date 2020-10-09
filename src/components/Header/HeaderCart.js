@@ -43,11 +43,11 @@ class HeaderCart extends Component {
                 var name = this.removeVietnameseTones(item.product.name);
                 return (
                     <li className="header__aside--cart-item" key={index}>
-                        <Link to={`products/${item.product.id}/${name}`} className="header__aside--cart-img">
+                        <Link to={`/products/${item.product.id}/${name}`} className="header__aside--cart-img">
                             <img src={item.product.img[0]} alt="" />
                         </Link>
                         <div className="header__aside--cart-info">
-                            <Link to={`products/${item.product.id}/${name}`} className="header__aside--cart-title">
+                            <Link to={`/products/${item.product.id}/${name}`} className="header__aside--cart-title">
                                 {item.product.name}
                             </Link>
                             <p className="header__aside--cart-size">

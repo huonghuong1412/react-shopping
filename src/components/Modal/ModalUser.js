@@ -43,19 +43,25 @@ class ModalUser extends Component {
     }
 
     handleSubmit = () => {
-        var { id, email, fullname, address, company, phone } = this.state;
+        var { id, email, password, fullname, address, company, phone } = this.state;
         var account = {
             id,
             email,
+            password,
             fullname,
             address,
             company,
             phone
         }
-        this.props.changeAccount(account);
-        sessionStorage.setItem('user', hashString(JSON.stringify(this.state)))
-        alert("Thay đổi thông tin thành công!");
-        window.location.href = "/account/change"
+        if (email === "" || fullname === "" || address === "" || company === "" || password === "") {
+            alert("Không được để trống dữ liệu!")
+            return;
+        } else {
+            this.props.changeAccount(account);
+            sessionStorage.setItem('user', hashString(JSON.stringify(this.state)))
+            alert("Thay đổi thông tin thành công!");
+            window.location.href = "/account/change"
+        }
     }
 
     render() {
