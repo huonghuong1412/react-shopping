@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { hashString } from '../../actions/HashString';
-import { hideModal, showModal } from '../../actions/ModalActions';
-import ModalRoot from '../../components/Modal/ModalRoot';
 import * as actions from './../../actions/UserActions'
 import './index.css'
 
@@ -34,20 +32,6 @@ class Register extends Component {
         this.props.getAllUser();
     }
 
-    closeModal = () => {
-        this.props.hideModal();
-    }
-
-    openModalAlert = () => {
-        this.props.showModal({
-            open: true,
-            title: "Đăng ký thành công",
-            message: "Tới đăng nhập",
-            redirect: "/account/login",
-            closeModal: this.closeModal
-        }, 'notify');
-    }
-
     handleSubmit = () => {
         var { email, fullname, password, address, company, phone } = this.state;
         var { listUser } = this.props;
@@ -63,9 +47,13 @@ class Register extends Component {
             if (email === listUser[i].email) {
                 alert("Email đã được đăng ký")
                 break;
+            } else if (email === "" || fullname === "" || password === "" || address === "" || company === "" || phone === "") {
+                alert("Không được bỏ trống dữ liệu");
+                break;
             } else {
-                this.props.addUser(account)
-                this.openModalAlert();
+                this.props.addUser(account);
+                alert("Đăng ký thành công");
+                this.props.history.push("/account/login")
                 break;
             }
         }
@@ -197,7 +185,6 @@ class Register extends Component {
                         </div>
                     </div>
                 </div>
-                <ModalRoot hideModal={this.props.hideModal} />
             </>
         );
     }
@@ -213,12 +200,6 @@ const mapDispatchToProps = (dispatch) => {
     return {
         addUser: (account) => {
             dispatch(actions.fetchAddUserRequest(account))
-        },
-        hideModal: () => {
-            dispatch(hideModal())
-        },
-        showModal: (modalProps, modalType) => {
-            dispatch(showModal({ modalProps, modalType }))
         },
         getAllUser: () => {
             dispatch(actions.fetchAccountsRequest())

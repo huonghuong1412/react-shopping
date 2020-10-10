@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import BannerPage from '../../components/Banner/BannerPage';
 import HomeProducts from '../../components/Products/HomeProducts';
 import SideBar from '../../components/SideBar/SideBar';
-
 const styleSection = {
     marginTop: "30px"
 }
@@ -12,12 +11,6 @@ const styleDiv = {
 }
 
 class ProductsPage extends Component {
-
-    // componentDidMount() {
-    //     var { match } = this.props;
-    //     console.log(match.params.category);
-    // }
-
     render() {
         var { match } = this.props;
         var textFilter = match.params.category;

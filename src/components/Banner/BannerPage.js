@@ -33,6 +33,10 @@ class BannerPage extends Component {
                 title = "Tất cả sản phẩm";
                 break;
         }
+        var { textDetail } = this.props;
+        if (textDetail) {
+            title = textDetail
+        }
         return (
             <section className="bg-banner">
                 <div className="container">

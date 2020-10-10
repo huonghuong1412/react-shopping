@@ -9,11 +9,14 @@ import InstructionBank from './pages/InstructionPage/InstructionBank';
 import InstructionBuy from './pages/InstructionPage/InstructionBuy';
 import InstructionPage from './pages/InstructionPage/InstructionPage';
 import NotFound from './pages/NotFoundPage/NotFound';
+import OrderPage from './pages/OrderPage/OrderPage';
 import PolicyChange from './pages/PolicyPage/PolicyChange';
 import PolicyGuarantee from './pages/PolicyPage/PolicyGuarantee';
 import PolicyPayment from './pages/PolicyPage/PolicyPayment';
 import PolicySecurity from './pages/PolicyPage/PolicySecurity';
 import PolicyShip from './pages/PolicyPage/PolicyShip';
+import AllProductsPage from './pages/ProductsPage/AllProductsPage';
+import ProductDetail from './pages/ProductsPage/ProductDetail';
 import ProductsPage from './pages/ProductsPage/ProductsPage'
 import Change from './pages/UserPage/Change';
 import Login from './pages/UserPage/Login';
@@ -27,9 +30,19 @@ const Routes = [
         main: () => <HomePage />
     },
     {
+        path: '/collections',
+        exact: true,
+        main: () => <AllProductsPage />
+    },
+    {
         path: '/products',
         exact: true,
-        main: () => <ProductsPage />
+        main: () => <AllProductsPage />
+    },
+    {
+        path: '/products/:id',
+        exact: false,
+        main: ({ match, location, history }) => <ProductDetail history={history} match={match} location={location} />
     },
     {
         path: '/collections/:category',
@@ -37,14 +50,14 @@ const Routes = [
         main: ({ match, location }) => <ProductsPage match={match} location={location} />
     },
     {
-        path: '/products/:id',
+        path: '/cart',
         exact: false,
         main: () => <CartPage />
     },
     {
-        path: '/cart',
+        path: '/checkout',
         exact: false,
-        main: () => <CartPage />
+        main: ({ history }) => <OrderPage history={history} />
     },
     {
         path: '/pages/huong-dan',

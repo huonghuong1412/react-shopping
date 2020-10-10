@@ -829,3 +829,22 @@
     color: #9e9e9e;
     margin: 0;
 }
+
+.contact-form-group-input {
+    height: 45px;
+    padding: 0 20px;
+    color: #252525;
+    border-radius: 0!important;
+    border: 1px solid #ccc8c8;
+    box-shadow: none;
+    margin-bottom: 10px!important;
+    width: 80%;
+    display: block;
+}
+
+textarea {
+    resize: none;
+    width: 80%;
+    border: 1px solid #ccc8c8;
+    padding: 10px 20px;
+}

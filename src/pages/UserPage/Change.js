@@ -7,18 +7,10 @@ import ModalRoot from '../../components/Modal/ModalRoot';
 
 class Change extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            modalIsOpen: this.props.modalProps.open
-        }
-    }
-
-    UNSAFE_componentWillReceiveProps(nextProps) {
-        if (nextProps.modalProps.open !== this.props.modalProps.open) {
-            this.setState({
-                modalIsOpen: nextProps.modalProps.open
-            })
+    componentDidMount() {
+        var user = sessionStorage.getItem('user');
+        if (JSON.stringify(user) === JSON.stringify({})) {
+            this.props.history.push('/account/login');
         }
     }
 

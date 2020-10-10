@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-
+import * as actions from '../../actions/UserActions'
 class AccountSideBar extends Component {
+
+    handleLogout = () => {
+        this.props.logout();
+    }
     render() {
         return (
             <div className="col-lg-4 col-md-4 col-sm-12">
@@ -23,7 +28,7 @@ class AccountSideBar extends Component {
                             </li>
                             <li>
                                 <Link to="/account/login" onClick={() => {
-                                    sessionStorage.removeItem('user')
+                                    this.handleLogout()
                                 }} className="account__sidebar--link">
                                     Đăng xuất
                                 </Link>
@@ -36,4 +41,12 @@ class AccountSideBar extends Component {
     }
 }
 
-export default AccountSideBar;
+const mapDispatchToProps = (dispatch) => {
+    return {
+        logout: () => {
+            dispatch(actions.isLogout())
+        }
+    }
+}
+
+export default connect(null, mapDispatchToProps)(AccountSideBar);

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { decodeString } from '../../actions/HashString';
+import { connect } from 'react-redux';
+import { getUserLogin } from '../../actions/UserActions';
+// import { decodeString } from '../../actions/HashString';
 import AccountSideBar from '../../components/User/AccountSideBar';
 import Order from '../../components/User/Order';
 import './index.css'
@@ -12,11 +14,11 @@ class User extends Component {
         } else {
             this.props.history.push('/account/login');
         }
+        this.props.getUserLogin(user)
     }
 
     render() {
-        var user = sessionStorage.getItem('user') ? JSON.parse(decodeString(sessionStorage.getItem('user'))) : '';
-
+        var user = this.props.user;
         return (
             <>
                 <div className="account__page pt-3 pb-5">
@@ -25,17 +27,17 @@ class User extends Component {
                             <div className="col-12">
                                 <h3 className="account__page--title">Tài khoản của bạn</h3>
                             </div>
-                            <AccountSideBar />
+                            <AccountSideBar history={this.props.history} />
                             <div className="col-lg-8 col-md-8 col-sm-12">
                                 <div className="account__info">
                                     <h3 className="account__info--title">
                                         Thông tin tài khoản
                                     </h3>
                                     <h2 className="account__info--name">
-                                        {user.email}
+                                        {user.email ? user.email : 'email'}
                                     </h2>
                                     <h2 className="account__info--email">
-                                        {user.email}
+                                        {user.email ? user.email : 'email'}
                                     </h2>
                                     <p className="account__info--address">
                                         {user.address}
@@ -51,4 +53,19 @@ class User extends Component {
     }
 }
 
-export default User;
+const mapStateToProps = (state) => {
+    return {
+        user: state.user.userLogin
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        getUserLogin: (user) => {
+            dispatch(getUserLogin(user))
+        }
+    }
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(User);

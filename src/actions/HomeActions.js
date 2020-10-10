@@ -18,22 +18,6 @@ export const fetchAllProductRequest = () => {
     }
 }
 
-// GET BY CATEGORY
-export const getProductsByCategoryRequest = (category) => {
-    return (dispatch) => {
-        return callAPI(`products/?category=${category}`, 'GET', null).then((res) => {
-            dispatch(getProductsByCategory(res.data))
-        })
-    }
-}
-
-export const getProductsByCategory = (products) => {
-    return {
-        type: types.GET_LIST_PRODUCT_BY_CATEGORY,
-        products
-    }
-}
-
 // GET DETAIL
 export const getProductDetail = (product) => {
     return {

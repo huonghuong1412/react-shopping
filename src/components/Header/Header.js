@@ -1,22 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import HeaderCart from './HeaderCart';
-import { decodeString } from '../../actions/HashString'
 import { connect } from 'react-redux';
 class Header extends Component {
-    
-    checkUserLogined = (user, isLoginSuccess) => {
-        if (user && isLoginSuccess===false) {
-            return (
-                <ul className="header__aside--info-top">
-                    <li>
-                        <Link to="/account" className="header__aside--info-link">
-                            Tài khoản của bạn
-                        </Link>
-                    </li>
-                </ul>
-            )
-        } else {
+
+    checkUserLogined = (user) => {
+        if (JSON.stringify(user) === JSON.stringify({})) {
             return (
                 <ul className='header__aside--info-top'>
                     <li>
@@ -31,13 +20,22 @@ class Header extends Component {
                     </li>
                 </ul>
             )
+        } else {
+            return (
+                <ul className="header__aside--info-top">
+                    <li>
+                        <Link to="/account" className="header__aside--info-link">
+                            Tài khoản của bạn
+                        </Link>
+                    </li>
+                </ul>
+            )
         }
     }
 
 
     render() {
-        var user = sessionStorage.getItem('user') ? JSON.parse(decodeString(sessionStorage.getItem('user'))) : '';
-        var { isLoginSuccess } = this.props;
+        var user = this.props.user;
         return (
             <>
                 <header className="header" id="header">
@@ -58,7 +56,7 @@ class Header extends Component {
                         </div>
                         <div className="header__aside">
                             <div className="header__aside--info">
-                                {this.checkUserLogined(user, isLoginSuccess)}
+                                {this.checkUserLogined(user)}
                                 <Link to="/account/login" className="header__aside--info-user">
                                     <i className="fa fa-user"></i>
                                 </Link>
@@ -77,9 +75,8 @@ class Header extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        isLoginRequest: state.user.isLoginRequest,
-        isLoginSuccess: state.user.isLoginSuccess,
-        isLoginFail: state.user.isLoginFail
+        isLogin: state.user.isLogin,
+        user: state.user.userLogin
     }
 }
 

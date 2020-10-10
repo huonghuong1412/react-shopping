@@ -54,6 +54,7 @@ export default (state = initialState, action) => {
             return [...state]
 
         case types.CART_COMPLETE:
+            sessionStorage.removeItem('cart')
             state = [];
             return [...state]
 

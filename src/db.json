@@ -36,22 +36,88 @@
       "id": 3
     },
     {
-      "email": "huong1@gmail.com",
-      "password": "VmtaYVUxTnRWbkpPVlZaWFZrUkJPUT09",
-      "fullname": "Nguyen Tri",
-      "address": "12345",
-      "company": "123",
-      "phone": "123",
+      "email": "huong5@gmail.com",
+      "password": "VjFaV2IxWXlVblJUYmxKYVpXcEJPUT09",
+      "fullname": "Savasvas",
+      "address": "cACASc",
+      "company": "scascSCAs",
+      "phone": "116",
       "id": 4
+    }
+  ],
+  "orders": [
+    {
+      "idUser": 1,
+      "addressUser": "Ha Dong, Ha Noi",
+      "phoneUser": "0888888888",
+      "totalPrice": 886000,
+      "date": "2020-10-09T16:32:25.594Z",
+      "listOrder": [
+        {
+          "idProduct": 2,
+          "name": "A1513-Áo Cotton Hoa Nghệ Thuật Cổ V",
+          "category": "ao",
+          "price": 428000,
+          "quantity": 1
+        },
+        {
+          "idProduct": 3,
+          "name": "A1508-Áo Sơ Mi Cotton Cổ V Phối Màu",
+          "category": "ao",
+          "price": "418000",
+          "quantity": 1
+        }
+      ],
+      "id": 1
     },
     {
-      "email": "huong2@gmail.com",
-      "password": "VmtaYVUxTnRWbkpPVlZaWFZrUkJPUT09",
-      "fullname": "Nguyen Tri 11",
-      "address": "12345",
-      "company": "12345",
-      "phone": "12345",
-      "id": 5
+      "idUser": 1,
+      "addressUser": "Ha Dong, Ha Noi",
+      "phoneUser": "0888888888",
+      "totalPrice": 468000,
+      "date": "2020-10-09T16:33:16.860Z",
+      "listOrder": [
+        {
+          "idProduct": 2,
+          "name": "A1513-Áo Cotton Hoa Nghệ Thuật Cổ V",
+          "category": "ao",
+          "price": 428000,
+          "quantity": 1
+        }
+      ],
+      "id": 2
+    },
+    {
+      "idUser": 1,
+      "nameUser": "Nguyen Cong Huong",
+      "addressUser": "Ha Dong, Ha Noi",
+      "phoneUser": "0888888888",
+      "totalPrice": 2216000,
+      "date": "2020-10-10T16:27:32.332Z",
+      "listOrder": [
+        {
+          "idProduct": 2,
+          "name": "A1513-Áo Cotton Hoa Nghệ Thuật Cổ V",
+          "category": "ao",
+          "price": 428000,
+          "quantity": 1
+        },
+        {
+          "idProduct": 11,
+          "name": "Q1004-Quần Jean Harem Ống Bo Co Dãn Điểm Túi",
+          "category": "quan",
+          "price": 568000,
+          "quantity": 1
+        },
+        {
+          "idProduct": 14,
+          "name": "D081_ Đầm Retro Hoa Văn Nghệ Thuật",
+          "category": "vay-dam",
+          "price": 1180000,
+          "quantity": 1
+        }
+      ],
+      "id": 3
     }
   ],
   "products": [
@@ -61,6 +127,11 @@
       "url": "a1527-ao-len-cotton-co-v-soc-ngang-tui-lech",
       "sku": "A1527",
       "category": "ao",
+      "size": [
+        "M",
+        "L",
+        "XL"
+      ],
       "price": 428000,
       "createAt": "2019-04-23T18:25:43.511Z",
       "material": "100% Linen",
@@ -77,6 +148,11 @@
       "url": "a1513-ao-cotton-hoa-nghe-thuat-co-v",
       "sku": "A1513",
       "category": "ao",
+      "size": [
+        "M",
+        "L",
+        "XL"
+      ],
       "price": 428000,
       "createAt": "2019-04-24T18:25:43.511Z",
       "material": "70% Cotton",
@@ -95,7 +171,12 @@
       "url": "a1508-ao-so-mi-cotton-co-v-phoi-mau",
       "sku": "A1508-1",
       "category": "ao",
-      "price": "418000",
+      "size": [
+        "M",
+        "L",
+        "XL"
+      ],
+      "price": 418000,
       "createAt": "2019-05-29T18:25:43.511Z",
       "material": "Cotton 100%",
       "img": [
@@ -113,6 +194,11 @@
       "url": "ak0214-ao-khoac-len-det-kim-ke-soc-tui-once",
       "sku": "AK0214-1",
       "category": "ao-khoac",
+      "size": [
+        "M",
+        "L",
+        "XL"
+      ],
       "price": 598000,
       "createAt": "2019-05-12T18:25:43.511Z",
       "material": "Polyester: 97.5%, Spandex: 2.5%",
@@ -130,6 +216,11 @@
       "url": "ak0206-ao-khoac-jean-denim-co-non",
       "sku": "AK0206-1",
       "category": "ao-khoac",
+      "size": [
+        "M",
+        "L",
+        "XL"
+      ],
       "price": 618000,
       "createAt": "2019-04-25T18:25:43.511Z",
       "material": "Cotton: 60%, Polyester: 40%",
@@ -148,6 +239,11 @@
       "name": "AK0204-Áo Khoác Len Dệt Kim Có Nón Retro Sọc",
       "url": "ak0204-ao-khoac-len-det-kim-co-non-retro-soc",
       "category": "ao-khoac",
+      "size": [
+        "M",
+        "L",
+        "XL"
+      ],
       "sku": "AK0204-2",
       "price": 478000,
       "createAt": "2020-06-23T18:25:43.511Z",
@@ -166,6 +262,11 @@
       "url": "ak0190-ao-khoac-khi-chat-phoi-vang-trang",
       "sku": "AK0190-1",
       "category": "ao-khoac",
+      "size": [
+        "M",
+        "L",
+        "XL"
+      ],
       "price": 560000,
       "createAt": "2020-04-23T18:25:43.511Z",
       "material": "100% Polyester",
@@ -184,6 +285,11 @@
       "name": "AK0201-Áo Khoác Denim Linh Hoạt",
       "url": "ak0201-ao-khoac-denim-linh-hoat",
       "category": "ao-khoac",
+      "size": [
+        "M",
+        "L",
+        "XL"
+      ],
       "sku": "AK0201-1",
       "price": 568000,
       "material": "100% Cotton",
@@ -202,6 +308,11 @@
       "url": "q0991-quan-jean-harem-gau-in-chu",
       "sku": "Q0991-1",
       "category": "quan",
+      "size": [
+        "M",
+        "L",
+        "XL"
+      ],
       "price": 458000,
       "createAt": "2020-06-23T18:25:43.511Z",
       "material": "Cotton: 70%, Vicose: 28.5%, Spandex: 1.5%",
@@ -221,6 +332,11 @@
       "url": "q0987-quan-linen-harem-retro-van-hoc",
       "sku": "Q0987-1",
       "category": "quan",
+      "size": [
+        "M",
+        "L",
+        "XL"
+      ],
       "price": 530000,
       "createAt": "2020-07-23T18:25:43.511Z",
       "material": "Linen",
@@ -239,6 +355,11 @@
       "url": "q1004-quan-jean-harem-ong-bo-co-dan-diem-tui",
       "sku": "Q1004-1",
       "category": "quan",
+      "size": [
+        "M",
+        "L",
+        "XL"
+      ],
       "price": 568000,
       "createAt": "2020-05-24T18:25:43.511Z",
       "material": "Cotton: 67%, Polyester: 31%, Spandex: 2%",
@@ -258,6 +379,11 @@
       "url": "d095-dam-linen-hoa-tiet-dang-suong",
       "sku": "D095-1",
       "category": "vay-dam",
+      "size": [
+        "M",
+        "L",
+        "XL"
+      ],
       "price": 830000,
       "createAt": "2020-08-23T18:25:43.511Z",
       "material": " 100% Linen",
@@ -274,6 +400,11 @@
       "url": "q0948-chan-vay-ramie-sac-cau-vong",
       "sku": "Q0948",
       "category": "vay-dam",
+      "size": [
+        "M",
+        "L",
+        "XL"
+      ],
       "price": 670000,
       "createAt": "2020-09-23T18:25:43.511Z",
       "material": "100% Ramie",
@@ -290,6 +421,11 @@
       "url": "d081-dam-retro-hoa-van-nghe-thuat",
       "sku": "D081",
       "category": "vay-dam",
+      "size": [
+        "M",
+        "L",
+        "XL"
+      ],
       "price": 1180000,
       "createAt": "2020-09-24T18:25:43.511Z",
       "material": "Tơ, Sợi polyester (polyester)",
@@ -307,6 +443,11 @@
       "url": "d079-dam-linen-hoa-van-dang-suong",
       "sku": "D079",
       "category": "vay-dam",
+      "size": [
+        "M",
+        "L",
+        "XL"
+      ],
       "price": 980000,
       "createAt": "2012-04-23T18:25:43.511Z",
       "material": "100% LINEN",
@@ -326,6 +467,11 @@
       "url": "d078-dam-to-in-hoa-form-rong",
       "sku": "D078-1",
       "category": "vay-dam",
+      "size": [
+        "M",
+        "L",
+        "XL"
+      ],
       "price": 860000,
       "createAt": "2020-10-23T18:25:43.511Z",
       "material": "Tơ Nhân Tạo",
@@ -344,6 +490,11 @@
       "url": "b0017-bo-mac-nha-cotton-lua-co-nghe-thuat",
       "sku": "B0017-1",
       "category": "bo-mac-nha",
+      "size": [
+        "M",
+        "L",
+        "XL"
+      ],
       "price": 628000,
       "createAt": "2020-05-26T18:25:43.511Z",
       "material": "47% Viscose, 47% Cotton, 6% Spandex",
@@ -362,6 +513,11 @@
       "url": "b0014-bo-mac-nha-dai-tay-cotton-nhan-gau",
       "sku": "B0014-3",
       "category": "bo-mac-nha",
+      "size": [
+        "M",
+        "L",
+        "XL"
+      ],
       "price": 618000,
       "createAt": "2020-08-12T18:25:43.511Z",
       "material": "100% Cotton",
@@ -380,6 +536,11 @@
       "url": "b0013-bo-mac-nha-cotton-lua-ren-hong-phan",
       "sku": "B0013-1",
       "category": "bo-mac-nha",
+      "size": [
+        "M",
+        "L",
+        "XL"
+      ],
       "price": 498000,
       "createAt": "2020-11-23T18:25:43.511Z",
       "material": "100% Cotton",
@@ -398,6 +559,14 @@
       "url": "tt039-giay-the-thao-cot-day-nang-dong",
       "sku": "TT039-1",
       "category": "giay",
+      "size": [
+        35,
+        36,
+        37,
+        38,
+        39,
+        40
+      ],
       "price": 860000,
       "createAt": "2020-04-01T18:25:43.511Z",
       "material": "",
@@ -418,6 +587,14 @@
       "url": "tt038-giay-the-thao-nu-cot-day-mui-tron",
       "sku": "TT038-1",
       "category": "giay",
+      "size": [
+        35,
+        36,
+        37,
+        38,
+        39,
+        40
+      ],
       "price": 818000,
       "createAt": "2020-04-02T18:25:43.511Z",
       "material": "Da bò",
@@ -436,6 +613,14 @@
       "url": "tt037-giay-the-thao-nu-luoi-bo-thoang-cao-5cm",
       "sku": "TT037-1",
       "category": "giay",
+      "size": [
+        35,
+        36,
+        37,
+        38,
+        39,
+        40
+      ],
       "price": 860000,
       "createAt": "2020-04-03T18:25:43.511Z",
       "material": "",
@@ -452,6 +637,14 @@
       "url": "tt036-giay-the-thao-nu-luoi-thoang-juku",
       "sku": "TT036-1",
       "category": "giay",
+      "size": [
+        35,
+        36,
+        37,
+        38,
+        39,
+        40
+      ],
       "price": 888000,
       "createAt": "2020-04-04T18:25:43.511Z",
       "material": "",
@@ -470,6 +663,14 @@
       "url": "tt025-giay-the-thao-trang-day-den",
       "sku": "TT025-1",
       "category": "giay",
+      "size": [
+        35,
+        36,
+        37,
+        38,
+        39,
+        40
+      ],
       "price": 1588000,
       "createAt": "2020-04-05T18:25:43.511Z",
       "material": "Từ  chất liệu da thật được cắt may và sơn vẽ thủ công, qua bàn tay khéo léo của các nghệ nhân hàng chục năm kinh nghiệm cùng nhau chăm chút kỹ lưỡng tạo nên những sản phẩm sắc sảo, độc đáo, phục vụ nhu cầu làm đẹp của những khách hàng tinh tế. Giày Handmade Da Thật mang màu sắc thanh lịch và trang nhã tạo sự cổ kính sang trọng.",
@@ -489,6 +690,14 @@
       "url": "tt035-giay-the-thao-bet-de-bang",
       "sku": "TT035-2",
       "category": "giay",
+      "size": [
+        35,
+        36,
+        37,
+        38,
+        39,
+        40
+      ],
       "price": 780000,
       "createAt": "2020-04-06T18:25:43.511Z",
       "material": "",
@@ -508,6 +717,14 @@
       "url": "tt033-giay-sneaker-chi-do",
       "sku": "TT033-1",
       "category": "giay",
+      "size": [
+        35,
+        36,
+        37,
+        38,
+        39,
+        40
+      ],
       "price": 860000,
       "createAt": "2020-04-07T18:25:43.511Z",
       "material": "Thân trên: Da Microfiber / Bên trong: Da PU / Midsole: Da PU / Đế ngoài: Cao su",
@@ -529,6 +746,14 @@
       "url": "tt034-giay-martin-boots-co-ngan",
       "sku": "TT034-1",
       "category": "giay",
+      "size": [
+        35,
+        36,
+        37,
+        38,
+        39,
+        40
+      ],
       "price": 830000,
       "createAt": "2020-04-08T18:25:43.511Z",
       "material": "Da bò hai lớp + Da PU",
@@ -549,6 +774,10 @@
       "url": "tx058-tui-da-that-hop-thu-cam-tay-deo-cheo",
       "sku": "TX058-1",
       "category": "tui-xach",
+      "color": [
+        "HỒNG",
+        "VÀNG NUDE"
+      ],
       "price": 1338000,
       "createAt": "2020-10-01T18:25:43.511Z",
       "material": "Da thật",
@@ -567,7 +796,10 @@
       "url": "tx057-tui-da-that-yen-ngua-cam-tay-deo-vai",
       "sku": "TX057",
       "category": "tui-xach",
-      "price": "1368000",
+      "color": [
+        "VÀNG"
+      ],
+      "price": 1368000,
       "createAt": "2020-10-02T18:25:43.511Z",
       "material": "Da thật",
       "img": [
@@ -585,6 +817,10 @@
       "url": "tx055-tui-da-that-deo-vai-ca-tinh",
       "sku": "TX055-2",
       "category": "tui-xach",
+      "color": [
+        "XANH",
+        "NÂU"
+      ],
       "price": 888000,
       "createAt": "2020-10-03T18:25:43.511Z",
       "material": "Da thật",

@@ -1,60 +1,44 @@
 import * as types from '../constants'
 import callAPI from '../callAPI/callAPI'
-function setLoginRequest(isLoginRequest) {
-    return {
-        type: types.LOGIN_REQUEST,
-        isLoginRequest
-    }
-}
 
-function setLoginSuccess(isLoginSuccess) {
-    return {
-        type: types.LOGIN_SUCCESS,
-        isLoginSuccess
-    }
-}
-
-function setLoginFail(isLoginFail) {
-    return {
-        type: types.LOGIN_FAILURE,
-        isLoginFail
-    }
-}
-
-function isLogined(isLogined, user) {
+export const setLogin = (user) => {
     return {
         type: types.IS_LOGINED,
-        isLogined,
         user
     }
 }
 
-export function login({ account, user }) {
-    return dispatch => {
-        dispatch(setLoginRequest(true));
-        dispatch(setLoginSuccess(false));
-        dispatch(isLogined(false))
-        dispatch(setLoginFail(null));
-
-        sendLoginRequest({ account, user }).then((success) => {
-            dispatch(setLoginRequest(false))
-            dispatch(setLoginSuccess(true))
-            dispatch(isLogined(true, user))
-        }).catch(err => {
-            dispatch(setLoginRequest(false))
-            dispatch(setLoginFail(err))
-        })
+function sendLoginRequest(account, userLogin) {
+    if (account.email === userLogin.email && account.password === userLogin.password) {
+        return true;
+    } else {
+        return false
     }
 }
 
-function sendLoginRequest({ account, user }) {
-    return new Promise((resolve, reject) => {
-        if (account.email === user.email && account.password === user.password) {
-            return resolve(true)
+export function checkLogin(account, userLogin) {
+    return dispatch => {
+        if(sendLoginRequest(account, userLogin )) {
+            dispatch(setLogin(account))
+            return;
         } else {
-            return reject(new Error("Sai email hoac pass"))
+            return;
         }
-    })
+    }
+}
+
+
+export const getUserLogin = (user) => {
+    return {
+        type: types.GET_USER_LOGIN,
+        user
+    }
+}
+
+export const isLogout = () => {
+    return {
+        type: types.IS_LOGOUT
+    }
 }
 
 export const getListAccount = (accounts) => {
@@ -118,6 +102,22 @@ export const fetchChangeInfoGet = (id) => {
     return dispatch => {
         return callAPI(`users/${id}`, 'GET', null).then((res) => {
             dispatch(changeInfoGet(res.data))
+        })
+    }
+}
+
+// Order
+export const userOrder = (order) => {
+    return {
+        type: types.ADD_ORDER,
+        order
+    }
+}
+
+export const fetchUserOrderRequest = (order) => {
+    return dispatch => {
+        return callAPI('orders', 'POST', order).then(res => {
+            dispatch(userOrder(res.data))
         })
     }
 }

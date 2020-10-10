@@ -104,7 +104,7 @@ class HeaderCart extends Component {
                                 Xem giỏ hàng
                             </Link>
                             {/* add token in checkout */}
-                            <Link to="/checkouts" className="header__aside--cart-total-link checkout">
+                            <Link to="/checkout" className="header__aside--cart-total-link checkout">
                                 Thanh toán
                             </Link>
                         </div>

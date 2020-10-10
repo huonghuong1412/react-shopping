@@ -1,11 +1,13 @@
 import * as types from '../constants'
-export default function reducer(state = {
+import { decodeString, hashString } from '../actions/HashString'
+
+const initialState = {
     listUser: [],
-    isLoginRequest: false,
-    isLoginSuccess: false,
-    isLogined: false,
-    isLoginFail: null
-}, action) {
+    userLogin: {},
+    order: {}
+}
+
+export default (state = initialState, action) => {
     switch (action.type) {
         case types.LIST_USER:
             return {
@@ -24,25 +26,26 @@ export default function reducer(state = {
                 ...state,
                 listUser: action.user
             }
-        case types.LOGIN_SUCCESS:
-            return {
-                ...state,
-                isLoginSuccess: action.isLoginSuccess
-            }
         case types.IS_LOGINED:
+            sessionStorage.setItem('user', hashString(JSON.stringify(action.user)))
             return {
-                ...state,
-                isLogined: action.isLogined
+                ...state
             }
-        case types.LOGIN_REQUEST:
+        case types.GET_USER_LOGIN:
+            var user = sessionStorage.getItem('user') ? JSON.parse(decodeString(sessionStorage.getItem('user'))) : {}
             return {
                 ...state,
-                isLoginRequest: action.isLoginRequest
+                userLogin: user
             }
-        case types.LOGIN_FAILURE:
+        case types.IS_LOGOUT:
             return {
                 ...state,
-                isLoginFail: action.isLoginFail
+                userLogin: sessionStorage.removeItem('user')
+            }
+        case types.ADD_ORDER:
+            return {
+                ...state,
+                order: action.order
             }
         default:
             return state;

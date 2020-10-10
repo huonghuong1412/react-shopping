@@ -28,7 +28,7 @@ class LoginForm extends Component {
         // var { email, password } = this.state;
         var { listUser } = this.props;
         for (var i = 0; i < listUser.length; i++) {
-            if(this.state.email === listUser[i].email && this.state.password === listUser[i].password) {
+            if (this.state.email === listUser[i].email && this.state.password === listUser[i].password) {
                 this.setState({
                     id: listUser[i].id,
                     email: listUser[i].email,
@@ -38,13 +38,19 @@ class LoginForm extends Component {
                     company: listUser[i].company,
                     phone: listUser[i].phone
                 })
+                // this.props.setLogin(this.state);
+            } else {
+                alert("Sai tài khoản hoặc mật khẩu")
+                break;
             }
-            this.props.login({ account: listUser[i], user: this.state })
+            this.props.login(listUser[i], this.state);
+            
+            // window.location.href = "/account"
+            this.props.history.push("/account")
         }
     }
 
     render() {
-        var { isLoginRequest, isLoginSuccess, isLoginFail } = this.props;
         return (
             <>
                 <div className="login__page pt-5 pb-5">
@@ -97,11 +103,6 @@ class LoginForm extends Component {
                                             <span>hoặc </span>
                                             <Link to="/account/register" title="Đăng ký">Đăng ký</Link>
                                         </div>
-                                        {isLoginRequest && <p>...</p>}
-                                        {isLoginSuccess && sessionStorage.setItem('user', hashString(JSON.stringify(this.state)))}
-                                        {/* {isLoginSuccess && <Redirect to="/account"></Redirect>} */}
-                                        {isLoginSuccess && (window.location.href = "/account")}
-                                        {isLoginFail && <p className="pt-5" style={{ color: 'red' }}>Sai tài khoản hoặc mật khẩu</p>}
                                     </form>
                                 </div >
                             </div>
@@ -115,20 +116,20 @@ class LoginForm extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        listUser: state.user.listUser,
-        isLoginRequest: state.user.isLoginRequest,
-        isLoginSuccess: state.user.isLoginSuccess,
-        isLoginFail: state.user.isLoginFail
+        listUser: state.user.listUser
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        login: ({ account, user }) => {
-            dispatch(actions.login({ account, user }))
+        login: ( account, user ) => {
+            dispatch(actions.checkLogin( account, user ))
         },
         getAllUser: () => {
             dispatch(actions.fetchAccountsRequest())
+        },
+        setLogin: (user) => {
+            dispatch(actions.setLogin(user))
         }
     }
 }
