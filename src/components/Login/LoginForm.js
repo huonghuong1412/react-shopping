@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './index.css'
 import { connect } from 'react-redux';
 import * as actions from '../../actions/UserActions'
-import { hashString } from '../../actions/HashString'
 import { Link } from 'react-router-dom';
 class LoginForm extends Component {
 
@@ -25,28 +24,27 @@ class LoginForm extends Component {
 
     onSubmit = (e) => {
         e.preventDefault();
-        // var { email, password } = this.state;
         var { listUser } = this.props;
-        for (var i = 0; i < listUser.length; i++) {
-            if (this.state.email === listUser[i].email && this.state.password === listUser[i].password) {
-                this.setState({
-                    id: listUser[i].id,
-                    email: listUser[i].email,
-                    password: listUser[i].password,
-                    fullname: listUser[i].fullname,
-                    address: listUser[i].address,
-                    company: listUser[i].company,
-                    phone: listUser[i].phone
-                })
-                // this.props.setLogin(this.state);
-            } else {
-                alert("Sai tài khoản hoặc mật khẩu")
-                break;
-            }
-            this.props.login(listUser[i], this.state);
-            
-            // window.location.href = "/account"
-            this.props.history.push("/account")
+        var user = listUser.find(user => {
+            return user.email === this.state.email && user.password === this.state.password;
+        })
+        console.log(user);
+        if (user) {
+            alert("Đăng nhập thành công");
+            this.props.setLogin(
+                {
+                    id: user.id,
+                    email: user.email,
+                    password: user.password,
+                    fullname: user.fullname,
+                    address: user.address,
+                    company: user.company,
+                    phone: user.phone
+                }
+            );
+            this.props.history.push("/account");
+        } else {
+            alert("Sai tài khoản hoặc mật khẩu")
         }
     }
 
@@ -91,7 +89,7 @@ class LoginForm extends Component {
                                                 className="customer_input"
                                                 size="16"
                                                 onChange={(e) => this.setState({
-                                                    password: hashString(e.target.value)
+                                                    password: (e.target.value)
                                                 })}
                                             />
                                         </div>
@@ -116,15 +114,13 @@ class LoginForm extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        listUser: state.user.listUser
+        listUser: state.user.listUser,
+        userLogin: state.userLogin
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        login: ( account, user ) => {
-            dispatch(actions.checkLogin( account, user ))
-        },
         getAllUser: () => {
             dispatch(actions.fetchAccountsRequest())
         },

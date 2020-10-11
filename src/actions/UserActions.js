@@ -3,30 +3,10 @@ import callAPI from '../callAPI/callAPI'
 
 export const setLogin = (user) => {
     return {
-        type: types.IS_LOGINED,
+        type: types.SET_LOGIN,
         user
     }
 }
-
-function sendLoginRequest(account, userLogin) {
-    if (account.email === userLogin.email && account.password === userLogin.password) {
-        return true;
-    } else {
-        return false
-    }
-}
-
-export function checkLogin(account, userLogin) {
-    return dispatch => {
-        if(sendLoginRequest(account, userLogin )) {
-            dispatch(setLogin(account))
-            return;
-        } else {
-            return;
-        }
-    }
-}
-
 
 export const getUserLogin = (user) => {
     return {
@@ -118,6 +98,23 @@ export const fetchUserOrderRequest = (order) => {
     return dispatch => {
         return callAPI('orders', 'POST', order).then(res => {
             dispatch(userOrder(res.data))
+        })
+    }
+}
+
+// get order
+
+export const getOrders = (orders) => {
+    return {
+        type: types.GET_ALL_ORDER,
+        orders
+    }
+}
+
+export const fetchAllOrders = () => {
+    return dispatch => {
+        return callAPI('orders', 'GET', null).then((res) => {
+            dispatch(getOrders(res.data))
         })
     }
 }

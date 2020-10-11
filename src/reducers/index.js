@@ -6,6 +6,8 @@ import cart from './cart'
 import comments from './comments'
 import user from './user'
 import userEdit from './userEdit'
+import userLogin from './userLogin'
+import blogs from './blogs'
 
 const rootReducer = combineReducers({
     listProducts,
@@ -14,7 +16,9 @@ const rootReducer = combineReducers({
     cart,
     comments,
     user,
-    userEdit
+    userEdit,
+    userLogin,
+    blogs
 })
 
 export default rootReducer

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { decodeString } from '../../actions/HashString';
 import AccountSideBar from '../../components/User/AccountSideBar';
 import { showModal, hideModal } from '../../actions/ModalActions'
 import { connect } from 'react-redux';
 import ModalRoot from '../../components/Modal/ModalRoot';
+import { getUserLogin } from '../../actions/UserActions';
 
 class Change extends Component {
 
@@ -12,6 +12,7 @@ class Change extends Component {
         if (JSON.stringify(user) === JSON.stringify({})) {
             this.props.history.push('/account/login');
         }
+        this.props.getUserLogin(user);
     }
 
     closeModal = () => {
@@ -27,7 +28,7 @@ class Change extends Component {
 
 
     render() {
-        var user = sessionStorage.getItem('user') ? JSON.parse(decodeString(sessionStorage.getItem('user'))) : '';
+        var user = this.props.userLogin
         return (
             <div className="account__page pt-3 pb-5">
                 <div className="container">
@@ -102,7 +103,8 @@ class Change extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        ...state.modal
+        ...state.modal,
+        userLogin: state.userLogin
     }
 }
 
@@ -113,6 +115,9 @@ const mapDispatchToProps = (dispatch) => {
         },
         showModal: (modalProps, modalType) => {
             dispatch(showModal({ modalProps, modalType }))
+        },
+        getUserLogin: (user) => {
+            dispatch(getUserLogin(user))
         }
     }
 }

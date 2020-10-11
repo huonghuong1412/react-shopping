@@ -22,10 +22,8 @@ class ProductsPage extends Component {
                         <div className="row">
                             <SideBar />
                             <div className="col-lg-9 col-md-9 col-sm-12 col-xs-12">
-                                <div className="row">
-                                    <div className="main__content-products" style={styleDiv}>
-                                        <HomeProducts match={match} textFilter={textFilter} />
-                                    </div>
+                                <div className="row mt-3">
+                                    <HomeProducts match={match} textFilter={textFilter} />
                                 </div>
                             </div>
                         </div>

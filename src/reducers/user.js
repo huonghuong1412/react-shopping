@@ -1,10 +1,9 @@
 import * as types from '../constants'
-import { decodeString, hashString } from '../actions/HashString'
 
 const initialState = {
     listUser: [],
-    userLogin: {},
-    order: {}
+    order: {},
+    orders: []
 }
 
 export default (state = initialState, action) => {
@@ -26,26 +25,15 @@ export default (state = initialState, action) => {
                 ...state,
                 listUser: action.user
             }
-        case types.IS_LOGINED:
-            sessionStorage.setItem('user', hashString(JSON.stringify(action.user)))
-            return {
-                ...state
-            }
-        case types.GET_USER_LOGIN:
-            var user = sessionStorage.getItem('user') ? JSON.parse(decodeString(sessionStorage.getItem('user'))) : {}
-            return {
-                ...state,
-                userLogin: user
-            }
-        case types.IS_LOGOUT:
-            return {
-                ...state,
-                userLogin: sessionStorage.removeItem('user')
-            }
         case types.ADD_ORDER:
             return {
                 ...state,
                 order: action.order
+            }
+        case types.GET_ALL_ORDER:
+            return {
+                ...state,
+                orders: action.orders
             }
         default:
             return state;

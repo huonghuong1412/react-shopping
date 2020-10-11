@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 class Header extends Component {
 
     checkUserLogined = (user) => {
-        if (JSON.stringify(user) === JSON.stringify({})) {
+        if (JSON.stringify(user) === JSON.stringify({}) || user === "undefined" || user==="NaN") {
             return (
                 <ul className='header__aside--info-top'>
                     <li>
@@ -26,7 +26,7 @@ class Header extends Component {
                     <li>
                         <Link to="/account" className="header__aside--info-link">
                             Tài khoản của bạn
-                        </Link>
+                            </Link>
                     </li>
                 </ul>
             )
@@ -75,8 +75,7 @@ class Header extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        isLogin: state.user.isLogin,
-        user: state.user.userLogin
+        user: state.userLogin
     }
 }
 

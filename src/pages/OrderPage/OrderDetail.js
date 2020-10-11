@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchAllOrders, getUserLogin } from '../../actions/UserActions';
-
-class Order extends Component {
+import './index.css'
+class OrderDetail extends Component {
 
     componentDidMount() {
         var user = sessionStorage.getItem('user') ? JSON.parse((sessionStorage.getItem('user'))) : {};
@@ -19,7 +19,7 @@ class Order extends Component {
         if (orders.length > 0) {
             return orders.map((item, index) => {
                 var category = "";
-                switch (item.category) {
+                switch(item.category){
                     case 'ao-khoac':
                         category = "Áo khoác";
                         break;
@@ -57,7 +57,6 @@ class Order extends Component {
         }
     }
 
-
     showOrderHistory = (orders) => {
         if (orders.length > 0) {
             return orders.map((item, index) => {
@@ -86,28 +85,51 @@ class Order extends Component {
         }
     }
 
-
     render() {
-        var { orders, user } = this.props;
+        var { user, orders } = this.props;
         var orderByUser = [];
         for (var i = 0; i < orders.length; i++) {
             if (user.id === orders[i].idUser) {
                 orderByUser.unshift(orders[i])
             }
         }
+        // var lastOrder = orderByUser[orderByUser.length - 1];
         return (
-            <>
-                <div className="customer_order customer-table-bg">
-                    {
-                        orderByUser.length > 0 ?
-                            <>  <h3 class="order__page--title">Lịch sử đặt hàng</h3>
-                                {this.showOrderHistory(orderByUser)}
-                            </>
-                            :
-                            <p>Bạn chưa đặt mua sản phẩm.</p>
-                    }
+            <div className="oder__detail--page pt-5 pb-5">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-12">
+                            <h3 className="account__page--title">Thông tin đặt hàng</h3>
+                        </div>
+                        <div className="col-lg-4 col-md-12 col-sm-12">
+                            <h3 className="order__page--title">Thông tin người nhận</h3>
+                            <p>Họ tên: <span>{user.fullname}</span> </p>
+                            <p>Địa chỉ nhận hàng: <span>{user.address}</span> </p>
+                            <p>Số điện thoại: <span>{user.phone}</span> </p>
+                        </div>
+                        <div className="col-lg-8 col-md-12 col-sm-12">
+                            <h3 className="order__page--title">Lịch sử đặt hàng</h3>
+                            {/* <p>Ngày đặt hàng: <span>{date}</span> </p>
+                            <p>Tổng tiền đơn hàng: <span>{lastOrder ? this.format_curency(lastOrder.totalPrice) : 0}</span> </p>
+                            <div className="table-responsive">
+                                <table className="table product-table" style={{ borderBottom: "1px solid #e1e1e1" }}>
+                                    <thead>
+                                        <tr>
+                                            <th>Tên Sản phẩm</th>
+                                            <th>Giá tiền</th>
+                                            <th>Số lượng</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {this.showOrderItem(lastOrder ? lastOrder.listOrder : [])}
+                                    </tbody>
+                                </table>
+                            </div> */}
+                            {this.showOrderHistory(orderByUser)}
+                        </div>
+                    </div>
                 </div>
-            </>
+            </div>
         );
     }
 }
@@ -130,4 +152,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Order);
+export default connect(mapStateToProps, mapDispatchToProps)(OrderDetail);

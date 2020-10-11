@@ -1,5 +1,7 @@
 import React from 'react'
 import About from './pages/AboutPage/About';
+import BlogDetail from './pages/BlogPage/BlogDetail';
+import BlogPage from './pages/BlogPage/BlogPage';
 import CartPage from './pages/CartPage/CartPage';
 import Contact from './pages/ContactPage/Contact';
 // import { Switch, Route, Router } from 'react-router-dom'
@@ -9,6 +11,7 @@ import InstructionBank from './pages/InstructionPage/InstructionBank';
 import InstructionBuy from './pages/InstructionPage/InstructionBuy';
 import InstructionPage from './pages/InstructionPage/InstructionPage';
 import NotFound from './pages/NotFoundPage/NotFound';
+import OrderDetail from './pages/OrderPage/OrderDetail';
 import OrderPage from './pages/OrderPage/OrderPage';
 import PolicyChange from './pages/PolicyPage/PolicyChange';
 import PolicyGuarantee from './pages/PolicyPage/PolicyGuarantee';
@@ -56,8 +59,13 @@ const Routes = [
     },
     {
         path: '/checkout',
-        exact: false,
+        exact: true,
         main: ({ history }) => <OrderPage history={history} />
+    },
+    {
+        path: '/checkout/detail',
+        exact: false,
+        main: ({ history }) => <OrderDetail history={history} />
     },
     {
         path: '/pages/huong-dan',
@@ -133,6 +141,16 @@ const Routes = [
         path: '/pages/lien-he',
         exact: false,
         main: () => <Contact />
+    },
+    {
+        path: '/blogs/news',
+        exact: true,
+        main: () => <BlogPage />
+    },
+    {
+        path: '/blogs/news/:id',
+        exact: false,
+        main: () => <BlogDetail />
     },
     {
         path: '*',

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getUserLogin } from '../../actions/UserActions';
-// import { decodeString } from '../../actions/HashString';
 import AccountSideBar from '../../components/User/AccountSideBar';
 import Order from '../../components/User/Order';
 import './index.css'
@@ -11,8 +10,6 @@ class User extends Component {
         var user = sessionStorage.getItem('user');
         if (user && user !== 'undefined') {
             this.props.history.push('/account');
-        } else {
-            this.props.history.push('/account/login');
         }
         this.props.getUserLogin(user)
     }
@@ -55,7 +52,7 @@ class User extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        user: state.user.userLogin
+        user: state.userLogin
     }
 }
 

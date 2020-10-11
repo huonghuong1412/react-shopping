@@ -97,11 +97,13 @@ class OrderPage extends Component {
         var date = new Date().toJSON();
         var userLogin = this.props.user;
         var idUser = userLogin.id;
-        var nameUser = userLogin.fullname;
-        var addressUser = userLogin.address;
-        var phoneUser = userLogin.phone;
+        var nameUser = this.state.fullname;
+        var addressUser = this.state.address;
+        var phoneUser = this.state.phone;
+        var note = this.state.note;
         if (cart.length === 0 || cart === []) {
-            alert("Bạn cần chọn mua sản phẩm")
+            alert("Bạn cần chọn mua sản phẩm");
+            this.props.history.push("/collections/all")
         }
         else if (JSON.stringify(this.props.user) !== JSON.stringify({})) {
             var listOrder = [];
@@ -112,8 +114,7 @@ class OrderPage extends Component {
                     category: cart[i].product.category,
                     price: cart[i].product.price,
                     quantity: cart[i].quantity
-                }
-                )
+                })
             }
 
             var order = {
@@ -121,13 +122,16 @@ class OrderPage extends Component {
                 nameUser: nameUser,
                 addressUser: addressUser,
                 phoneUser: phoneUser,
-                totalPrice: total + 40000,
+                totalPrice: total,
                 date: date,
+                note: note,
                 listOrder: listOrder
             }
             this.props.addOrder(order);
             alert("Đặt hàng thành công")
             this.props.cartComplete()
+            this.props.history.push("/checkout/detail")
+            window.location.reload()
         } else {
             alert("Bạn phải đăng nhập trước khi đặt hàng");
             this.props.history.push("/account/login");
@@ -138,7 +142,7 @@ class OrderPage extends Component {
         var { cart } = this.props;
         var { fullname, email, phone, address, note } = this.state;
         return (
-            <div className="checkout">
+            <div className="checkout__page">
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-4 col-md-12 col-sm-12">
@@ -182,7 +186,7 @@ class OrderPage extends Component {
                                                 </span>
                                                 <span className="radio__label__accessory">
                                                     <span className="content-box__emphasis">
-                                                        40.000đ
+                                                        Freeship
                                                     </span>
                                                 </span>
                                             </label>
@@ -265,7 +269,7 @@ class OrderPage extends Component {
                                                 Phí vận chuyển
                                             </span>
                                             <span className="checkout__amount--price">
-                                                {this.format_curency(40000)}
+                                                {this.format_curency(0)}
                                             </span>
                                         </h3>
                                         <h3 className="checkout__amount-item total-price">
@@ -273,7 +277,7 @@ class OrderPage extends Component {
                                                 Tổng cộng
                                             </span>
                                             <span className="checkout__amount--price">
-                                                {this.format_curency(this.showCartTotal(cart) + 40000)}
+                                                {this.format_curency(this.showCartTotal(cart))}
                                             </span>
                                         </h3>
                                     </div>
@@ -282,7 +286,7 @@ class OrderPage extends Component {
                                             <i className="previous-link__arrow">❮</i>
                                             Quay về giỏ hàng
                                         </Link>
-                                        <button className="checkout__voucher--btn" disabled={cart.length > 0 ? false : true} onClick={() => {
+                                        <button href="/checkout/detail" className="checkout__voucher--btn" onClick={() => {
                                             this.handleCheckout()
                                         }}>
                                             <span className="spinner-label">
@@ -303,14 +307,14 @@ class OrderPage extends Component {
 const mapStateToProps = (state) => {
     return {
         cart: state.cart,
-        user: state.user.userLogin
+        user: state.userLogin
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        addOrder: (userLogin, cart) => {
-            dispatch(actions.fetchUserOrderRequest(userLogin, cart))
+        addOrder: (order) => {
+            dispatch(actions.fetchUserOrderRequest(order))
         },
         cartComplete: () => {
             dispatch(cartComplete())

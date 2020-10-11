@@ -20,6 +20,7 @@ export const HIDE_MODAL = "HIDE_MODAL"
 // order
 export const ADD_ORDER = 'ADD_ORDER';
 export const SET_ORDER_DETAIL = 'SET_ORDER_DETAIL';
+export const GET_ALL_ORDER = "GET_ALL_ORDER"
 
 // search products
 export const SEARCH_LIST_PRODUCTS = "SEARCH_LIST_PRODUCTS"
@@ -29,10 +30,14 @@ export const LIST_USER = "LIST_USER"
 export const ADD_USER = "ADD_USER"
 export const CHANGE_INFOMATION = "CHANGE_INFOMATION"
 export const EDIT_INFO_BY_ACCOUNT = "EDIT_INFO_BY_ACCOUNT"
-export const IS_LOGINED = "IS_LOGINED"
+export const SET_LOGIN = "SET_LOGIN"
 export const GET_USER_LOGIN = "GET_USER_LOGIN"
 export const IS_LOGOUT = "IS_LOGOUT"
-export const CHECK_LOGIN = "CHECK_LOGIN"
 
 // comments 
 export const SEND_COMMENT = "SEND_COMMENT"
+
+// blogs
+export const GET_ALL_BLOG = "GET_ALL_BLOG"
+export const GET_BLOG_DETAIL = "GET_BLOG_DETAIL"
+export const CREATE_BLOG = "CREATE_BLOG"

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Modal } from 'react-bootstrap';
 import { connect } from 'react-redux';
-import { hashString, decodeString } from '../../actions/HashString';
 import * as actions from '../../actions/UserActions'
 class ModalUser extends Component {
 
@@ -19,17 +18,15 @@ class ModalUser extends Component {
     }
 
     componentDidMount() {
-        var id = sessionStorage.getItem('user') ? JSON.parse(decodeString(sessionStorage.getItem('user'))).id : '';
+        var id = sessionStorage.getItem('user') ? JSON.parse((sessionStorage.getItem('user'))).id : '';
         this.props.getAccountEdit(id)
     }
 
     UNSAFE_componentWillReceiveProps(nextProps) {
         if (nextProps && nextProps.userEdit) {
-            var pass = nextProps.userEdit.password ? decodeString(nextProps.userEdit.password) : ''
             this.setState({
                 id: nextProps.userEdit.id,
                 email: nextProps.userEdit.email,
-                password: pass,
                 fullname: nextProps.userEdit.fullname,
                 address: nextProps.userEdit.address,
                 company: nextProps.userEdit.company,
@@ -55,12 +52,12 @@ class ModalUser extends Component {
         }
         if (email === "" || fullname === "" || address === "" || company === "" || password === "") {
             alert("Không được để trống dữ liệu!")
-            return;
         } else {
             this.props.changeAccount(account);
-            sessionStorage.setItem('user', hashString(JSON.stringify(this.state)))
+            sessionStorage.setItem('user', (JSON.stringify(this.state)))
             alert("Thay đổi thông tin thành công!");
-            window.location.href = "/account/change"
+            // window.location.href = "/account/change"
+            this.closeModal()
         }
     }
 
@@ -112,7 +109,7 @@ class ModalUser extends Component {
                                     className="customer_input"
                                     size="16"
                                     onChange={(e) => this.setState({
-                                        password: hashString(e.target.value)
+                                        password: (e.target.value)
                                     })}
                                 />
                             </div>
