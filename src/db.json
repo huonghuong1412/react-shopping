@@ -7,7 +7,6 @@
       "comment": "Hướng đẹp trai"
     }
   ],
-
   "blogs": [
     {
       "id": 1,
@@ -19,14 +18,29 @@
     },
     {
       "id": 2,
-      "title": "Đây là blog 1",
+      "title": "Đây là blog 2",
       "description": "Khuya rồi mà đọc tâm sự của mấy thanh niên lười học vẫn còn thấy bức xúc. Đã chơi, đã lười, đã đánh mất bao nhiêu năm tháng của tuổi trẻ 1 cách uổng phí rồi, ... mà nói đến việc học vẫn còn chán, còn nản, còn \"muốn buông xuôi\", còn \"hết động lực\", ... thì còn nói chuyện quái gì nữa. Thầy không thích thể loại Cách mạng cực đoan. Nhưng quả thực là thanh niên chúng ta ngày nay sống hời hợt quá, sống dễ dãi với bản thân mình quá và thiếu lý tưởng sống quá, ..... Các bạn có thể không thích XHCN, các bạn có thể không thích nước Nga Xô - Viết, không thích hình tượng Bộ đội cụ Hồ, ... nhưng các bạn phải thấy rằng, thế hệ thanh niên ấy có lý tưởng sống hơn chúng ta, sống đẹp và sống có ích hơn chúng ta, .... có cuộc sống đáng sống hơn chúng ta. Không cần phải đọc \"Thép đã tôi thế đấy\" nhưng hãy chiêm nghiệm câu nói này của nhân vật chính nhé: \"Cái quý nhất của con người ta là sự sống. Đời người chỉ sống có một lần. Phải sống sao cho khỏi xót xa, ân hận vì những năm tháng đã sống hoài, sống phí, cho khỏi hổ thẹn vì dĩ vãng ti tiện và hèn đớn của mình, để khi nhắm mắt xuôi tay có thể nói rằng: tất cả đời ta, tất cả sức ta, ta đã hiến dâng cho sự nghiệp cao đẹp nhất trên đời ....\"",
       "img": "https://d2eip9sf3oo6c2.cloudfront.net/series/square_covers/000/000/272/square_480/React360-final.png",
       "createDate": "11/10/2020",
       "author": "Nguyen Cong Huong"
+    },
+    {
+      "title": "Huong ZZZ",
+      "description": "Hằng năm cứ vào cuối thu, lá ngoài đường rụng nhiều và trên không có những đám mây bàng bạc, lòng tôi lại nao nức những kỷ niệm hoang mang của buổi tựu trường.\n\nTôi không thể nào quên được những cảm giác trong sáng ấy nảy nở trong lòng tôi như mấy cành hoa tươi mỉm cười giữa bầu trời quang đãng.\n\nNhững ý tưởng ấy tôi chưa lần nào ghi lên giấy, vì hồi ấy tôi không biết ghi và ngày nay tôi không nhớ hết. Nhưng mỗi lần thấy mấy em nhỏ rụt rè núp dưới nón mẹ lần đầu tiên đến trường, lòng tôi lại tưng bừng rộn rã.\n\nBuổi sáng mai hôm ấy, một buổi mai đầy sương thu và gió lạnh. Mẹ tôi âu yếm nắm tay tôi dẫn đi trên con đường làng dài và hẹp. Con đường này tôi đã quen đi lại lắm lần, nhưng lần này tự nhiên tôi thấy lạ. Cảnh vật chung quanh tôi đều thay đổi, vì chính lòng tôi đang có sự thay đổi lớn: Hôm nay tôi đi học.",
+      "img": "https://miro.medium.com/max/480/0*m_SwHOhwUkXxgOGG",
+      "createDate": "12/10/2020",
+      "author": "Huong ZZ",
+      "id": 3
+    },
+    {
+      "title": "Hôm nay tôi đi học",
+      "description": "Hằng năm cứ vào cuối thu, lá ngoài đường rụng nhiều và trên không có những đám mây bàng bạc, lòng tôi lại nao nức những kỷ niệm hoang mang của buổi tựu trường. Tôi không thể nào quên được những cảm giác trong sáng ấy nảy nở trong lòng tôi như mấy cành hoa tươi mỉm cười giữa bầu trời quang đãng. Những ý tưởng ấy tôi chưa lần nào ghi lên giấy, vì hồi ấy tôi không biết ghi và ngày nay tôi không nhớ hết. Nhưng mỗi lần thấy mấy em nhỏ rụt rè núp dưới nón mẹ lần đầu tiên đến trường, lòng tôi lại tưng bừng rộn rã. Buổi sáng mai hôm ấy, một buổi mai đầy sương thu và gió lạnh. Mẹ tôi âu yếm nắm tay tôi dẫn đi trên con đường làng dài và hẹp. Con đường này tôi đã quen đi lại lắm lần, nhưng lần này tự nhiên tôi thấy lạ. Cảnh vật chung quanh tôi đều thay đổi, vì chính lòng tôi đang có sự thay đổi lớn: Hôm nay tôi đi học.",
+      "img": "https://nld.mediacdn.vn/thumb_w/600/2017/toi-di-hoc-1504765197581.jpg",
+      "createDate": "12/10/2020",
+      "author": "User 1",
+      "id": 4
     }
   ],
-
   "users": [
     {
       "id": 1,
@@ -63,6 +77,15 @@
       "company": "scascSCAs",
       "phone": "116",
       "id": 4
+    },
+    {
+      "email": "user1@gmail.com",
+      "password": "VjJ0YWIxUXlTa2hVYmtaVFZrUkJPUT09",
+      "fullname": "User 1",
+      "address": "Ha Noi",
+      "company": "PTIT",
+      "phone": "0666666666",
+      "id": 5
     }
   ],
   "orders": [
@@ -402,6 +425,58 @@
         }
       ],
       "id": 14
+    },
+    {
+      "idUser": 2,
+      "nameUser": "Huong ZZ",
+      "addressUser": "Ha Dong, Ha Noi",
+      "phoneUser": "0123456789",
+      "totalPrice": 1720000,
+      "date": "2020-10-12T02:08:03.732Z",
+      "note": "Giao truoc 7h toi nha",
+      "listOrder": [
+        {
+          "idProduct": 20,
+          "name": "TT039-Giày Thể Thao Cột Dây Năng Động",
+          "category": "giay",
+          "price": 860000,
+          "quantity": 2
+        }
+      ],
+      "id": 15
+    },
+    {
+      "idUser": 5,
+      "nameUser": "User 1",
+      "addressUser": "Ha Noi",
+      "phoneUser": "0666666666",
+      "totalPrice": 1444000,
+      "date": "2020-10-12T03:44:28.016Z",
+      "note": "",
+      "listOrder": [
+        {
+          "idProduct": 1,
+          "name": "A1527-Áo Len Cotton Cổ V Sọc Ngang Túi Lệch",
+          "category": "ao",
+          "price": 428000,
+          "quantity": 1
+        },
+        {
+          "idProduct": 3,
+          "name": "A1508-Áo Sơ Mi Cotton Cổ V Phối Màu",
+          "category": "ao",
+          "price": 418000,
+          "quantity": 1
+        },
+        {
+          "idProduct": 4,
+          "name": "AK0214-Áo Khoác Len Dệt Kim Kẻ Sọc Túi Once",
+          "category": "ao-khoac",
+          "price": 598000,
+          "quantity": 1
+        }
+      ],
+      "id": 16
     }
   ],
   "products": [

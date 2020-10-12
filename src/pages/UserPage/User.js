@@ -7,11 +7,10 @@ import './index.css'
 class User extends Component {
 
     componentDidMount() {
-        var user = sessionStorage.getItem('user');
+        var user = (sessionStorage.getItem('user'));
         if (user && user !== 'undefined') {
             this.props.history.push('/account');
         }
-        this.props.getUserLogin(user)
     }
 
     render() {

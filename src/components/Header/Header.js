@@ -4,6 +4,13 @@ import HeaderCart from './HeaderCart';
 import { connect } from 'react-redux';
 class Header extends Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            textSearch: ''
+        }
+    }
+
     checkUserLogined = (user) => {
         if (JSON.stringify(user) === JSON.stringify({}) || user === "undefined" || user==="NaN") {
             return (
@@ -33,6 +40,37 @@ class Header extends Component {
         }
     }
 
+    removeVietnameseTones(str) {
+        return str.toLowerCase().normalize('NFD')
+            .replace(/[\u0300-\u036f]/g, '')
+            .replace(/đ/g, 'd').replace(/Đ/g, 'D')
+            .split(' ').join('-');
+    }
+
+    handleChange = (e) => {
+        var target = e.target;
+        var name = target.name;
+        var value = target.value;
+        value = this.removeVietnameseTones(value)
+        this.setState({
+            [name]: value
+        })
+    }
+
+    handleKeyPress = (e) => {
+        if (e.key === 'Enter') {
+            window.location.href = `/search?keyword=${this.state.textSearch}`;
+        }
+    }
+
+    handleRedirect = () => {
+        return (
+            <Link to={`/search?keyword=${this.state.textSearch}`} className="header__top--btn">
+                <i className="fas fa-search header__top--btn-icon" />
+            </Link>
+        )
+    }
+
 
     render() {
         var user = this.props.user;
@@ -49,10 +87,19 @@ class Header extends Component {
                             </Link>
                         </div>
                         <div className="header__main--search">
-                            <input type="text" className="header__main--search-input" placeholder="Tìm kiếm" />
-                            <button className="header__main--search-btn">
+                            <input 
+                                type="text" 
+                                className="header__main--search-input" 
+                                placeholder="Tìm kiếm" 
+                                name="textSearch"
+                                onChange={this.handleChange}
+                                onKeyPress={
+                                    this.handleKeyPress
+                                }
+                            />
+                            <a href={`/search?keyword=${this.state.textSearch}`} className="header__main--search-btn">
                                 <i className="fas fa-search"></i>
-                            </button>
+                            </a>
                         </div>
                         <div className="header__aside">
                             <div className="header__aside--info">

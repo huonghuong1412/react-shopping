@@ -6,10 +6,6 @@ const styleSection = {
     marginTop: "30px"
 }
 
-const styleDiv = {
-    width: "100%"
-}
-
 class ProductsPage extends Component {
     render() {
         var { match } = this.props;

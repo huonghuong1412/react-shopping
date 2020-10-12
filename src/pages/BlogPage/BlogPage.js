@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import BannerPage from '../../components/Banner/BannerPage';
 import Blogs from '../../components/Blog/Blogs';
 import SideBar from '../../components/SideBar/SideBar'
@@ -18,6 +19,9 @@ class BlogPage extends Component {
                                             <h3 className="main__content--heading-title">
                                                 Blog
                                             </h3>
+                                            <Link to="/blogs/news/create" className="btn-rb">
+                                                Tạo Blog
+                                            </Link>
                                         </div>
                                     </div>
                                     <Blogs />

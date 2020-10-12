@@ -1,0 +1,16 @@
+.blog__page--detail-title {
+    font-size: 3rem;
+    font-weight: 400;
+    margin-bottom: 15px;
+}
+
+.blog__page--detail-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 40px 0;
+}
+
+.blog__page--detail-text {
+    line-height: 1.8;
+}

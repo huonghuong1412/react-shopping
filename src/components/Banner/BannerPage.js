@@ -29,6 +29,12 @@ class BannerPage extends Component {
             case 'tui-xach':
                 title = "Túi xách";
                 break;
+            case 'list':
+                title = "Danh mục sản phẩm";
+                break;
+            case 'search':
+                title = "Tìm kiếm sản phẩm"
+                break;
             default:
                 title = "Tất cả sản phẩm";
                 break;
@@ -36,7 +42,7 @@ class BannerPage extends Component {
         var { textDetail, textBlog } = this.props;
         if (textDetail) {
             title = textDetail
-        } else if(textBlog) {
+        } else if (textBlog) {
             title = textBlog
         }
         return (

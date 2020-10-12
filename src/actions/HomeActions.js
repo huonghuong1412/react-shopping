@@ -33,3 +33,20 @@ export const fetchProductDetailRequest = (id) => {
         })
     }
 }
+
+// Search
+
+export const searchProductsRequest = (textSearch) => {
+    return (dispatch) => {
+        return callAPI(`products/?search=${textSearch}`, 'GET', null).then((res) => {
+            dispatch(searchProducts(res.data))
+        })
+    }
+}
+
+export const searchProducts = (products) => {
+    return {
+        type: types.SEARCH_LIST_PRODUCTS,
+        products
+    }
+}

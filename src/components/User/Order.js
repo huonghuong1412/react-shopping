@@ -100,7 +100,7 @@ class Order extends Component {
                 <div className="customer_order customer-table-bg">
                     {
                         orderByUser.length > 0 ?
-                            <>  <h3 class="order__page--title">Lịch sử đặt hàng</h3>
+                            <>  <h3 className="order__page--title">Lịch sử đặt hàng</h3>
                                 {this.showOrderHistory(orderByUser)}
                             </>
                             :

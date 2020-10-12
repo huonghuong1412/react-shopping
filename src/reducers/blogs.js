@@ -17,6 +17,11 @@ export default (state = initialState, action) => {
                 ...state,
                 blogItem: action.blog
             }
+        case types.CREATE_BLOG:
+            return {
+                ...state,
+                blogItem: action.blog
+            }
         default:
             return {
                 ...state

@@ -1,5 +1,6 @@
 import React from 'react'
 import About from './pages/AboutPage/About';
+import BlogCreate from './pages/BlogPage/BlogCreate';
 import BlogDetail from './pages/BlogPage/BlogDetail';
 import BlogPage from './pages/BlogPage/BlogPage';
 import CartPage from './pages/CartPage/CartPage';
@@ -21,6 +22,7 @@ import PolicyShip from './pages/PolicyPage/PolicyShip';
 import AllProductsPage from './pages/ProductsPage/AllProductsPage';
 import ProductDetail from './pages/ProductsPage/ProductDetail';
 import ProductsPage from './pages/ProductsPage/ProductsPage'
+import ProductsSearch from './pages/ProductsPage/ProductsSearch';
 import Change from './pages/UserPage/Change';
 import Login from './pages/UserPage/Login';
 import Register from './pages/UserPage/Register';
@@ -51,6 +53,11 @@ const Routes = [
         path: '/collections/:category',
         exact: false,
         main: ({ match, location }) => <ProductsPage match={match} location={location} />
+    },
+    {
+        path: '/search',
+        exact: false,
+        main: ({ location }) => <ProductsSearch location={location} />
     },
     {
         path: '/cart',
@@ -148,9 +155,14 @@ const Routes = [
         main: () => <BlogPage />
     },
     {
+        path: '/blogs/news/create',
+        exact: false,
+        main: ({ history }) => <BlogCreate history={history} />
+    },
+    {
         path: '/blogs/news/:id',
         exact: false,
-        main: () => <BlogDetail />
+        main: ({ match }) => <BlogDetail match={match} />
     },
     {
         path: '*',

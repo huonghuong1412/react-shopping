@@ -3,7 +3,6 @@ import AccountSideBar from '../../components/User/AccountSideBar';
 import { showModal, hideModal } from '../../actions/ModalActions'
 import { connect } from 'react-redux';
 import ModalRoot from '../../components/Modal/ModalRoot';
-import { getUserLogin } from '../../actions/UserActions';
 
 class Change extends Component {
 
@@ -12,7 +11,6 @@ class Change extends Component {
         if (JSON.stringify(user) === JSON.stringify({})) {
             this.props.history.push('/account/login');
         }
-        this.props.getUserLogin(user);
     }
 
     closeModal = () => {
@@ -115,9 +113,6 @@ const mapDispatchToProps = (dispatch) => {
         },
         showModal: (modalProps, modalType) => {
             dispatch(showModal({ modalProps, modalType }))
-        },
-        getUserLogin: (user) => {
-            dispatch(getUserLogin(user))
         }
     }
 }

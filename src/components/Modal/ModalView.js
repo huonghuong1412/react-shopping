@@ -23,6 +23,13 @@ class ModalView extends Component {
         }
     }
 
+    removeVietnameseTones(str) {
+        return str.toLowerCase().normalize('NFD')
+            .replace(/[\u0300-\u036f]/g, '')
+            .replace(/đ/g, 'd').replace(/Đ/g, 'D')
+            .split(' ').join('-');
+    }
+
     format_curency = ((money) => {
         money = money.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
         return money + "₫";
@@ -101,7 +108,7 @@ class ModalView extends Component {
                                     </Link>
                                     <div className="qv-readmore">
                                         <span> hoặc </span>
-                                        <Link to="/" className="read-more">Xem chi tiết</Link>
+                                        <Link to="#" className="read-more">Xem chi tiết</Link>
                                     </div>
                                 </div>
                             </div>

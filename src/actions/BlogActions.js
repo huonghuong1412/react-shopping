@@ -9,7 +9,7 @@ export const getAllBlog = (blogs) => {
 
 export const fetchAllBlogRequest = () => {
     return dispatch => {
-        return callAPI('blogs', 'GET', null).then(res => {
+        return callAPI('blogs?_sort=createDate&_order=desc', 'GET', null).then(res => {
             dispatch(getAllBlog(res.data))
         })
     }
@@ -26,6 +26,21 @@ export const fetchBlogDetail = (id) => {
     return dispatch => {
         return callAPI(`blogs/${id}`, 'GET', null).then(res => {
             dispatch(getBlogDetail(res.data))
+        })
+    }
+}
+
+export const createBlog = (blog) => {
+    return {
+        type: types.CREATE_BLOG,
+        blog
+    }
+}
+
+export const fetchCreateBlog = (blog) => {
+    return dispatch => {
+        return callAPI('blogs', 'POST', blog).then(res => {
+            dispatch(createBlog(res.data))
         })
     }
 }

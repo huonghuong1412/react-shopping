@@ -3,6 +3,7 @@ import './index.css'
 import { connect } from 'react-redux';
 import * as actions from '../../actions/UserActions'
 import { Link } from 'react-router-dom';
+import { decodeString } from '../../actions/HashString';
 class LoginForm extends Component {
 
     constructor(props) {
@@ -26,7 +27,7 @@ class LoginForm extends Component {
         e.preventDefault();
         var { listUser } = this.props;
         var user = listUser.find(user => {
-            return user.email === this.state.email && user.password === this.state.password;
+            return user.email === this.state.email && decodeString(user.password) === this.state.password;
         })
         console.log(user);
         if (user) {
@@ -56,6 +57,7 @@ class LoginForm extends Component {
                         <div className="row">
                             <div className="col-12">
                                 <h3 className="account__page--title">Đăng nhập</h3>
+                                <span style={{textAlign: 'center', width: '100%', display: 'block'}}>Demo: tk: user1@gmail.com, mk: user1</span>
                             </div>
                             <div className="col-12">
                                 <div className="customer-login">

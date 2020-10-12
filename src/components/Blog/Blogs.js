@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import * as actions from '../../actions/BlogActions'
-
+import './index.css'
 class Blogs extends Component {
 
     componentDidMount() {
@@ -20,20 +20,23 @@ class Blogs extends Component {
                             </div>
                         </div>
                         <div className="col-md-7 col-sm-12">
-                            <h2 className="news__content--title">
-                                <Link to={`/blogs/news/${item.id}`} className="news__content--link">
-                                    {item.title}
-                                </Link>
-                            </h2>
+                            <Link to={`/blogs/news/${item.id}`} className="news__content--link">
+                                {item.title}
+                            </Link>
                             <div className="news__content--body">
                                 <div className="news__content--heading">
-                                    <span className="news__content--date">
+                                    <p className="news__content--date">
                                         <i className="far fa-calendar"></i>
-                                        {item.createDate}
-                                    </span>
-                                    <span className="news__content--author">
-                                        {item.author}
-                                    </span>
+                                        <span>
+                                            {item.createDate}
+                                        </span>
+                                    </p>
+                                    <p className="news__content--author">
+                                        <i className="fas fa-at"></i>
+                                        <span>
+                                            {item.author}
+                                        </span>
+                                    </p>
                                 </div>
                                 <div className="news__content--main">
                                     <p className="news__content--main-text">
