@@ -7,12 +7,15 @@ import BannerPage from '../../components/Banner/BannerPage';
 import HomeProducts from '../../components/Products/HomeProducts';
 import SideBar from '../../components/SideBar/SideBar'
 import './index.css'
+import { fetchAllCommentProduct, fetchSendComment } from '../../actions/CmtProductAction';
 class ProductItem extends Component {
     constructor(props) {
         super(props);
         this.state = {
             openImg: true,
-            quantity: 1
+            quantity: 1,
+            comment: '',
+            nameUser: ''
         }
     }
 
@@ -21,7 +24,7 @@ class ProductItem extends Component {
         var id = match.params.id;
         this.props.getProductDetail(id);
         this.props.getAllProducts();
-        this.props.history.push(this.props.location.pathname)
+        this.props.getAllComment();
     }
 
     closeModal = () => {
@@ -54,7 +57,7 @@ class ProductItem extends Component {
         var name = target.name;
         var value = target.value;
         this.setState({
-            [name]: parseInt(value)
+            [name]: value
         })
     }
 
@@ -79,8 +82,67 @@ class ProductItem extends Component {
         return <img src={src} alt='' className="" />
     }
 
+    showComments = (cmts) => {
+        if (cmts) {
+            return cmts.map((item, index) => {
+                return (
+                    <div className="list__comment--info" key={index}>
+                        <div className="list__comment--author">
+                            <span className="list__comment--user">
+                                <i className="far fa-user"></i>
+                            </span>
+                            <div className="list__comment--top">
+                                <span className="list__comment--name">
+                                    {item.nameUser}
+                                </span>
+                                <span className="list__comment--date">
+                                    Nhận xét vào {item.date}
+                                </span>
+                            </div>
+                        </div>
+                        <span className="list__comment--text">
+                            {item.comment}
+                        </span>
+                    </div>
+                )
+            })
+        }
+    }
+
+    handleClearForm = () => {
+        this.setState({
+            comment: '',
+            nameUser: ''
+        })
+    }
+
+    handleSubmit = () => {
+        var { comment, nameUser } = this.state;
+        var idProduct = this.props.productItem.id;
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, '0');
+        var mm = String(today.getMonth() + 1).padStart(2, '0');
+        var yyyy = today.getFullYear();
+        var date = dd + " tháng " + mm + ", " + yyyy;
+        if(comment === "" ) {
+            alert("Mời bạn nhập bình luận")
+        } else if(nameUser === "") {
+            alert("Mời bạn nhập họ tên")
+        } else {
+            this.props.sendComment({
+                nameUser: nameUser,
+                idProduct: idProduct,
+                date: date,
+                comment: comment
+            })
+            this.handleClearForm();
+            alert("Gửi bình luận thành công")
+        }
+    }
+
     render() {
         var productItem = this.props.productItem;
+        var listComments = this.props.listComments;
         var textFilter = productItem.name;
         var price = this.format_curency(productItem.price)
         const imagesPath = {
@@ -89,6 +151,12 @@ class ProductItem extends Component {
         }
         const imageName = this.getImageName();
         var { quantity } = this.state;
+        var cmtByUser = [];
+        for (var i = 0; i < listComments.length; i++) {
+            if (productItem.id === listComments[i].idProduct) {
+                cmtByUser.unshift(listComments[i])
+            }
+        }
         return (
             <>
                 <BannerPage textDetail={textFilter} />
@@ -145,14 +213,14 @@ class ProductItem extends Component {
                                             </div>
                                             <div className="selector-wrapper">
                                                 <label>Số lượng</label>
-                                                <input 
-                                                    id="quantity" 
-                                                    className="selector-wrapper-input" 
-                                                    type="number" 
-                                                    name="quantity" 
+                                                <input
+                                                    id="quantity"
+                                                    className="selector-wrapper-input"
+                                                    type="number"
+                                                    name="quantity"
                                                     min={1}
                                                     value={this.state.quantity}
-                                                    onChange = {this.handleChange}
+                                                    onChange={this.handleChange}
                                                 />
                                             </div>
                                             <div className="row">
@@ -187,6 +255,40 @@ class ProductItem extends Component {
                                             </div>
                                         </div>
                                     </div>
+                                    <div className="col-12">
+                                        <div className="list__comment">
+                                            <h3 className="product__item--detail-desc pt-3 pb-3 mt-5 mb-4">Bình luận</h3>
+                                            <div className="form-group">
+                                                <textarea
+                                                    required
+                                                    name="comment"
+                                                    rows={4}
+                                                    className="form-control"
+                                                    placeholder="Bình luận về sản phẩm"
+                                                    value={this.state.comment}
+                                                    onChange={this.handleChange}
+                                                />
+                                                <div className="form-comment">
+                                                    <input
+                                                        required
+                                                        name="nameUser"
+                                                        className="form-control"
+                                                        placeholder="Họ và tên"
+                                                        value={this.state.nameUser}
+                                                        onChange={this.handleChange}
+                                                    />
+                                                    <button
+                                                        className="btn-rb btn-send"
+                                                        onClick={this.handleSubmit}
+                                                    >Gửi bình luận</button>
+                                                </div>
+
+                                            </div>
+                                            <div className="list__comment--content">
+                                                {this.showComments(cmtByUser)}
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div className="col-lg-12 col-md-12 col-sm-12">
                                         <h3 className="product__item--detail-desc pt-3 pb-3 mt-5">SẢN PHẨM KHÁC</h3>
                                         <div className="mt-5">
@@ -206,6 +308,7 @@ class ProductItem extends Component {
 const mapStateToProps = (state) => {
     return {
         listProducts: state.listProducts,
+        listComments: state.cmt,
         productItem: state.productItem,
         ...state.modal
     }
@@ -218,6 +321,12 @@ const mapDispatchToProps = (dispatch) => {
         },
         getAllProducts: () => {
             dispatch(actions.fetchAllProductRequest())
+        },
+        getAllComment: () => {
+            dispatch(fetchAllCommentProduct())
+        },
+        sendComment: (comment) => {
+            dispatch(fetchSendComment(comment))
         },
         hideModal: () => {
             dispatch(hideModal())

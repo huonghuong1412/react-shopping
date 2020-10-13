@@ -36,6 +36,9 @@ export const IS_LOGOUT = "IS_LOGOUT"
 
 // comments 
 export const SEND_COMMENT = "SEND_COMMENT"
+// cmt product
+export const SEND_COMMENT_PRODUCT = "SEND_COMMENT_PRODUCT"
+export const GET_ALL_COMMENT_PRODUCT = "GET_ALL_COMMENT_PRODUCT"
 
 // blogs
 export const GET_ALL_BLOG = "GET_ALL_BLOG"

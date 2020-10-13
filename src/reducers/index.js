@@ -8,6 +8,7 @@ import user from './user'
 import userEdit from './userEdit'
 import userLogin from './userLogin'
 import blogs from './blogs'
+import cmt from './cmtProducts'
 
 const rootReducer = combineReducers({
     listProducts,
@@ -18,7 +19,8 @@ const rootReducer = combineReducers({
     user,
     userEdit,
     userLogin,
-    blogs
+    blogs,
+    cmt
 })
 
 export default rootReducer

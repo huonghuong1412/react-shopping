@@ -11,7 +11,7 @@ class BlogCreate extends Component {
             title: '',
             urlimg: '',
             content: '',
-            author: this.props.userLogin.fullname
+            author: this.props.userLogin.fullname ? this.props.userLogin.fullname : ''
         }
     }
 
@@ -42,21 +42,32 @@ class BlogCreate extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
+        var { title, content, urlimg, author } = this.state;
         var today = new Date();
         var dd = String(today.getDate()).padStart(2, '0');
         var mm = String(today.getMonth() + 1).padStart(2, '0');
         var yyyy = today.getFullYear();
         var date = dd + "/" + mm + "/" + yyyy;
-        this.props.addBlog({
-            title: this.state.title,
-            description: this.state.content,
-            img: this.state.urlimg,
-            createDate: date,
-            author: this.state.author
-        });
-        alert("Thêm blog thành công !")
-        this.handleClearFrom();
-        this.props.history.push("/blogs/news")
+        if(author === "") {
+            alert("Mời nhập họ tên")
+        } else if(title === "") {
+            alert("Mời nhập tiêu đề blog")
+        } else if(urlimg === "") {
+            alert("Mời nhập đường dẫn ảnh")
+        } else if(content === "") {
+            alert("Mời nhập nội dung blog")
+        } else {
+            this.props.addBlog({
+                title: title,
+                description: content,
+                img: urlimg,
+                createDate: date,
+                author: author
+            });
+            alert("Thêm blog thành công !")
+            this.handleClearFrom();
+            this.props.history.push("/blogs/news")
+        }
     }
 
 
@@ -110,7 +121,7 @@ class BlogCreate extends Component {
                                             required
                                             type="text"
                                             name="urlimg"
-                                            placeholder="Url image (hơi cùi)"
+                                            placeholder="Url image (hơi cùi ạ :v)"
                                             id="contactFormEmail"
                                             className="form-control input-lg"
                                             autoCorrect="off" autoCapitalize="off"

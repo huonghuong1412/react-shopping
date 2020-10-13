@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import * as actions from '../../actions/UserActions'
 import { Link } from 'react-router-dom';
 import { decodeString } from '../../actions/HashString';
+import fire from '../../config/Fire'
+
 class LoginForm extends Component {
 
     constructor(props) {
@@ -29,7 +31,6 @@ class LoginForm extends Component {
         var user = listUser.find(user => {
             return user.email === this.state.email && decodeString(user.password) === this.state.password;
         })
-        console.log(user);
         if (user) {
             alert("Đăng nhập thành công");
             this.props.setLogin(
@@ -50,6 +51,8 @@ class LoginForm extends Component {
     }
 
     render() {
+        var user = fire.auth().currentUser;
+        console.log(user);
         return (
             <>
                 <div className="login__page pt-5 pb-5">
@@ -57,7 +60,7 @@ class LoginForm extends Component {
                         <div className="row">
                             <div className="col-12">
                                 <h3 className="account__page--title">Đăng nhập</h3>
-                                <span style={{textAlign: 'center', width: '100%', display: 'block'}}>Demo: tk: user1@gmail.com, mk: user1</span>
+                                <span style={{textAlign: 'center', width: '100%', display: 'block'}}>Demo: tk: user1@gmail.com, mk: 123456789</span>
                             </div>
                             <div className="col-12">
                                 <div className="customer-login">

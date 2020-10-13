@@ -174,3 +174,69 @@
     font-size: 1.4rem;
     margin-bottom: 10px;
 }
+
+.list__comment--content {
+    width: 100%;
+}
+
+.list__comment--info {
+    border-bottom: 1px solid #e1e1ee;
+    padding: 10px 0;
+}
+
+.list__comment--author {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0;
+    padding: 10px 0;
+}
+
+.list__comment--user {
+    margin: 0px 8px 0px 0px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    position: relative;
+    z-index: 1;
+    background-color: #D3D2D3;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.list__comment--name {
+    display: block;
+    color: #04416D;
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+
+.list__comment--date {
+    color: rgb(128, 125, 125);
+    font-weight: 450;
+    font-size: 1.4rem;
+}
+
+.list__comment--text {
+    font-size: 1.4rem;
+    line-height: 20px;
+    margin: 0px 0px 16px;
+    color: rgb(36, 36, 36);
+}
+
+.form-control {
+    padding: 12px;
+    height: 42px;
+}
+
+.form-comment {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.btn-send {
+    margin-left: 15px;
+    transition: all 0.3s ease;
+}

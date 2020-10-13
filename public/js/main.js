@@ -30,6 +30,12 @@ window.addEventListener('DOMContentLoaded', function () {
         dropdownItem[1].addEventListener('mouseout', function () {
             dropdownList[1].classList.remove('open')
         })
+        dropdownItem[2].addEventListener('mouseover', function () {
+            dropdownList[2].classList.add('open')
+        })
+        dropdownItem[2].addEventListener('mouseout', function () {
+            dropdownList[2].classList.remove('open')
+        })
     } else {
         dropdownIcon[0].onclick = function () {
             dropdownList[0].classList.add('navbar-resposive-2');

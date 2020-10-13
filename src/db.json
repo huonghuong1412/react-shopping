@@ -1,10 +1,46 @@
 {
-  "comments": [
+  "contact": [
     {
       "id": 1,
       "name": "Nguyễn Công Hướng",
       "email": "huongzz@gmail.com",
       "comment": "Hướng đẹp trai"
+    },
+    {
+      "name": "HuongZ",
+      "email": "huongz@gmail.com",
+      "comment": "Hello shop hihi",
+      "id": 2
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "nameUser": "User2",
+      "idProduct": 1,
+      "date": "11 tháng 9, 2020",
+      "comment": "Hàng đẹp lắm, nhưng mình mặc đẹp hơn nha"
+    },
+    {
+      "nameUser": "Huong ZZ",
+      "idProduct": 1,
+      "date": "13 tháng 10, 2020",
+      "comment": "Hàng đẹp, chất lượng",
+      "id": 2
+    },
+    {
+      "nameUser": "Huong",
+      "idProduct": 1,
+      "date": "13 tháng 10, 2020",
+      "comment": "Hôm nay tôi đi học",
+      "id": 3
+    },
+    {
+      "nameUser": "Huong",
+      "idProduct": 20,
+      "date": "13 tháng 10, 2020",
+      "comment": "Giày đẹp thế shop ơi, giày này con trai đi được không shop ?",
+      "id": 4
     }
   ],
   "blogs": [
@@ -43,410 +79,27 @@
   ],
   "users": [
     {
-      "id": 1,
-      "email": "huong@gmail.com",
-      "password": "huong",
-      "fullname": "Nguyen Cong Huong",
-      "address": "Ha Dong, Ha Noi",
-      "company": "PTIT",
-      "phone": "0888888888"
-    },
-    {
-      "id": 2,
-      "email": "huongzz@gmail.com",
-      "password": "12345",
-      "fullname": "Huong ZZ",
-      "address": "Ha Noi",
-      "company": "PTIT",
-      "phone": "0123456789"
-    },
-    {
-      "email": "huong1@gmail.com",
-      "password": "huong",
-      "fullname": "Nguyen Tri",
-      "address": "12345",
-      "company": "123",
-      "phone": "123",
-      "id": 3
-    },
-    {
-      "email": "huong5@gmail.com",
-      "password": "huong",
-      "fullname": "Savasvas",
-      "address": "cACASc",
-      "company": "scascSCAs",
-      "phone": "116",
-      "id": 4
-    },
-    {
       "email": "user1@gmail.com",
       "password": "VjJ0YWIxUXlTa2hVYmtaVFZrUkJPUT09",
       "fullname": "User 1",
       "address": "Ha Noi",
       "company": "PTIT",
       "phone": "0666666666",
-      "id": 5
+      "id": 1
+    },
+    {
+      "email": "user2@gmail.com",
+      "password": "VjJ0YWIxUXlTa2hVYmtaVVZrUkJPUT09",
+      "fullname": "User2",
+      "address": "Ha Noi",
+      "company": "ZZZ",
+      "phone": "113",
+      "id": 2
     }
   ],
   "orders": [
     {
       "idUser": 1,
-      "nameUser": "Nguyen Cong Huong",
-      "addressUser": "Ha Dong, Ha Noi",
-      "phoneUser": "0888888888",
-      "totalPrice": 2216000,
-      "date": "2020-10-10T16:27:32.332Z",
-      "listOrder": [
-        {
-          "idProduct": 2,
-          "name": "A1513-Áo Cotton Hoa Nghệ Thuật Cổ V",
-          "category": "ao",
-          "price": 428000,
-          "quantity": 1
-        },
-        {
-          "idProduct": 11,
-          "name": "Q1004-Quần Jean Harem Ống Bo Co Dãn Điểm Túi",
-          "category": "quan",
-          "price": 568000,
-          "quantity": 1
-        },
-        {
-          "idProduct": 14,
-          "name": "D081_ Đầm Retro Hoa Văn Nghệ Thuật",
-          "category": "vay-dam",
-          "price": 1180000,
-          "quantity": 1
-        }
-      ],
-      "id": 1
-    },
-    {
-      "idUser": 1,
-      "nameUser": "Nguyen Cong Huong",
-      "addressUser": "Ha Dong, Ha Noi",
-      "phoneUser": "0888888888",
-      "totalPrice": 638000,
-      "date": "2020-10-11T03:15:03.772Z",
-      "listOrder": [
-        {
-          "idProduct": 4,
-          "name": "AK0214-Áo Khoác Len Dệt Kim Kẻ Sọc Túi Once",
-          "category": "ao-khoac",
-          "price": 598000,
-          "quantity": 1
-        }
-      ],
-      "id": 2
-    },
-    {
-      "idUser": 2,
-      "nameUser": "Nguyen Tri",
-      "addressUser": "Ha Dong, Ha Noi",
-      "phoneUser": "0123456789",
-      "totalPrice": 638000,
-      "date": "2020-10-11T03:25:51.022Z",
-      "listOrder": [
-        {
-          "idProduct": 4,
-          "name": "AK0214-Áo Khoác Len Dệt Kim Kẻ Sọc Túi Once",
-          "category": "ao-khoac",
-          "price": 598000,
-          "quantity": 1
-        }
-      ],
-      "id": 3
-    },
-    {
-      "idUser": 1,
-      "nameUser": "Nguyen Cong Huong",
-      "addressUser": "Ha Dong, Ha Noi",
-      "phoneUser": "0888888888",
-      "totalPrice": 3386000,
-      "date": "2020-10-11T04:12:02.403Z",
-      "listOrder": [
-        {
-          "idProduct": 2,
-          "name": "A1513-Áo Cotton Hoa Nghệ Thuật Cổ V",
-          "category": "ao",
-          "price": 428000,
-          "quantity": 2
-        },
-        {
-          "idProduct": 12,
-          "name": "D095-Đầm Linen Họa Tiết Dáng Suông",
-          "category": "vay-dam",
-          "price": 830000,
-          "quantity": 3
-        }
-      ],
-      "id": 4
-    },
-    {
-      "idUser": 1,
-      "nameUser": "Nguyen Cong Huong",
-      "addressUser": "Ha Dong, Ha Noi",
-      "phoneUser": "0888888888",
-      "totalPrice": 658000,
-      "date": "2020-10-11T04:14:08.220Z",
-      "listOrder": [
-        {
-          "idProduct": 18,
-          "name": "B0014_Bộ Mặc Nhà Dài Tay Cotton Nhấn Gấu",
-          "category": "bo-mac-nha",
-          "price": 618000,
-          "quantity": 1
-        }
-      ],
-      "id": 5
-    },
-    {
-      "idUser": 1,
-      "nameUser": "Nguyen Cong Huong",
-      "addressUser": "Ha Dong, Ha Noi",
-      "phoneUser": "0888888888",
-      "totalPrice": 1678000,
-      "date": "2020-10-11T04:16:51.835Z",
-      "listOrder": [
-        {
-          "idProduct": 20,
-          "name": "TT039-Giày Thể Thao Cột Dây Năng Động",
-          "category": "giay",
-          "price": 860000,
-          "quantity": 1
-        },
-        {
-          "idProduct": 21,
-          "name": "TT038-Giày Thể Thao Nữ Cột Dây Mũi Tròn",
-          "category": "giay",
-          "price": 818000,
-          "quantity": 1
-        }
-      ],
-      "id": 6
-    },
-    {
-      "idUser": 1,
-      "nameUser": "Nguyen Cong Huong",
-      "addressUser": "Ha Dong, Ha Noi",
-      "phoneUser": "0888888888",
-      "totalPrice": 846000,
-      "date": "2020-10-11T14:59:45.403Z",
-      "listOrder": [
-        {
-          "idProduct": 2,
-          "name": "A1513-Áo Cotton Hoa Nghệ Thuật Cổ V",
-          "category": "ao",
-          "price": 428000,
-          "quantity": 1
-        },
-        {
-          "idProduct": 3,
-          "name": "A1508-Áo Sơ Mi Cotton Cổ V Phối Màu",
-          "category": "ao",
-          "price": 418000,
-          "quantity": 1
-        }
-      ],
-      "id": 7
-    },
-    {
-      "idUser": 1,
-      "nameUser": "Nguyen Cong Huong",
-      "addressUser": "Ha Dong, Ha Noi",
-      "phoneUser": "0888888888",
-      "totalPrice": 428000,
-      "date": "2020-10-11T15:18:12.642Z",
-      "listOrder": [
-        {
-          "idProduct": 1,
-          "name": "A1527-Áo Len Cotton Cổ V Sọc Ngang Túi Lệch",
-          "category": "ao",
-          "price": 428000,
-          "quantity": 1
-        }
-      ],
-      "id": 8
-    },
-    {
-      "idUser": 1,
-      "nameUser": "Nguyen Cong Huong",
-      "addressUser": "Ha Dong, Ha Noi",
-      "phoneUser": "0888888888",
-      "totalPrice": 860000,
-      "date": "2020-10-11T15:20:11.873Z",
-      "listOrder": [
-        {
-          "idProduct": 20,
-          "name": "TT039-Giày Thể Thao Cột Dây Năng Động",
-          "category": "giay",
-          "price": 860000,
-          "quantity": 1
-        }
-      ],
-      "id": 9
-    },
-    {
-      "idUser": 1,
-      "nameUser": "Nguyen Cong Huong",
-      "addressUser": "Ha Dong, Ha Noi",
-      "phoneUser": "0888888888",
-      "totalPrice": 428000,
-      "date": "2020-10-11T15:20:25.146Z",
-      "listOrder": [
-        {
-          "idProduct": 2,
-          "name": "A1513-Áo Cotton Hoa Nghệ Thuật Cổ V",
-          "category": "ao",
-          "price": 428000,
-          "quantity": 1
-        }
-      ],
-      "id": 10
-    },
-    {
-      "idUser": 1,
-      "nameUser": "Nguyen Cong Huong",
-      "addressUser": "Ha Dong, Ha Noi",
-      "phoneUser": "0888888888",
-      "totalPrice": 856000,
-      "date": "2020-10-11T15:21:16.113Z",
-      "listOrder": [
-        {
-          "idProduct": 1,
-          "name": "A1527-Áo Len Cotton Cổ V Sọc Ngang Túi Lệch",
-          "category": "ao",
-          "price": 428000,
-          "quantity": 1
-        },
-        {
-          "idProduct": 2,
-          "name": "A1513-Áo Cotton Hoa Nghệ Thuật Cổ V",
-          "category": "ao",
-          "price": 428000,
-          "quantity": 1
-        }
-      ],
-      "id": 11
-    },
-    {
-      "idUser": 1,
-      "nameUser": "Nguyen Cong Huong",
-      "addressUser": "Ha Dong, Ha Noi",
-      "phoneUser": "0888888888",
-      "totalPrice": 1678000,
-      "date": "2020-10-11T15:21:29.410Z",
-      "listOrder": [
-        {
-          "idProduct": 20,
-          "name": "TT039-Giày Thể Thao Cột Dây Năng Động",
-          "category": "giay",
-          "price": 860000,
-          "quantity": 1
-        },
-        {
-          "idProduct": 21,
-          "name": "TT038-Giày Thể Thao Nữ Cột Dây Mũi Tròn",
-          "category": "giay",
-          "price": 818000,
-          "quantity": 1
-        }
-      ],
-      "id": 12
-    },
-    {
-      "idUser": 1,
-      "nameUser": "Nguyen Cong Huong",
-      "addressUser": "Ha Dong, Ha Noi",
-      "phoneUser": "0888888888",
-      "totalPrice": 1872000,
-      "date": "2020-10-11T15:21:41.946Z",
-      "listOrder": [
-        {
-          "idProduct": 1,
-          "name": "A1527-Áo Len Cotton Cổ V Sọc Ngang Túi Lệch",
-          "category": "ao",
-          "price": 428000,
-          "quantity": 1
-        },
-        {
-          "idProduct": 2,
-          "name": "A1513-Áo Cotton Hoa Nghệ Thuật Cổ V",
-          "category": "ao",
-          "price": 428000,
-          "quantity": 1
-        },
-        {
-          "idProduct": 3,
-          "name": "A1508-Áo Sơ Mi Cotton Cổ V Phối Màu",
-          "category": "ao",
-          "price": 418000,
-          "quantity": 1
-        },
-        {
-          "idProduct": 4,
-          "name": "AK0214-Áo Khoác Len Dệt Kim Kẻ Sọc Túi Once",
-          "category": "ao-khoac",
-          "price": 598000,
-          "quantity": 1
-        }
-      ],
-      "id": 13
-    },
-    {
-      "idUser": 1,
-      "nameUser": "Nguyen Cong Huong",
-      "addressUser": "Ha Dong, Ha Noi",
-      "phoneUser": "0888888888",
-      "totalPrice": 1606000,
-      "date": "2020-10-11T15:25:28.706Z",
-      "note": "zadxxAXaxA",
-      "listOrder": [
-        {
-          "idProduct": 6,
-          "name": "AK0204-Áo Khoác Len Dệt Kim Có Nón Retro Sọc",
-          "category": "ao-khoac",
-          "price": 478000,
-          "quantity": 1
-        },
-        {
-          "idProduct": 7,
-          "name": "AK0190_Áo Khoác Khí Chất Phối Vàng Trắng",
-          "category": "ao-khoac",
-          "price": 560000,
-          "quantity": 1
-        },
-        {
-          "idProduct": 8,
-          "name": "AK0201-Áo Khoác Denim Linh Hoạt",
-          "category": "ao-khoac",
-          "price": 568000,
-          "quantity": 1
-        }
-      ],
-      "id": 14
-    },
-    {
-      "idUser": 2,
-      "nameUser": "Huong ZZ",
-      "addressUser": "Ha Dong, Ha Noi",
-      "phoneUser": "0123456789",
-      "totalPrice": 1720000,
-      "date": "2020-10-12T02:08:03.732Z",
-      "note": "Giao truoc 7h toi nha",
-      "listOrder": [
-        {
-          "idProduct": 20,
-          "name": "TT039-Giày Thể Thao Cột Dây Năng Động",
-          "category": "giay",
-          "price": 860000,
-          "quantity": 2
-        }
-      ],
-      "id": 15
-    },
-    {
-      "idUser": 5,
       "nameUser": "User 1",
       "addressUser": "Ha Noi",
       "phoneUser": "0666666666",
@@ -476,7 +129,45 @@
           "quantity": 1
         }
       ],
-      "id": 16
+      "id": 1
+    },
+    {
+      "idUser": 1,
+      "nameUser": "User 1",
+      "addressUser": "Ha Noi",
+      "phoneUser": "0666666666",
+      "totalPrice": 428000,
+      "date": "2020-10-12T15:44:50.115Z",
+      "note": "",
+      "listOrder": [
+        {
+          "idProduct": 1,
+          "name": "A1527-Áo Len Cotton Cổ V Sọc Ngang Túi Lệch",
+          "category": "ao",
+          "price": 428000,
+          "quantity": 1
+        }
+      ],
+      "id": 2
+    },
+    {
+      "idUser": 2,
+      "nameUser": "User2",
+      "addressUser": "Ha Noi",
+      "phoneUser": "113",
+      "totalPrice": 428000,
+      "date": "2020-10-12T15:45:18.562Z",
+      "note": "",
+      "listOrder": [
+        {
+          "idProduct": 1,
+          "name": "A1527-Áo Len Cotton Cổ V Sọc Ngang Túi Lệch",
+          "category": "ao",
+          "price": 428000,
+          "quantity": 1
+        }
+      ],
+      "id": 3
     }
   ],
   "products": [

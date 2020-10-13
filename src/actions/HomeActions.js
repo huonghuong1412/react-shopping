@@ -38,7 +38,7 @@ export const fetchProductDetailRequest = (id) => {
 
 export const searchProductsRequest = (textSearch) => {
     return (dispatch) => {
-        return callAPI(`products/?search=${textSearch}`, 'GET', null).then((res) => {
+        return callAPI(`products/?q=${textSearch}`, 'GET', null).then((res) => {
             dispatch(searchProducts(res.data))
         })
     }

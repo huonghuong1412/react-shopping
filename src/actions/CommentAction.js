@@ -10,7 +10,7 @@ export const sendComment = (comment) => {
 
 export const sendCommentRequest = (comment) => {
     return dispatch => {
-        return callAPI('comments', 'POST', comment).then(res => {
+        return callAPI('contact', 'POST', comment).then(res => {
             dispatch(sendComment(res.data))
         })
     }
