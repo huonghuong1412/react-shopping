@@ -130,14 +130,14 @@ class AllProductsPage extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        products: state.listProducts,
+        products: state.products.listProduct,
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
         getListProduct: () => {
-            dispatch(actions.fetchAllProductRequest())
+            dispatch(actions.fetchAPIALLProduct())
         }
     }
 }

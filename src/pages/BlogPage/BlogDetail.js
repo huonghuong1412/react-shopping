@@ -13,8 +13,21 @@ class BlogDetail extends Component {
         this.props.getDetailBlog(id)
     }
 
+    showBlogText = (desc) => {
+        if (desc) {
+            return desc.map((item, index) => {
+                return (
+                    <p className="blog__page--detail-text" key={index}>
+                        {item}
+                    </p>
+                )
+            })
+        }
+    }
+
     render() {
         var { blogItem } = this.props;
+        var desc = blogItem ? blogItem.description : [];
         return (
             <>
                 <BannerPage textBlog={blogItem.title} />
@@ -42,14 +55,12 @@ class BlogDetail extends Component {
                                 </div>
                                 <div className="blog__page--detail-main">
                                     <p className="blog__page--detail-text">
-                                        {blogItem.description}
+                                        {desc ? desc[0] : ''}
                                     </p>
                                     <div className="blog__page--detail-img">
                                         <img src={blogItem.img} alt="" />
                                     </div>
-                                    <p className="blog__page--detail-text">
-                                        {blogItem.description}
-                                    </p>
+                                    {this.showBlogText(desc)}
                                 </div>
                             </div>
                         </div>

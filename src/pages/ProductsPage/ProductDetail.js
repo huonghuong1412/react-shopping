@@ -4,7 +4,6 @@ import * as actions from '../../actions/HomeActions'
 import { showModal, hideModal } from '../../actions/ModalActions'
 import { addToCart } from '../../actions/CartActions'
 import BannerPage from '../../components/Banner/BannerPage';
-import HomeProducts from '../../components/Products/HomeProducts';
 import SideBar from '../../components/SideBar/SideBar'
 import './index.css'
 import { fetchAllCommentProduct, fetchSendComment } from '../../actions/CmtProductAction';
@@ -103,6 +102,27 @@ class ProductItem extends Component {
                         <span className="list__comment--text">
                             {item.comment}
                         </span>
+
+                        {
+                            item.reply ?
+                                (
+                                    <div className="pl-5">
+                                        <div className="list__comment--author">
+                                            <span className="list__comment--user">
+                                                <i className="fas fa-tools"></i>
+                                            </span>
+                                            <div className="list__comment--top">
+                                                <span className="list__comment--name">
+                                                    Admin
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <span className="list__comment--text" style={{paddingLeft: '50px'}}>
+                                            {item.reply}
+                                        </span>
+                                    </div>
+                                ) : ''
+                        }
                     </div>
                 )
             })
@@ -124,16 +144,17 @@ class ProductItem extends Component {
         var mm = String(today.getMonth() + 1).padStart(2, '0');
         var yyyy = today.getFullYear();
         var date = dd + " tháng " + mm + ", " + yyyy;
-        if(comment === "" ) {
+        if (comment === "") {
             alert("Mời bạn nhập bình luận")
-        } else if(nameUser === "") {
+        } else if (nameUser === "") {
             alert("Mời bạn nhập họ tên")
         } else {
             this.props.sendComment({
                 nameUser: nameUser,
                 idProduct: idProduct,
                 date: date,
-                comment: comment
+                comment: comment,
+                reply: ""
             })
             this.handleClearForm();
             alert("Gửi bình luận thành công")
@@ -202,15 +223,6 @@ class ProductItem extends Component {
                                             </span>
                                         </div>
                                         <div id="add-item-form" className="variants clearfix">
-                                            <div className="select clearfix">
-                                                <div className="selector-wrapper">
-                                                    <label>{productItem.category === "tui-xach" ? "Màu sắc" : "Size"}</label>
-                                                    <span className="custom-dropdown custom-dropdown--white">
-                                                        <select className="single-option-selector custom-dropdown__select custom-dropdown__select--white" data-option="option1" id="product-select-option-0"><option value="XANH">XANH</option><option value="NÂU">NÂU</option></select></span></div><select id="product-select" name="id" style={{ display: 'none' }}>
-                                                    <option value={1056587961}>XANH - 888,000₫</option>
-                                                    <option value={1056587962}>NÂU - 888,000₫</option>
-                                                </select>
-                                            </div>
                                             <div className="selector-wrapper">
                                                 <label>Số lượng</label>
                                                 <input
@@ -289,12 +301,6 @@ class ProductItem extends Component {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="col-lg-12 col-md-12 col-sm-12">
-                                        <h3 className="product__item--detail-desc pt-3 pb-3 mt-5">SẢN PHẨM KHÁC</h3>
-                                        <div className="mt-5">
-                                            <HomeProducts textFilter="random" target="_blank" />
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -307,9 +313,9 @@ class ProductItem extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        listProducts: state.listProducts,
+        listProducts: state.products.listProduct,
         listComments: state.cmt,
-        productItem: state.productItem,
+        productItem: state.products.productItem,
         ...state.modal
     }
 }
@@ -317,10 +323,10 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         getProductDetail: (id) => {
-            dispatch(actions.fetchProductDetailRequest(id))
+            dispatch(actions.fetchAPIProductItem(id))
         },
         getAllProducts: () => {
-            dispatch(actions.fetchAllProductRequest())
+            dispatch(actions.fetchAPIALLProduct())
         },
         getAllComment: () => {
             dispatch(fetchAllCommentProduct())

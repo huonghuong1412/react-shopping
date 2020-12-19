@@ -1,34 +1,33 @@
 import * as types from './../constants'
 import callAPI from './../callAPI/callAPI'
 
-
-// GET ALL
-export const getListAllProduct = (products) => {
+// get all
+export const getAllProduct = (products) => {
     return {
-        type: types.GET_ALL_PRODUCT,
-        products
+        type: types.GET_ALL_PRODUCT_SUCCESS,
+        payload: products
     }
 }
 
-export const fetchAllProductRequest = () => {
+export const fetchAPIALLProduct = () => {
     return dispatch => {
-        return callAPI('products', 'GET', null).then((res) => {
-            dispatch(getListAllProduct(res.data))
+        return callAPI('products', 'GET', null).then(res => {
+            dispatch(getAllProduct(res.data))
         })
     }
 }
 
-// GET DETAIL
+// get detail by id
 export const getProductDetail = (product) => {
     return {
-        type: types.GET_PRODUCT_ITEM,
-        product
+        type: types.GET_PRODUCT_DETAIL_SUCCESS,
+        payload: product
     }
 }
 
-export const fetchProductDetailRequest = (id) => {
+export const fetchAPIProductItem = (id) => {
     return dispatch => {
-        return callAPI(`products/${id}`, 'GET', null).then((res) => {
+        return callAPI(`products/${id}`, 'GET', null).then(res => {
             dispatch(getProductDetail(res.data))
         })
     }
@@ -36,17 +35,18 @@ export const fetchProductDetailRequest = (id) => {
 
 // Search
 
-export const searchProductsRequest = (textSearch) => {
-    return (dispatch) => {
-        return callAPI(`products/?q=${textSearch}`, 'GET', null).then((res) => {
-            dispatch(searchProducts(res.data))
-        })
+export const searchProduct = (products) => {
+    return {
+        type: types.SEARCH_PRODUCTS,
+        payload: products
     }
 }
 
-export const searchProducts = (products) => {
-    return {
-        type: types.SEARCH_LIST_PRODUCTS,
-        products
+export const fetchAPISearchProduct = (textSearch) => {
+    return dispatch => {
+        return callAPI(`products?search=${textSearch}`, 'GET', null).then(res => {
+            dispatch(searchProduct(res.data));
+
+        })
     }
 }

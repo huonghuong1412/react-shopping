@@ -167,6 +167,11 @@ class Navbar extends Component {
                                         <span>Liên hệ</span>
                                     </Link>
                                 </li>
+                                <li>
+                                    <a href="https://huongz-admin.web.app/" rel="noopener noreferrer" target="_blank" className="navbar__main--link">
+                                        <span>Admin</span>
+                                    </a>
+                                </li>
                             </ul>
                             <div className="navbar__main--phone">
                                 <span className="navbar__main--phone-icon">

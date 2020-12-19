@@ -40,7 +40,7 @@ class Blogs extends Component {
                                 </div>
                                 <div className="news__content--main">
                                     <p className="news__content--main-text">
-                                        {item.description}
+                                        {item.description[0]}
                                     </p>
                                 </div>
                             </div>

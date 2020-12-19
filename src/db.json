@@ -47,7 +47,10 @@
     {
       "id": 1,
       "title": "Đây là blog 1",
-      "description": "Duy trì sự chăm chỉ, nỗ lực một cách liên tục, lâu dài chưa bao giờ là điều dễ dàng. Rất nhiều khi ta cảm thấy mệt mỏi, chán nản và tự đặt ra nghi vấn bởi không biết sự cố gắng đó \"để làm gì\", \"có cần thiết không?\", \"có đạt được kết quả như mong muốn không\", \"có thừa thãi không?\"  :D Quả thực, chỉ sự chăm chỉ thôi có thể chưa chắc đã dẫn ta tới cái đích ta cần. Nhưng chăm chỉ thì không bao giờ thừa, nó luôn cho ta kết quả nào đó tích cực, dù có thể ta không nhận ra. Hãy cứ chăm chỉ đi vì ... \"Chưa ai chết đuối trong mồ hôi của chính mình\"",
+      "description": [
+        "Duy trì sự chăm chỉ, nỗ lực một cách liên tục, lâu dài chưa bao giờ là điều dễ dàng. Rất nhiều khi ta cảm thấy mệt mỏi, chán nản và tự đặt ra nghi vấn bởi không biết sự cố gắng đó \"để làm gì\", \"có cần thiết không?\", \"có đạt được kết quả như mong muốn không\", \"có thừa thãi không?\"  :D",
+        "Quả thực, chỉ sự chăm chỉ thôi có thể chưa chắc đã dẫn ta tới cái đích ta cần. Nhưng chăm chỉ thì không bao giờ thừa, nó luôn cho ta kết quả nào đó tích cực, dù có thể ta không nhận ra. Hãy cứ chăm chỉ đi vì ... \"Chưa ai chết đuối trong mồ hôi của chính mình\""
+      ],
       "img": "https://d2eip9sf3oo6c2.cloudfront.net/series/square_covers/000/000/166/square_480/EGH_ReactAdvPatterns2_Final.png",
       "createDate": "10/10/2020",
       "author": "Nguyen Cong Huong"
@@ -55,26 +58,58 @@
     {
       "id": 2,
       "title": "Đây là blog 2",
-      "description": "Khuya rồi mà đọc tâm sự của mấy thanh niên lười học vẫn còn thấy bức xúc. Đã chơi, đã lười, đã đánh mất bao nhiêu năm tháng của tuổi trẻ 1 cách uổng phí rồi, ... mà nói đến việc học vẫn còn chán, còn nản, còn \"muốn buông xuôi\", còn \"hết động lực\", ... thì còn nói chuyện quái gì nữa. Thầy không thích thể loại Cách mạng cực đoan. Nhưng quả thực là thanh niên chúng ta ngày nay sống hời hợt quá, sống dễ dãi với bản thân mình quá và thiếu lý tưởng sống quá, ..... Các bạn có thể không thích XHCN, các bạn có thể không thích nước Nga Xô - Viết, không thích hình tượng Bộ đội cụ Hồ, ... nhưng các bạn phải thấy rằng, thế hệ thanh niên ấy có lý tưởng sống hơn chúng ta, sống đẹp và sống có ích hơn chúng ta, .... có cuộc sống đáng sống hơn chúng ta. Không cần phải đọc \"Thép đã tôi thế đấy\" nhưng hãy chiêm nghiệm câu nói này của nhân vật chính nhé: \"Cái quý nhất của con người ta là sự sống. Đời người chỉ sống có một lần. Phải sống sao cho khỏi xót xa, ân hận vì những năm tháng đã sống hoài, sống phí, cho khỏi hổ thẹn vì dĩ vãng ti tiện và hèn đớn của mình, để khi nhắm mắt xuôi tay có thể nói rằng: tất cả đời ta, tất cả sức ta, ta đã hiến dâng cho sự nghiệp cao đẹp nhất trên đời ....\"",
+      "description": [
+        "Khuya rồi mà đọc tâm sự của mấy thanh niên lười học vẫn còn thấy bức xúc. Đã chơi, đã lười, đã đánh mất bao nhiêu năm tháng của tuổi trẻ 1 cách uổng phí rồi, ... mà nói đến việc học vẫn còn chán, còn nản, còn \"muốn buông xuôi\", còn \"hết động lực\", ... thì còn nói chuyện quái gì nữa. Thầy không thích thể loại Cách mạng cực đoan. Nhưng quả thực là thanh niên chúng ta ngày nay sống hời hợt quá, sống dễ dãi với bản thân mình quá và thiếu lý tưởng sống quá, ....",
+        "Các bạn có thể không thích XHCN, các bạn có thể không thích nước Nga Xô - Viết, không thích hình tượng Bộ đội cụ Hồ, ... nhưng các bạn phải thấy rằng, thế hệ thanh niên ấy có lý tưởng sống hơn chúng ta, sống đẹp và sống có ích hơn chúng ta, .... có cuộc sống đáng sống hơn chúng ta",
+        "Không cần phải đọc \"Thép đã tôi thế đấy\" nhưng hãy chiêm nghiệm câu nói này của nhân vật chính nhé: \"Cái quý nhất của con người ta là sự sống. Đời người chỉ sống có một lần. Phải sống sao cho khỏi xót xa, ân hận vì những năm tháng đã sống hoài, sống phí, cho khỏi hổ thẹn vì dĩ vãng ti tiện và hèn đớn của mình, để khi nhắm mắt xuôi tay có thể nói rằng: tất cả đời ta, tất cả sức ta, ta đã hiến dâng cho sự nghiệp cao đẹp nhất trên đời ....\""
+      ],
       "img": "https://d2eip9sf3oo6c2.cloudfront.net/series/square_covers/000/000/272/square_480/React360-final.png",
       "createDate": "11/10/2020",
       "author": "Nguyen Cong Huong"
     },
     {
-      "title": "Huong ZZZ",
-      "description": "Hằng năm cứ vào cuối thu, lá ngoài đường rụng nhiều và trên không có những đám mây bàng bạc, lòng tôi lại nao nức những kỷ niệm hoang mang của buổi tựu trường.\n\nTôi không thể nào quên được những cảm giác trong sáng ấy nảy nở trong lòng tôi như mấy cành hoa tươi mỉm cười giữa bầu trời quang đãng.\n\nNhững ý tưởng ấy tôi chưa lần nào ghi lên giấy, vì hồi ấy tôi không biết ghi và ngày nay tôi không nhớ hết. Nhưng mỗi lần thấy mấy em nhỏ rụt rè núp dưới nón mẹ lần đầu tiên đến trường, lòng tôi lại tưng bừng rộn rã.\n\nBuổi sáng mai hôm ấy, một buổi mai đầy sương thu và gió lạnh. Mẹ tôi âu yếm nắm tay tôi dẫn đi trên con đường làng dài và hẹp. Con đường này tôi đã quen đi lại lắm lần, nhưng lần này tự nhiên tôi thấy lạ. Cảnh vật chung quanh tôi đều thay đổi, vì chính lòng tôi đang có sự thay đổi lớn: Hôm nay tôi đi học.",
-      "img": "https://miro.medium.com/max/480/0*m_SwHOhwUkXxgOGG",
-      "createDate": "12/10/2020",
-      "author": "Huong ZZ",
-      "id": 3
-    },
-    {
       "title": "Hôm nay tôi đi học",
-      "description": "Hằng năm cứ vào cuối thu, lá ngoài đường rụng nhiều và trên không có những đám mây bàng bạc, lòng tôi lại nao nức những kỷ niệm hoang mang của buổi tựu trường. Tôi không thể nào quên được những cảm giác trong sáng ấy nảy nở trong lòng tôi như mấy cành hoa tươi mỉm cười giữa bầu trời quang đãng. Những ý tưởng ấy tôi chưa lần nào ghi lên giấy, vì hồi ấy tôi không biết ghi và ngày nay tôi không nhớ hết. Nhưng mỗi lần thấy mấy em nhỏ rụt rè núp dưới nón mẹ lần đầu tiên đến trường, lòng tôi lại tưng bừng rộn rã. Buổi sáng mai hôm ấy, một buổi mai đầy sương thu và gió lạnh. Mẹ tôi âu yếm nắm tay tôi dẫn đi trên con đường làng dài và hẹp. Con đường này tôi đã quen đi lại lắm lần, nhưng lần này tự nhiên tôi thấy lạ. Cảnh vật chung quanh tôi đều thay đổi, vì chính lòng tôi đang có sự thay đổi lớn: Hôm nay tôi đi học.",
+      "description": [
+        "Hằng năm cứ vào cuối thu, lá ngoài đường rụng nhiều và trên không có những đám mây bàng bạc, lòng tôi lại nao nức những kỷ niệm hoang mang của buổi tựu trường. Tôi không thể nào quên được những cảm giác trong sáng ấy nảy nở trong lòng tôi như mấy cành hoa tươi mỉm cười giữa bầu trời quang đãng. Những ý tưởng ấy tôi chưa lần nào ghi lên giấy, vì hồi ấy tôi không biết ghi và ngày nay tôi không nhớ hết. Nhưng mỗi lần thấy mấy em nhỏ rụt rè núp dưới nón mẹ lần đầu tiên đến trường, lòng tôi lại tưng bừng rộn rã.",
+        "Buổi sáng mai hôm ấy, một buổi mai đầy sương thu và gió lạnh. Mẹ tôi âu yếm nắm tay tôi dẫn đi trên con đường làng dài và hẹp. Con đường này tôi đã quen đi lại lắm lần, nhưng lần này tự nhiên tôi thấy lạ. Cảnh vật chung quanh tôi đều thay đổi, vì chính lòng tôi đang có sự thay đổi lớn: Hôm nay tôi đi học."
+      ],
       "img": "https://nld.mediacdn.vn/thumb_w/600/2017/toi-di-hoc-1504765197581.jpg",
       "createDate": "12/10/2020",
       "author": "User 1",
+      "id": 3
+    },
+    {
+      "title": "Blog",
+      "description": [
+        "Tây Du Ký - Chương 16: Chùa Quan Âm, thầy tu tham báu vật Núi Hắc Phong, yêu quái trộm cà sa",
+        "Lời xưa rằng: Người chẳng dốc lòng giết cọp, cọp đâu nỡ dạ ăn người ",
+        "Quảng Mục thiên vương cười rằng:\n- Ông giộc nầy thiệt độc quá: Miễn cho mình khỏi hại, không thương xót tới ai."
+      ],
+      "img": "https://thumb.ex-cdn.com/EXP/media.phatgiao.org.vn/resize/800x972/files/linhmai/2018/12/15/4317b3ee-4510-460d-9c05-d1a38ddd6617-1494313231253-0845.jpg",
+      "createDate": "26/10/2020",
+      "author": "Huong",
       "id": 4
+    },
+    {
+      "title": "Qua đèo Ngang",
+      "description": [
+        "Qua đèo Ngang",
+        "Bước tới đèo Ngang bóng xế tà,\nCỏ cây chen đá, lá chen hoa.\nLom khom dưới núi tiều vài chú,\nLác đác bên sông rợ mấy nhà.\nNhớ nước, đau lòng con cuốc cuốc,\nThương nhà, mỏi miệng cái da da.\nDừng chân đứng lại: trời, non, nước,\nMột mảnh tình riêng, ta với ta"
+      ],
+      "img": "https://dulichvietnam.com.vn/data/image/0-1adeongang/1.jpg",
+      "createDate": "27/10/2020",
+      "author": "Huong ZZ",
+      "id": 5
+    },
+    {
+      "title": "Blog 1",
+      "description": [
+        "1\n2\n3\n4"
+      ],
+      "img": "https://d2eip9sf3oo6c2.cloudfront.net/series/square_covers/000/000/166/square_480/EGH_ReactAdvPatterns2_Final.png",
+      "createDate": "27/10/2020",
+      "author": "Huong",
+      "id": 6
     }
   ],
   "users": [
@@ -95,6 +130,15 @@
       "company": "ZZZ",
       "phone": "113",
       "id": 2
+    },
+    {
+      "email": "huongzz@gmail.com",
+      "password": "VjFaV2IxWXlVblJUYmxKaFVrWndjMWR1YjNkUFVUMDk=",
+      "fullname": "Huong",
+      "address": "Ha Noi",
+      "company": "wfavasva",
+      "phone": "0123456988",
+      "id": 3
     }
   ],
   "orders": [
@@ -168,6 +212,141 @@
         }
       ],
       "id": 3
+    },
+    {
+      "idUser": 1,
+      "nameUser": "User 1",
+      "addressUser": "Ha Noi",
+      "phoneUser": "0666666666",
+      "totalPrice": 2140000,
+      "date": "2020-10-13T14:28:39.265Z",
+      "note": "Giao truoc 7h toi nha shop",
+      "listOrder": [
+        {
+          "idProduct": 1,
+          "name": "A1527-Áo Len Cotton Cổ V Sọc Ngang Túi Lệch",
+          "category": "ao",
+          "price": 428000,
+          "quantity": 5
+        }
+      ],
+      "id": 4
+    },
+    {
+      "idUser": "yvikwcIGqUgDsYPIbjMV5sZuAR12",
+      "nameUser": "ABCXYZ",
+      "addressUser": "Ha Noi pho",
+      "phoneUser": "0133456987",
+      "totalPrice": 856000,
+      "date": "2020-11-21T10:00:43.983Z",
+      "note": "123",
+      "status": "Chưa chốt",
+      "listOrder": [
+        {
+          "idProduct": 1,
+          "name": "A1527-Áo Len Cotton Cổ V Sọc Ngang Túi Lệch",
+          "category": "ao",
+          "price": 428000,
+          "quantity": 2
+        }
+      ],
+      "id": 5
+    },
+    {
+      "userId": "18ZNrAixszcskeek0moxuQJeTO53",
+      "totalPrice": 2566000,
+      "date": "2020-11-21T12:22:43.836Z",
+      "note": "",
+      "status": "Chưa chốt",
+      "listOrder": [
+        {
+          "idProduct": 21,
+          "name": "TT038-Giày Thể Thao Nữ Cột Dây Mũi Tròn",
+          "category": "giay",
+          "price": 818000,
+          "quantity": 1
+        },
+        {
+          "idProduct": 22,
+          "name": "TT037-Giày Thể Thao Nữ Lưới Bố Thoáng Cao 5cm",
+          "category": "giay",
+          "price": 860000,
+          "quantity": 1
+        },
+        {
+          "idProduct": 23,
+          "name": "TT036-Giày Thể Thao Nữ Lưới Thoáng Juku",
+          "category": "giay",
+          "price": 888000,
+          "quantity": 1
+        }
+      ],
+      "id": 6
+    },
+    {
+      "userId": "",
+      "totalPrice": 428000,
+      "date": "2020-11-21T12:26:22.283Z",
+      "note": "",
+      "status": "Chưa chốt",
+      "listOrder": [
+        {
+          "idProduct": 1,
+          "name": "A1527-Áo Len Cotton Cổ V Sọc Ngang Túi Lệch",
+          "category": "ao",
+          "price": 428000,
+          "quantity": 1
+        }
+      ],
+      "id": 7
+    },
+    {
+      "userId": "ORWKombBAre6SogtfAe7JhINVty2",
+      "totalPrice": 3140000,
+      "date": "2020-11-21T12:30:15.907Z",
+      "note": "",
+      "status": "Chưa chốt",
+      "listOrder": [
+        {
+          "idProduct": 17,
+          "name": "B0017_Bộ Mặc Nhà Cotton Lụa Cổ Nghệ Thuật",
+          "category": "bo-mac-nha",
+          "price": 628000,
+          "quantity": 5
+        }
+      ],
+      "id": 8
+    },
+    {
+      "userId": "ORWKombBAre6SogtfAe7JhINVty2",
+      "totalPrice": 2538000,
+      "date": "2020-11-21T12:42:19.250Z",
+      "note": "",
+      "status": "Chưa chốt",
+      "listOrder": [
+        {
+          "idProduct": 20,
+          "name": "TT039-Giày Thể Thao Cột Dây Năng Động",
+          "category": "giay",
+          "price": 860000,
+          "quantity": 1
+        },
+        {
+          "idProduct": 21,
+          "name": "TT038-Giày Thể Thao Nữ Cột Dây Mũi Tròn",
+          "category": "giay",
+          "price": 818000,
+          "quantity": 1
+        },
+        {
+          "idProduct": 22,
+          "name": "TT037-Giày Thể Thao Nữ Lưới Bố Thoáng Cao 5cm",
+          "category": "giay",
+          "price": 860000,
+          "quantity": 1
+        }
+      ],
+      "id": 9
     }
   ],
   "products": [

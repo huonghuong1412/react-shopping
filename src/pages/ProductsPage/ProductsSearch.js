@@ -2,17 +2,19 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import BannerPage from '../../components/Banner/BannerPage'
 import { addToCart } from '../../actions/CartActions'
-import { searchProductsRequest } from '../../actions/HomeActions'
+import { fetchAPIALLProduct, fetchAPISearchProduct } from '../../actions/HomeActions'
 import { Link } from 'react-router-dom';
 import { hideModal, showModal } from '../../actions/ModalActions';
 import ModalRoot from '../../components/Modal/ModalRoot';
 class ProductsSearch extends Component {
 
     componentDidMount() {
-        var { location } = this.props;
-        var keyword = location.search;
-        keyword = keyword.slice(9, keyword.length)
-        this.props.searchListProducts(keyword);
+        var { match } = this.props;
+        var keyword = match.params.text;
+        this.props.history.push(`/search/keyword/${keyword}`)
+        if (keyword) {
+            this.props.searchListProducts(keyword);
+        }
     }
 
     closeModal = () => {
@@ -103,6 +105,7 @@ class ProductsSearch extends Component {
 
     render() {
         var { products } = this.props;
+        console.log(products);
         return (
             <>
                 <BannerPage textHeading="search" />
@@ -113,7 +116,7 @@ class ProductsSearch extends Component {
                                 <h1 className="search__products--title">
                                     Trang tìm kiếm
                                 </h1>
-                                <h3 className="search__products--text">
+                                <h3 className="search__products--text mt-3 mb-5">
                                     Có {products.length > 0 ? products.length : 0} kết quả tìm kiếm phù hợp
                                 </h3>
                             </div>
@@ -131,7 +134,7 @@ class ProductsSearch extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        products: state.listProducts,
+        products: state.products.listProduct,
         cart: state.cart,
         ...state.modal
     }
@@ -140,7 +143,10 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         searchListProducts: (textSearch) => {
-            dispatch(searchProductsRequest(textSearch))
+            dispatch(fetchAPISearchProduct(textSearch))
+        },
+        getAllProducts: () => {
+            dispatch(fetchAPIALLProduct())
         },
         hideModal: () => {
             dispatch(hideModal())

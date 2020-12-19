@@ -5,8 +5,6 @@ import BlogDetail from './pages/BlogPage/BlogDetail';
 import BlogPage from './pages/BlogPage/BlogPage';
 import CartPage from './pages/CartPage/CartPage';
 import Contact from './pages/ContactPage/Contact';
-// import { Switch, Route, Router } from 'react-router-dom'
-// import history from './history'
 import HomePage from './pages/HomePage/HomePage'
 import InstructionBank from './pages/InstructionPage/InstructionBank';
 import InstructionBuy from './pages/InstructionPage/InstructionBuy';
@@ -23,7 +21,6 @@ import AllProductsPage from './pages/ProductsPage/AllProductsPage';
 import ProductDetail from './pages/ProductsPage/ProductDetail';
 import ProductsPage from './pages/ProductsPage/ProductsPage'
 import ProductsSearch from './pages/ProductsPage/ProductsSearch';
-import Change from './pages/UserPage/Change';
 import Login from './pages/UserPage/Login';
 import Register from './pages/UserPage/Register';
 import User from './pages/UserPage/User';
@@ -55,9 +52,9 @@ const Routes = [
         main: ({ match, location }) => <ProductsPage match={match} location={location} />
     },
     {
-        path: '/search',
+        path: '/search/keyword/:text',
         exact: false,
-        main: ({ location }) => <ProductsSearch location={location} />
+        main: ({ history, match }) => <ProductsSearch history={history} match={match} />
     },
     {
         path: '/cart',
@@ -133,11 +130,6 @@ const Routes = [
         path: '/account/login',
         exact: false,
         main: ({ history, location }) => <Login history={history} location={location} />
-    },
-    {
-        path: '/account/change',
-        exact: false,
-        main: ({ history }) => <Change history={history} />
     },
     {
         path: '/pages/lien-he',

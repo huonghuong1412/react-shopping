@@ -10,15 +10,8 @@ class BlogCreate extends Component {
         this.state = {
             title: '',
             urlimg: '',
-            content: '',
-            author: this.props.userLogin.fullname ? this.props.userLogin.fullname : ''
-        }
-    }
-
-    componentDidMount() {
-        var user = sessionStorage.getItem('user');
-        if (JSON.stringify(user) === JSON.stringify({})) {
-            this.props.history.push('/account/login');
+            content: [''],
+            author: ''
         }
     }
 
@@ -31,11 +24,32 @@ class BlogCreate extends Component {
         })
     }
 
+    handleChangeDesc = (e, index) => {
+        // eslint-disable-next-line react/no-direct-mutation-state
+        this.state.content[index] = e.target.value;
+        this.setState({
+            content: this.state.content
+        })
+    }
+
     handleClearFrom = () => {
         this.setState({
             title: '',
             urlimg: '',
             content: ''
+        })
+    }
+
+    handleRemoveClick = (index) => {
+        this.state.content.splice(index, 1);
+        this.setState({
+            content: this.state.content
+        })
+    }
+
+    handleAddClick = () => {
+        this.setState({
+            content: [...this.state.content, ""]
         })
     }
 
@@ -48,13 +62,13 @@ class BlogCreate extends Component {
         var mm = String(today.getMonth() + 1).padStart(2, '0');
         var yyyy = today.getFullYear();
         var date = dd + "/" + mm + "/" + yyyy;
-        if(author === "") {
+        if (author === "") {
             alert("Mời nhập họ tên")
-        } else if(title === "") {
+        } else if (title === "") {
             alert("Mời nhập tiêu đề blog")
-        } else if(urlimg === "") {
+        } else if (urlimg === "") {
             alert("Mời nhập đường dẫn ảnh")
-        } else if(content === "") {
+        } else if (content === "") {
             alert("Mời nhập nội dung blog")
         } else {
             this.props.addBlog({
@@ -129,19 +143,32 @@ class BlogCreate extends Component {
                                             onChange={this.handleChange}
                                         />
                                     </div>
-                                    <div className="form-group">
-                                        <label htmlFor="contactFormMessage" className="sr-only">Nội dung</label>
-                                        <textarea
-                                            required
-                                            rows={6}
-                                            name="content"
-                                            className="form-control"
-                                            placeholder="Content"
-                                            id="contactFormMessage"
-                                            value={this.state.comment}
-                                            onChange={this.handleChange}
-                                        />
-                                    </div>
+                                    {
+                                        this.state.content ? this.state.content.map((item, index) => {
+                                            return (
+                                                <div className="form-group form-content" key={index}>
+                                                    <label htmlFor="contactFormMessage" className="sr-only">Nội dung {index + 1}</label>
+                                                    <textarea
+                                                        required
+                                                        rows={3}
+                                                        name="content"
+                                                        className="form-control"
+                                                        placeholder="Content"
+                                                        id="contactFormMessage"
+                                                        value={item}
+                                                        onChange={(e) => this.handleChangeDesc(e, index)}
+                                                    />
+                                                    <button
+                                                        className="btn btn-warning btn-remove"
+                                                        onClick={() => this.handleRemoveClick(index)}
+                                                    >Xoá</button>
+                                                </div>
+                                            )
+                                        }) : ['']
+                                    }<button
+                                        className="btn btn-info mt-2 mb-3 btn-add-blog"
+                                        onClick={() => this.handleAddClick()}
+                                    >Thêm nội dung</button>
                                     <button
                                         className="btn btn-primary btn-lg btn-rb"
                                         onClick={this.handleSubmit}
@@ -158,12 +185,6 @@ class BlogCreate extends Component {
     }
 }
 
-const mapStateToProps = (state) => {
-    return {
-        userLogin: state.userLogin
-    }
-}
-
 const mapDispatchToProps = (dispatch) => {
     return {
         addBlog: (blog) => {
@@ -172,4 +193,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(BlogCreate);
+export default connect(null, mapDispatchToProps)(BlogCreate);

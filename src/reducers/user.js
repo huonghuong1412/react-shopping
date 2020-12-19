@@ -1,28 +1,42 @@
-import * as types from '../constants'
-const initialState = {
-    listUser: [],
-    order: {},
-    orders: []
-}
+import * as types from '../constants';
 
+const initialState = {
+    currentUser: null,
+    order: {},
+    orders: [],
+    isFetching: false,
+    dataFetched: false,
+    error: false,
+    errorMessage: null
+}
 export default (state = initialState, action) => {
     switch (action.type) {
-        case types.LIST_USER:
+        case types.SET_CURRENT_USER_REQUEST: {
             return {
                 ...state,
-                listUser: action.accounts
+                isFetching: true
             }
-        case types.CHANGE_INFOMATION:
-            var id = action.account.id;
-            state.listUser[id] = action.account;
+        }
+        case types.SET_CURRENT_USER_SUCCESS:
             return {
                 ...state,
-                listUser: action.account
+                isFetching: false,
+                dataFetched: true,
+                error: false,
+                errorMessage: null,
+                currentUser: action.payload
             }
-        case types.ADD_USER:
+        case types.SET_CURRENT_USER_FAILURE:
             return {
                 ...state,
-                listUser: action.user
+                isFetching: false,
+                error: true,
+                errorMessage: action.payload.errorMessage
+            }
+        case types.SET_LOGOUT:
+            return {
+                ...state,
+                currentUser: null
             }
         case types.ADD_ORDER:
             return {

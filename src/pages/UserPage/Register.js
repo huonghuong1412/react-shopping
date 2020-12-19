@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { hashString } from '../../actions/HashString';
-import * as actions from './../../actions/UserActions'
 import './index.css'
-
+import firebase from '../../config/Fire'
 const styleForm = {
     display: "flex",
     alignItems: "center",
@@ -17,50 +14,57 @@ class Register extends Component {
         this.state = {
             email: '',
             password: '',
-            fullname: '',
+            name: '',
             address: '',
-            company: '',
-            phone: ''
+            phone: '',
+            firebaseError: null
         }
     }
 
     componentDidMount() {
-        var user = sessionStorage.getItem('user');
-        if (user && user !== 'undefined') {
-            this.props.history.push('/account');
+        if(firebase.auth().currentUser) {
+            this.props.history.push('/')
         }
-        this.props.getAllUser();
     }
 
-    handleSubmit = () => {
-        var { email, fullname, password, address, company, phone } = this.state;
-        var { listUser } = this.props;
-        var account = {
-            email,
-            password,
-            fullname,
-            address,
-            company,
-            phone
-        }
-        for (var i = 0; i < listUser.length; i++) {
-            if (email === listUser[i].email) {
-                alert("Email đã được đăng ký")
-                break;
-            } else if (email === "" || fullname === "" || password === "" || address === "" || company === "" || phone === "") {
-                alert("Không được bỏ trống dữ liệu");
-                break;
-            } else {
-                this.props.addUser(account);
-                alert("Đăng ký thành công");
-                this.props.history.push("/account/login")
-                break;
-            }
+    handleChange = (e) => {
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+    }
+
+    handleSubmit = (e) => {
+        e.preventDefault();
+        var { email, name, address, password, phone } = this.state;
+        var regexPhone = /((09|03|07|08|05|01)+([0-9]{8})\b)/g;
+        if (email === "" || name === "" || address === "" || phone === "") {
+            alert("Điền đầy đủ thông tin")
+        } else if(regexPhone.test(phone) === false) {
+            alert('Số điện thoại phải có 10 chữ số')
+        } else {
+            firebase.auth().createUserWithEmailAndPassword(email, password)
+            .then(function(res) {
+                firebase.database().ref('users/').push({
+                    userId: firebase.auth().currentUser.uid,
+                    email: firebase.auth().currentUser.email,
+                    name: name,
+                    role: 'client',
+                    address: address,
+                    phone: phone
+                })
+            })
+            .catch(err => {
+                this.setState({
+                    firebaseError: err.message
+                })
+            })
+            alert('Đăng ký thành công')
+            this.props.history.push('/account')
         }
     }
 
     render() {
-        var { email, fullname, address, company, phone } = this.state;
+        var {name, email, password, address, phone } = this.state;
         return (
             <>
                 <div className="login__page pt-3 pb-5">
@@ -79,13 +83,12 @@ class Register extends Component {
                                             <input
                                                 required
                                                 type="email"
+                                                name="email"
                                                 value={email}
                                                 id="customer_email"
                                                 placeholder="Email"
                                                 className="customer_input"
-                                                onChange={(e) => this.setState({
-                                                    email: e.target.value
-                                                })}
+                                                onChange={this.handleChange}
                                             />
                                         </div>
                                         <div className="large_form">
@@ -95,14 +98,12 @@ class Register extends Component {
                                             <input
                                                 required
                                                 type="password"
-                                                name=""
+                                                name="password"
                                                 id="customer_password"
                                                 placeholder="Mật khẩu"
                                                 className="customer_input"
-                                                size="16"
-                                                onChange={(e) => this.setState({
-                                                    password: hashString(e.target.value)
-                                                })}
+                                                value={password}
+                                                onChange={this.handleChange}
                                             />
                                         </div>
                                         <div className="large_form">
@@ -112,14 +113,12 @@ class Register extends Component {
                                             <input
                                                 required
                                                 type="text"
-                                                name="fullname"
-                                                value={fullname}
+                                                name="name"
+                                                value={name}
                                                 id="customer_fullname"
                                                 placeholder="Họ tên"
                                                 className="customer_input"
-                                                onChange={(e) => this.setState({
-                                                    fullname: e.target.value
-                                                })}
+                                                onChange={this.handleChange}
                                             />
                                         </div>
                                         <div className="large_form">
@@ -134,26 +133,7 @@ class Register extends Component {
                                                 id="customer_address"
                                                 placeholder="Địa chỉ"
                                                 className="customer_input"
-                                                onChange={(e) => this.setState({
-                                                    address: e.target.value
-                                                })}
-                                            />
-                                        </div>
-                                        <div className="large_form">
-                                            <label htmlFor="customer_company" className="icon-field">
-                                                <i className="fa fa-envelope icon-login"></i>
-                                            </label>
-                                            <input
-                                                required
-                                                type="text"
-                                                name="company"
-                                                value={company}
-                                                id="customer_company"
-                                                placeholder="Công ty"
-                                                className="customer_input"
-                                                onChange={(e) => this.setState({
-                                                    company: e.target.value
-                                                })}
+                                                onChange={this.handleChange}
                                             />
                                         </div>
                                         <div className="large_form">
@@ -168,9 +148,7 @@ class Register extends Component {
                                                 id="customer_phone"
                                                 placeholder="Số điện thoại"
                                                 className="customer_input"
-                                                onChange={(e) => this.setState({
-                                                    phone: e.target.value
-                                                })}
+                                                onChange={this.handleChange}
                                             />
                                         </div>
                                         <div className="action_bottom">
@@ -190,21 +168,4 @@ class Register extends Component {
     }
 }
 
-const mapSateToProps = (state) => {
-    return {
-        listUser: state.user.listUser,
-    }
-}
-
-const mapDispatchToProps = (dispatch) => {
-    return {
-        addUser: (account) => {
-            dispatch(actions.fetchAddUserRequest(account))
-        },
-        getAllUser: () => {
-            dispatch(actions.fetchAccountsRequest())
-        }
-    }
-}
-
-export default connect(mapSateToProps, mapDispatchToProps)(Register);
+export default Register;

@@ -1,25 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchAllOrders, getUserLogin } from '../../actions/UserActions';
+import { fetchAllOrders } from '../../actions/UserActions';
 import './index.css'
+import { format_curency } from '../../actions/FunctionActions'
 class OrderDetail extends Component {
 
     componentDidMount() {
-        var user = sessionStorage.getItem('user') ? JSON.parse((sessionStorage.getItem('user'))) : {};
-        this.props.getUser(user);
         this.props.getAllOrder();
     }
-
-    format_curency = ((money) => {
-        money = (money + "").replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
-        return money + "₫";
-    });
 
     showOrderItem = (orders) => {
         if (orders.length > 0) {
             return orders.map((item, index) => {
                 var category = "";
-                switch(item.category){
+                switch (item.category) {
                     case 'ao-khoac':
                         category = "Áo khoác";
                         break;
@@ -49,7 +43,7 @@ class OrderDetail extends Component {
                     <tr key={index}>
                         <th style={{ border: "1px solid #000" }}>{item.name}</th>
                         <th style={{ border: "1px solid #000" }}>{category}</th>
-                        <th style={{ border: "1px solid #000" }}>{this.format_curency(item.price)}</th>
+                        <th style={{ border: "1px solid #000" }}>{format_curency(item.price)}</th>
                         <th style={{ border: "1px solid #000" }}>{(item.quantity)}</th>
                     </tr>
                 )
@@ -62,8 +56,9 @@ class OrderDetail extends Component {
             return orders.map((item, index) => {
                 return (
                     <div className="order-item pb-5" key={index}>
-                        <p><strong>Ngày đặt hàng:</strong> <span>{item.date}</span> </p>
-                        <p><strong>Tổng tiền đơn hàng:</strong> <span>{item ? this.format_curency(item.totalPrice) : 0}</span> </p>
+                        <p><strong>Ngày đặt hàng: </strong> <span>{item.date}</span> </p>
+                        <p><strong>Tổng tiền đơn hàng: </strong> <span>{item ? format_curency(item.totalPrice) : 0}</span> </p>
+                        <p><strong>Trạng thái: </strong> <span>{item.status}</span> </p>
                         <div className="table-responsive">
                             <table className="table order-table" style={{ border: "1px solid #e1e1e1" }}>
                                 <thead>
@@ -87,13 +82,14 @@ class OrderDetail extends Component {
 
     render() {
         var { user, orders } = this.props;
+        var userUID = user ? user.userId : null
         var orderByUser = [];
         for (var i = 0; i < orders.length; i++) {
-            if (user.id === orders[i].idUser) {
+            if (userUID === orders[i].userId) {
                 orderByUser.unshift(orders[i])
             }
         }
-        // var lastOrder = orderByUser[orderByUser.length - 1];
+
         return (
             <div className="oder__detail--page pt-5 pb-5">
                 <div className="container">
@@ -103,49 +99,30 @@ class OrderDetail extends Component {
                         </div>
                         <div className="col-lg-4 col-md-12 col-sm-12">
                             <h3 className="order__page--title">Thông tin người nhận</h3>
-                            <p>Họ tên: <span>{user.fullname}</span> </p>
-                            <p>Địa chỉ nhận hàng: <span>{user.address}</span> </p>
-                            <p>Số điện thoại: <span>{user.phone}</span> </p>
+                            <p>Họ tên:     <span>{user ? user.name : ''}</span> </p>
+                            <p>Địa chỉ nhận hàng:     <span>{user ? user.address : ''}</span> </p>
+                            <p>Số điện thoại:     <span>{user ? user.phone : ''}</span> </p>
                         </div>
                         <div className="col-lg-8 col-md-12 col-sm-12">
                             <h3 className="order__page--title">Lịch sử đặt hàng</h3>
-                            {/* <p>Ngày đặt hàng: <span>{date}</span> </p>
-                            <p>Tổng tiền đơn hàng: <span>{lastOrder ? this.format_curency(lastOrder.totalPrice) : 0}</span> </p>
-                            <div className="table-responsive">
-                                <table className="table product-table" style={{ borderBottom: "1px solid #e1e1e1" }}>
-                                    <thead>
-                                        <tr>
-                                            <th>Tên Sản phẩm</th>
-                                            <th>Giá tiền</th>
-                                            <th>Số lượng</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {this.showOrderItem(lastOrder ? lastOrder.listOrder : [])}
-                                    </tbody>
-                                </table>
-                            </div> */}
                             {this.showOrderHistory(orderByUser)}
                         </div>
                     </div>
-                </div>
-            </div>
+                </div >
+            </div >
         );
     }
 }
 
 const mapStateToProps = (state) => {
     return {
-        user: state.userLogin,
+        user: state.user.currentUser,
         orders: state.user.orders
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        getUser: (user) => {
-            dispatch(getUserLogin(user))
-        },
         getAllOrder: () => {
             dispatch(fetchAllOrders())
         }

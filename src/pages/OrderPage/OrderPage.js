@@ -3,26 +3,42 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from '../../actions/UserActions'
 import { cartComplete } from '../../actions/CartActions';
+import firebase from '../../config/Fire'
+import { format_curency } from '../../actions/FunctionActions'
 
 class OrderPage extends Component {
-
     constructor(props) {
         super(props);
         this.state = {
-            fullname: '',
-            email: '',
-            phone: '',
-            address: '',
-            note: ''
+            user: {
+                userId: '',
+                name: '',
+                email: '',
+                phone: '',
+                address: '',
+                note: '',
+            }
         }
     }
 
-    UNSAFE_componentWillMount() {
-        this.setState({
-            email: this.props.user.email,
-            fullname: this.props.user.fullname,
-            address: this.props.user.address,
-            phone: this.props.user.phone,
+    componentDidMount() {
+        firebase.database().ref('users/').on('value', (data) => {
+            var users = data.val();
+            var currentUser = firebase.auth().currentUser;
+            var idUser = currentUser ? currentUser.uid : '';
+            for (var user in users) {
+                if (users[user].userId === idUser) {
+                    this.setState({
+                        user: {
+                            userId: users[user].userId,
+                            name: users[user].name,
+                            email: users[user].email,
+                            phone: users[user].phone,
+                            address: users[user].address,
+                        }
+                    })
+                }
+            }
         })
     }
 
@@ -42,11 +58,6 @@ class OrderPage extends Component {
         }
         return tong;
     }
-
-    format_curency = ((money) => {
-        money = money.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
-        return money + "₫";
-    });
 
     showListItemCart = (cart) => {
         var result = null;
@@ -72,7 +83,7 @@ class OrderPage extends Component {
                         </th>
                         <td className="product__quantity visually-hidden"><em>Số lượng:</em> {item.quantity}</td>
                         <td className="product__price">
-                            {this.format_curency(item.product.price * item.quantity)}
+                            {format_curency(item.product.price * item.quantity)}
                         </td>
                     </tr>
                 )
@@ -92,20 +103,25 @@ class OrderPage extends Component {
     }
 
     handleCheckout = () => {
-        var cart = this.props.cart;
+        var { cart } = this.props;
         var total = this.showCartTotal(cart);
         var date = new Date().toJSON();
-        var userLogin = this.props.user;
-        var idUser = userLogin.id;
-        var nameUser = this.state.fullname;
-        var addressUser = this.state.address;
-        var phoneUser = this.state.phone;
-        var note = this.state.note;
+
+        var { note } = this.state;
+        var nameUser = this.state.user.name;
+        var addressUser = this.state.user.address;
+        var phoneUser = this.state.user.phone;
+        var userId = this.state.user.userId;
+
         if (cart.length === 0 || cart === []) {
             alert("Bạn cần chọn mua sản phẩm");
             this.props.history.push("/collections/all")
-        }
-        else if (JSON.stringify(this.props.user) !== JSON.stringify({})) {
+        } else if (nameUser === "" || addressUser === "" || phoneUser === "") {
+            alert("Nhập đầy đủ thông tin đặt hàng")
+        } else if (Object.keys(this.state.user).length === 0) {
+            alert("Bạn phải đăng nhập trước khi đặt hàng");
+            this.props.history.push("/account/login");
+        } else {
             var listOrder = [];
             for (var i = 0; i < cart.length; i++) {
                 listOrder.push({
@@ -116,31 +132,28 @@ class OrderPage extends Component {
                     quantity: cart[i].quantity
                 })
             }
-
             var order = {
-                idUser: idUser,
+                userId: userId,
                 nameUser: nameUser,
                 addressUser: addressUser,
                 phoneUser: phoneUser,
                 totalPrice: total,
                 date: date,
                 note: note,
+                status: 'Chưa chốt',
                 listOrder: listOrder
             }
             this.props.addOrder(order);
             alert("Đặt hàng thành công")
             this.props.cartComplete()
             this.props.history.push("/checkout/detail")
-            window.location.reload()
-        } else {
-            alert("Bạn phải đăng nhập trước khi đặt hàng");
-            this.props.history.push("/account/login");
+            this.props.getAllOrder();
         }
     }
 
     render() {
         var { cart } = this.props;
-        var { fullname, email, phone, address, note } = this.state;
+        var { name, address, phone, email, note } = this.state.user;
         return (
             <div className="checkout__page">
                 <div className="container">
@@ -150,23 +163,46 @@ class OrderPage extends Component {
                                 Thông tin mua và nhận hàng
                             </h1>
                             <div className="contact-form-group">
-                                <input type="text" placeholder="Họ và tên" name="fullname" className="contact-form-group-input" required
-                                    value={fullname}
+                                <input type="text"
+                                    placeholder="Họ và tên"
+                                    name="name"
+                                    className="contact-form-group-input"
+                                    required
+                                    defaultValue={name}
                                     onChange={this.handleChange}
                                 />
-                                <input type="email" placeholder="Email" name="email" className="contact-form-group-input" required
-                                    value={email}
+                                <input
+                                    type="email"
+                                    placeholder="Email"
+                                    name="email"
+                                    className="contact-form-group-input"
+                                    required
+                                    defaultValue={email}
                                     onChange={this.handleChange}
                                 />
-                                <input type="text" placeholder="Số điện thoại" name="phone" className="contact-form-group-input" required
-                                    value={phone}
+                                <input
+                                    type="text"
+                                    placeholder="Số điện thoại"
+                                    name="phone"
+                                    className="contact-form-group-input"
+                                    required
+                                    defaultValue={phone}
                                     onChange={this.handleChange}
                                 />
-                                <input type="text" placeholder="Địa chỉ" name="address" className="contact-form-group-input" required
-                                    value={address}
+                                <input
+                                    type="text"
+                                    placeholder="Địa chỉ"
+                                    name="address" className="contact-form-group-input"
+                                    required
+                                    defaultValue={address}
                                     onChange={this.handleChange}
                                 />
-                                <textarea placeholder="Ghi chú" rows="3" cols="5" name="note" value={note}
+                                <textarea
+                                    placeholder="Ghi chú"
+                                    rows="3"
+                                    cols="5"
+                                    name="note"
+                                    value={note}
                                     onChange={this.handleChange}
                                 />
                             </div>
@@ -261,7 +297,7 @@ class OrderPage extends Component {
                                                 Tạm tính
                                             </span>
                                             <span className="checkout__amount--price">
-                                                {this.format_curency(this.showCartTotal(cart))}
+                                                {format_curency(this.showCartTotal(cart))}
                                             </span>
                                         </h3>
                                         <h3 className="checkout__amount-item">
@@ -269,7 +305,7 @@ class OrderPage extends Component {
                                                 Phí vận chuyển
                                             </span>
                                             <span className="checkout__amount--price">
-                                                {this.format_curency(0)}
+                                                {format_curency(0)}
                                             </span>
                                         </h3>
                                         <h3 className="checkout__amount-item total-price">
@@ -277,7 +313,7 @@ class OrderPage extends Component {
                                                 Tổng cộng
                                             </span>
                                             <span className="checkout__amount--price">
-                                                {this.format_curency(this.showCartTotal(cart))}
+                                                {format_curency(this.showCartTotal(cart))}
                                             </span>
                                         </h3>
                                     </div>
@@ -307,12 +343,15 @@ class OrderPage extends Component {
 const mapStateToProps = (state) => {
     return {
         cart: state.cart,
-        user: state.userLogin
+        user: state.user.currentUser
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
+        getAllOrder: () => {
+            dispatch(actions.fetchAllOrders())
+        },
         addOrder: (order) => {
             dispatch(actions.fetchUserOrderRequest(order))
         },

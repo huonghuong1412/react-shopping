@@ -1,5 +1,5 @@
 import * as types from '../constants'
-import callAPI from '../callAPI/callAPI.js'
+import callAPI from '../callAPI/callAPI'
 
 export const getAllCmt = (comments) => {
     return {

@@ -6,16 +6,32 @@ import Footer from './components/Footer/Footer';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
 import Scroll from './Scroll';
-import { getUserLogin, setLogin } from './actions/UserActions';
+import firebase from './config/Fire'
 import { connect } from 'react-redux';
+import * as actions from './actions/UserActions'
 
 class App extends React.Component {
 
-  componentDidMount() {
-    var user = sessionStorage.getItem('user');
-    this.props.getUserLogin(user)
-  }
 
+
+  componentDidMount() {
+    var idUser = '';
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        idUser = user.uid;
+        firebase.database().ref('users/').on('value', (data) => {
+          var users = data.val();
+          for (var user in users) {
+            if (users[user].userId === idUser) {
+              this.props.setCurrentUser(users[user])
+            }
+          }
+        })
+      } else {
+        this.props.setLogout();
+      }
+    })
+  }
 
   showPageComponent = (routes) => {
     var menu = null;
@@ -35,6 +51,8 @@ class App extends React.Component {
   }
 
   render() {
+    // var user = firebase.auth().currentUser;
+    // console.log(user);
     return (
       <BrowserRouter>
         <Scroll>
@@ -51,16 +69,22 @@ class App extends React.Component {
   }
 }
 
-
-const mapDispatchToProps = (dispatch) => {
+const mapStateToProps = (state) => {
   return {
-    isLogin: (user) => {
-      dispatch(setLogin(user))
+    user: state.user.currentUser
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    setCurrentUser: (user) => {
+      dispatch(actions.setCurrentUser(user))
     },
-    getUserLogin: (user) => {
-      dispatch(getUserLogin(user))
+    setLogout: () => {
+      dispatch(actions.setLogout())
     }
   }
 }
 
-export default connect(null, mapDispatchToProps)(App);
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

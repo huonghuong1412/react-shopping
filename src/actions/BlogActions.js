@@ -9,7 +9,7 @@ export const getAllBlog = (blogs) => {
 
 export const fetchAllBlogRequest = () => {
     return dispatch => {
-        return callAPI('blogs?_sort=createDate&_order=desc', 'GET', null).then(res => {
+        return callAPI('blogs?sortBy=createDate&order=desc', 'GET', null).then(res => {
             dispatch(getAllBlog(res.data))
         })
     }

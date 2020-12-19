@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import * as actions from '../../actions/UserActions'
+import firebase from '../../config/Fire'
 class AccountSideBar extends Component {
 
     handleLogout = () => {
-        this.props.logout();
+        firebase.auth().signOut();
+        this.props.history.push("/account/login")
     }
     render() {
         return (
@@ -22,16 +22,10 @@ class AccountSideBar extends Component {
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/account/change" className="account__sidebar--link">
-                                    Thay đổi thông tin
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to="/account/login" onClick={() => {
-                                    this.handleLogout()
-                                }} className="account__sidebar--link">
+                                <button onClick={this.handleLogout} 
+                                className="account__sidebar--btn">
                                     Đăng xuất
-                                </Link>
+                                </button>
                             </li>
                         </ul>
                     </div>
@@ -41,12 +35,4 @@ class AccountSideBar extends Component {
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        logout: () => {
-            dispatch(actions.isLogout())
-        }
-    }
-}
-
-export default connect(null, mapDispatchToProps)(AccountSideBar);
+export default AccountSideBar;

@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchAllOrders, getUserLogin } from '../../actions/UserActions';
-
+import { fetchAllOrders } from '../../actions/UserActions';
 class Order extends Component {
 
     componentDidMount() {
-        var user = sessionStorage.getItem('user') ? JSON.parse((sessionStorage.getItem('user'))) : {};
-        this.props.getUser(user);
         this.props.getAllOrder();
     }
 
@@ -89,9 +86,10 @@ class Order extends Component {
 
     render() {
         var { orders, user } = this.props;
+        var userUID = user ? user.uid : null
         var orderByUser = [];
         for (var i = 0; i < orders.length; i++) {
-            if (user.id === orders[i].idUser) {
+            if (userUID === orders[i].idUser) {
                 orderByUser.unshift(orders[i])
             }
         }
@@ -114,16 +112,13 @@ class Order extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        user: state.userLogin,
+        user: state.user.currentUser,
         orders: state.user.orders
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        getUser: (user) => {
-            dispatch(getUserLogin(user))
-        },
         getAllOrder: () => {
             dispatch(fetchAllOrders())
         }

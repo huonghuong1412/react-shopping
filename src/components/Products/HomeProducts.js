@@ -6,7 +6,12 @@ import { showModal, hideModal } from '../../actions/ModalActions'
 import { addToCart } from '../../actions/CartActions'
 import ModalRoot from '../Modal/ModalRoot';
 import Heading from './Heading';
-
+import ClipLoader from "react-spinners/ClipLoader";
+const override = {
+    display: 'block',
+    margin: '0 auto',
+    borderColor: 'red',
+}
 const styleDiv = {
     width: "100%"
 }
@@ -115,14 +120,6 @@ class HomeProducts extends PureComponent {
                         return product.category === 'tui-xach'
                     })
                     break;
-                case 'random':
-                    productsTmp = [
-                        products[Math.floor(Math.random()* products.length)],
-                        products[Math.floor(Math.random()* products.length)],
-                        products[Math.floor(Math.random()* products.length)],
-                        products[Math.floor(Math.random()* products.length)],
-                    ]
-                    break;
                 default:
                     productsTmp = []
                     break;
@@ -182,7 +179,8 @@ class HomeProducts extends PureComponent {
     }
 
     render() {
-        var { products, textFilter, match } = this.props;
+        var { products, textFilter, match, isFetching } = this.props;
+        var result = null;
         var { sortBy, sortValue } = this.state;
         if (sortBy === "name") {
             products = products.sort((a, b) => {
@@ -201,32 +199,54 @@ class HomeProducts extends PureComponent {
         if (match) {
             return (
                 <>
-                    <div className="main__content-products" style={styleDiv}>
-                        <Heading
-                            textHeading={textFilter}
-                            sortValue={sortValue}
-                            sortBy={sortBy}
-                            sortProducts={this.sortProducts}
-                        />
-                        <div className="col-12">
-                            <div className="row products__list">
-                                {this.showProductItem(products, textFilter)}
-                            </div>
-                        </div>
-                    </div>
-                    {/* <ModalCart hideModal={this.props.hideModal} />
-                    <ModalView hideModal={this.props.hideModal} /> */}
+                    {
+                        isFetching ? (
+                            <ClipLoader
+                                size={150}
+                                color={"#123abc"}
+                                css={override}
+                                loading={isFetching}
+                            />
+                        ) : (
+                                <>
+                                    <div className="main__content-products" style={styleDiv}>
+                                        {result}
+                                        <Heading
+                                            textHeading={textFilter}
+                                            sortValue={sortValue}
+                                            sortBy={sortBy}
+                                            sortProducts={this.sortProducts}
+                                        />
+                                        <div className="col-12">
+                                            <div className="row products__list">
+                                                {this.showProductItem(products, textFilter)}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </>
+                            )
+                    }
                     <ModalRoot hideModal={this.props.hideModal} />
                 </>
             );
         } else {
             return (
                 <>
-                    <div className="row products__list">
-                        {this.showProductItem(products, textFilter)}
-                    </div>
-                    {/* <ModalCart hideModal={this.props.hideModal} />
-                    <ModalView hideModal={this.props.hideModal} /> */}
+                    { isFetching ? (
+                        <ClipLoader
+                            size={150}
+                            color={"#123abc"}
+                            css={override}
+                            loading={isFetching}
+                        />
+                    )
+                        : (
+                            <div className="row products__list">
+                                {result}
+                                {this.showProductItem(products, textFilter)}
+                            </div>
+                        )
+                    }
                     <ModalRoot hideModal={this.props.hideModal} />
                 </>
             );
@@ -236,15 +256,16 @@ class HomeProducts extends PureComponent {
 
 const mapStateToProps = (state) => {
     return {
-        products: state.listProducts,
-        ...state.modal
+        products: state.products.listProduct,
+        ...state.modal,
+        isFetching: state.products.isFetching
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
         getListProduct: () => {
-            dispatch(actions.fetchAllProductRequest())
+            dispatch(actions.fetchAPIALLProduct())
         },
         hideModal: () => {
             dispatch(hideModal())

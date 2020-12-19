@@ -1,18 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import * as actions from '../../actions/CartActions'
+import { format_curency } from '../../actions/FunctionActions'
 
 class Cart extends Component {
-
-    format_curency = ((money) => {
-        money = money.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
-        return money + "₫";
-    });
 
     showTotalPrice = (price, quantity) => {
         var total = 0;
         total = price * quantity;
-        return this.format_curency(total)
+        return format_curency(total)
     }
 
     showTotalItem = (cart) => {
@@ -34,7 +31,7 @@ class Cart extends Component {
                             <img src={item.product.img[0]} alt="" />
                         </th>
                         <th>{item.product.name}</th>
-                        <th>{this.format_curency(item.product.price)}</th>
+                        <th>{format_curency(item.product.price)}</th>
                         <th>
                             <div className="detail-product-quantity">
                                 <div className="detail-product-action">
@@ -64,13 +61,15 @@ class Cart extends Component {
                     </tr>
                 )
             })
+        } else {
+
         }
     }
 
     render() {
         var { cart } = this.props;
-        return (
-            <table className="table product-table" style={{borderBottom: "1px solid #e1e1e1"}}>
+        return cart.length > 0 ? (
+            <table className="table product-table" style={{ borderBottom: "1px solid #e1e1e1" }}>
                 <thead>
                     <tr>
                         <th></th>
@@ -85,7 +84,17 @@ class Cart extends Component {
                     {this.showCartItem(cart)}
                 </tbody>
             </table>
-        );
+        ) : (
+                <>
+                    <img width="190px" src="https://salt.tikicdn.com/desktop/img/mascot@2x.png" alt="" />
+                    <h4 class="header__cart-list-heading mt-5 mb-5 text-center">
+                        Không có sản phẩm trong giỏ hàng
+                        </h4>
+                    <Link class="mb-5 back-btn" to="/collections/all">
+                        Tiếp tục mua sắm
+                        </Link>
+                </>
+            )
     }
 }
 

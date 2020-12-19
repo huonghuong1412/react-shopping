@@ -70,7 +70,10 @@ class HeaderCart extends Component {
             })
         } else {
             return (
-                <p>Hiện chưa có sản phẩm</p>
+                <div className="empty__cart">
+                    <img style={{ width: '100px' }} src="https://salt.tikicdn.com/desktop/img/mascot@2x.png" alt="" />
+                    <p>Hiện chưa có sản phẩm</p>
+                </div>
             )
         }
     }

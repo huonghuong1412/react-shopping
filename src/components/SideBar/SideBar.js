@@ -4,7 +4,7 @@ import './index.css'
 class SideBar extends Component {
     render() {
         return (
-            <div className="col-lg-3 col-sm-12 col-md-9">
+            <div className="col-lg-3 col-sm-12 col-md-12">
                 <div className="sidebar__sticky sticky-top">
                     <div className="sidebar__inner">
                         <h3 className="sidebar__inner--title">
@@ -12,7 +12,7 @@ class SideBar extends Component {
                                 <i className="fa fa-caret-down"></i>
                             </span>
                         </h3>
-                        <ul className="sidebar__inner--menu">
+                        <ul className="sidebar__inner--menu show">
                             <li>
                                 <Link to="/collections/all" className="sidebar__inner--link">
                                     Tất cả sản phẩm

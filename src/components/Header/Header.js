@@ -11,35 +11,6 @@ class Header extends Component {
         }
     }
 
-    checkUserLogined = (user) => {
-        if (JSON.stringify(user) === JSON.stringify({}) || user === "undefined" || user==="NaN") {
-            return (
-                <ul className='header__aside--info-top'>
-                    <li>
-                        <Link to="/account/register" className="header__aside--info-link">
-                            Đăng ký
-                        </Link>
-                    </li>
-                    <li>
-                        <Link to="/account/login" className="header__aside--info-link">
-                            Đăng nhập
-                        </Link>
-                    </li>
-                </ul>
-            )
-        } else {
-            return (
-                <ul className="header__aside--info-top">
-                    <li>
-                        <Link to="/account" className="header__aside--info-link">
-                            Tài khoản của bạn
-                            </Link>
-                    </li>
-                </ul>
-            )
-        }
-    }
-
     removeVietnameseTones(str) {
         return str.toLowerCase().normalize('NFD')
             .replace(/[\u0300-\u036f]/g, '')
@@ -59,7 +30,7 @@ class Header extends Component {
 
     handleKeyPress = (e) => {
         if (e.key === 'Enter') {
-            window.location.href = `/search?keyword=${this.state.textSearch}`;
+            window.location.href = `/search/keyword/${this.state.textSearch}`;
         }
     }
 
@@ -73,7 +44,6 @@ class Header extends Component {
 
 
     render() {
-        var user = this.props.user;
         return (
             <>
                 <header className="header" id="header">
@@ -87,23 +57,46 @@ class Header extends Component {
                             </Link>
                         </div>
                         <div className="header__main--search">
-                            <input 
-                                type="text" 
-                                className="header__main--search-input" 
-                                placeholder="Tìm kiếm" 
+                            <input
+                                type="text"
+                                className="header__main--search-input"
+                                placeholder="Tìm kiếm"
                                 name="textSearch"
                                 onChange={this.handleChange}
                                 onKeyPress={
                                     this.handleKeyPress
                                 }
                             />
-                            <a href={`/search?keyword=${this.state.textSearch}`} className="header__main--search-btn">
+                            <a href={`/search/keyword/${this.state.textSearch}`} className="header__main--search-btn">
                                 <i className="fas fa-search"></i>
                             </a>
                         </div>
                         <div className="header__aside">
                             <div className="header__aside--info">
-                                {this.checkUserLogined(user)}
+                                {
+                                    this.props.currentUser ? (
+                                        <ul className="header__aside--info-top">
+                                            <li>
+                                                <Link to="/account" className="header__aside--info-link">
+                                                    Tài khoản của bạn
+                                                </Link>
+                                            </li>
+                                        </ul>
+                                    ) : (
+                                            <ul className='header__aside--info-top'>
+                                                <li>
+                                                    <Link to="/account/register" className="header__aside--info-link">
+                                                        Đăng ký
+                                                    </Link>
+                                                </li>
+                                                <li>
+                                                    <Link to="/account/login" className="header__aside--info-link">
+                                                        Đăng nhập
+                                                    </Link>
+                                                </li>
+                                            </ul>
+                                        )
+                                }
                                 <Link to="/account/login" className="header__aside--info-user">
                                     <i className="fa fa-user"></i>
                                 </Link>
@@ -122,9 +115,8 @@ class Header extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        user: state.userLogin
+        currentUser: state.user.currentUser
     }
 }
-
 
 export default connect(mapStateToProps, null)(Header);
