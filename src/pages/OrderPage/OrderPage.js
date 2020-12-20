@@ -113,14 +113,18 @@ class OrderPage extends Component {
         var phoneUser = this.state.user.phone;
         var userId = this.state.user.userId;
 
+        var regexPhone = /((09|03|07|08|05|01)+([0-9]{8})\b)/g;
+
         if (cart.length === 0 || cart === []) {
             alert("Bạn cần chọn mua sản phẩm");
             this.props.history.push("/collections/all")
-        } else if (nameUser === "" || addressUser === "" || phoneUser === "") {
-            alert("Nhập đầy đủ thông tin đặt hàng")
-        } else if (Object.keys(this.state.user).length === 0) {
+        } else if (this.state.user.userId === "") {
             alert("Bạn phải đăng nhập trước khi đặt hàng");
             this.props.history.push("/account/login");
+        } else if (nameUser === "" || addressUser === "" || phoneUser === "") {
+            alert("Nhập đầy đủ thông tin đặt hàng")
+        } else if (!regexPhone.test(phoneUser)) {
+            alert("Số điện thoại có 10 chữ số");
         } else {
             var listOrder = [];
             for (var i = 0; i < cart.length; i++) {

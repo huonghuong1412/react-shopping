@@ -22,7 +22,7 @@ class Register extends Component {
     }
 
     componentDidMount() {
-        if(firebase.auth().currentUser) {
+        if (firebase.auth().currentUser) {
             this.props.history.push('/')
         }
     }
@@ -37,34 +37,40 @@ class Register extends Component {
         e.preventDefault();
         var { email, name, address, password, phone } = this.state;
         var regexPhone = /((09|03|07|08|05|01)+([0-9]{8})\b)/g;
+        var regexEmail = /\S+@\S+\.\S+/;
+        var regexPass = /^(?=.*[A-Za-z])(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
         if (email === "" || name === "" || address === "" || phone === "") {
             alert("Điền đầy đủ thông tin")
-        } else if(regexPhone.test(phone) === false) {
+        } else if (!regexPass.test(password)) {
+            alert("Mật khẩu ít nhất 8 ký tự, gồm cả chữ hoa, số và ký tự đặc biệt")
+        } else if (!regexPhone.test(phone)) {
             alert('Số điện thoại phải có 10 chữ số')
+        } else if (!regexEmail.test(email)) {
+            alert("Nhập đúng định dạng email")
         } else {
             firebase.auth().createUserWithEmailAndPassword(email, password)
-            .then(function(res) {
-                firebase.database().ref('users/').push({
-                    userId: firebase.auth().currentUser.uid,
-                    email: firebase.auth().currentUser.email,
-                    name: name,
-                    role: 'client',
-                    address: address,
-                    phone: phone
+                .then(function (res) {
+                    firebase.database().ref('users/').push({
+                        userId: firebase.auth().currentUser.uid,
+                        email: firebase.auth().currentUser.email,
+                        name: name,
+                        role: 'client',
+                        address: address,
+                        phone: phone
+                    })
                 })
-            })
-            .catch(err => {
-                this.setState({
-                    firebaseError: err.message
+                .catch(err => {
+                    this.setState({
+                        firebaseError: err.message
+                    })
                 })
-            })
             alert('Đăng ký thành công')
             this.props.history.push('/account')
         }
     }
 
     render() {
-        var {name, email, password, address, phone } = this.state;
+        var { name, email, password, address, phone } = this.state;
         return (
             <>
                 <div className="login__page pt-3 pb-5">
