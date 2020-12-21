@@ -54,8 +54,13 @@ const Routes = [
     {
         path: '/search/keyword/:text',
         exact: false,
-        main: ({ history, match }) => <ProductsSearch history={history} match={match} />
+        main: ({ history, match, location }) => <ProductsSearch history={history} match={match} location={location} />
     },
+    // {
+    //     path: '/search/keyword/:text',
+    //     exact: false,
+    //     main: ({ history, match, location }) => <ProductsSearch history={history} match={match} location={location} />
+    // },
     {
         path: '/cart',
         exact: false,

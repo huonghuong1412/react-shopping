@@ -28,20 +28,6 @@ class Header extends Component {
         })
     }
 
-    handleKeyPress = (e) => {
-        if (e.key === 'Enter') {
-            window.location.href = `/search/keyword/${this.state.textSearch}`;
-        }
-    }
-
-    handleRedirect = () => {
-        return (
-            <Link to={`/search?keyword=${this.state.textSearch}`} className="header__top--btn">
-                <i className="fas fa-search header__top--btn-icon" />
-            </Link>
-        )
-    }
-
 
     render() {
         return (
@@ -63,13 +49,10 @@ class Header extends Component {
                                 placeholder="Tìm kiếm"
                                 name="textSearch"
                                 onChange={this.handleChange}
-                                onKeyPress={
-                                    this.handleKeyPress
-                                }
                             />
-                            <a href={`/search/keyword/${this.state.textSearch}`} className="header__main--search-btn">
+                            <Link to={`/search/keyword/${this.state.textSearch}`} className="header__main--search-btn">
                                 <i className="fas fa-search"></i>
-                            </a>
+                            </Link>
                         </div>
                         <div className="header__aside">
                             <div className="header__aside--info">

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import BannerPage from '../../components/Banner/BannerPage'
 import { addToCart } from '../../actions/CartActions'
@@ -6,16 +6,19 @@ import { fetchAPIALLProduct, fetchAPISearchProduct } from '../../actions/HomeAct
 import { Link } from 'react-router-dom';
 import { hideModal, showModal } from '../../actions/ModalActions';
 import ModalRoot from '../../components/Modal/ModalRoot';
-class ProductsSearch extends Component {
+class ProductsSearch extends PureComponent {
 
-    componentDidMount() {
+    componentDidMount = (() => {
         var { match } = this.props;
+        console.log(match);
+        console.log(this.props.location);
+        console.log(this.props.history);
         var keyword = match.params.text;
         this.props.history.push(`/search/keyword/${keyword}`)
         if (keyword) {
             this.props.searchListProducts(keyword);
         }
-    }
+    })
 
     closeModal = () => {
         this.props.hideModal();
@@ -105,7 +108,6 @@ class ProductsSearch extends Component {
 
     render() {
         var { products } = this.props;
-        console.log(products);
         return (
             <>
                 <BannerPage textHeading="search" />
@@ -136,7 +138,8 @@ const mapStateToProps = (state) => {
     return {
         products: state.products.listProduct,
         cart: state.cart,
-        ...state.modal
+        ...state.modal,
+        isFetching: state.products.isFetching
     }
 }
 
