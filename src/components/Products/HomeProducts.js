@@ -120,6 +120,15 @@ class HomeProducts extends PureComponent {
                         return product.category === 'tui-xach'
                     })
                     break;
+                case 'random':
+                    
+                    productsTmp = [
+                        products[Math.floor(Math.random() * products.length)],
+                        products[Math.floor(Math.random() * products.length)],
+                        products[Math.floor(Math.random() * products.length)],
+                        products[Math.floor(Math.random() * products.length)],
+                    ]
+                    break;
                 default:
                     productsTmp = []
                     break;

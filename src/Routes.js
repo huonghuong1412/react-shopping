@@ -57,7 +57,7 @@ const Routes = [
         main: ({ history, match, location }) => <ProductsSearch history={history} match={match} location={location} />
     },
     // {
-    //     path: '/search/keyword/:text',
+    //     path: '/search',
     //     exact: false,
     //     main: ({ history, match, location }) => <ProductsSearch history={history} match={match} location={location} />
     // },

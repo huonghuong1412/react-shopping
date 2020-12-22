@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import BannerPage from '../../components/Banner/BannerPage'
 import { addToCart } from '../../actions/CartActions'
@@ -6,19 +6,31 @@ import { fetchAPIALLProduct, fetchAPISearchProduct } from '../../actions/HomeAct
 import { Link } from 'react-router-dom';
 import { hideModal, showModal } from '../../actions/ModalActions';
 import ModalRoot from '../../components/Modal/ModalRoot';
-class ProductsSearch extends PureComponent {
+class ProductsSearch extends Component {
+    
 
-    componentDidMount = (() => {
-        var { match } = this.props;
-        console.log(match);
-        console.log(this.props.location);
-        console.log(this.props.history);
-        var keyword = match.params.text;
-        this.props.history.push(`/search/keyword/${keyword}`)
-        if (keyword) {
-            this.props.searchListProducts(keyword);
+    constructor(props) {
+        super(props);
+        this.state = {
+            name: this.props.match.params.text
         }
-    })
+    }
+
+    componentDidMount() {
+        this.props.searchListProducts(this.props.match.params.text);
+    }
+    
+    componentDidUpdate(prevProps, prevState) {
+        if(prevProps === undefined) {
+            return false;
+        }
+        if(this.state.name !== this.props.match.params.text) {
+            this.props.searchListProducts(this.props.match.params.text);
+            this.setState({
+                name: this.props.match.params.text
+            })
+        }
+    }
 
     closeModal = () => {
         this.props.hideModal();

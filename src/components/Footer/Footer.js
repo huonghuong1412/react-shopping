@@ -164,7 +164,7 @@ class Footer extends Component {
                                             Kết nối với chúng tôi
                                         </h3>
                                         <div className="footer__iframe">
-                                            Logo
+                                            <img src="https://theme.hstatic.net/1000239816/1000467243/14/logo.png?v=186" alt="" />
                                         </div>
                                     </div>
                                 </div>

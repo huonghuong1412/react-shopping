@@ -7,6 +7,7 @@ import BannerPage from '../../components/Banner/BannerPage';
 import SideBar from '../../components/SideBar/SideBar'
 import './index.css'
 import { fetchAllCommentProduct, fetchSendComment } from '../../actions/CmtProductAction';
+import HomeProducts from '../../components/Products/HomeProducts';
 class ProductItem extends Component {
     constructor(props) {
         super(props);
@@ -14,7 +15,8 @@ class ProductItem extends Component {
             openImg: true,
             quantity: 1,
             comment: '',
-            nameUser: ''
+            nameUser: '',
+            idProduct: this.props.match.params.id
         }
     }
 
@@ -22,9 +24,21 @@ class ProductItem extends Component {
         var { match } = this.props;
         var id = match.params.id;
         this.props.getProductDetail(id);
-        this.props.getAllProducts();
         this.props.getAllComment();
     }
+
+    componentDidUpdate(prevProps, prevState) {
+        if (prevProps === undefined) {
+            return false;
+        }
+        if (this.state.idProduct !== this.props.match.params.id) {
+            this.props.getProductDetail(this.props.match.params.id);
+            this.setState({
+                idProduct: this.props.match.params.id
+            })
+        }
+    }
+
 
     closeModal = () => {
         this.props.hideModal();
@@ -117,7 +131,7 @@ class ProductItem extends Component {
                                                 </span>
                                             </div>
                                         </div>
-                                        <span className="list__comment--text" style={{paddingLeft: '50px'}}>
+                                        <span className="list__comment--text" style={{ paddingLeft: '50px' }}>
                                             {item.reply}
                                         </span>
                                     </div>
@@ -162,8 +176,7 @@ class ProductItem extends Component {
     }
 
     render() {
-        var productItem = this.props.productItem;
-        var listComments = this.props.listComments;
+        var { productItem, listComments } = this.props;
         var textFilter = productItem.name;
         var price = this.format_curency(productItem.price)
         const imagesPath = {
@@ -301,6 +314,12 @@ class ProductItem extends Component {
                                             </div>
                                         </div>
                                     </div>
+                                    <div className="col-lg-12 col-md-12 col-sm-12">
+                                        <h3 className="product__item--detail-desc pt-3 pb-3 mt-5">SẢN PHẨM KHÁC</h3>
+                                        <div className="mt-5">
+                                            <HomeProducts textFilter="random" />
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -313,7 +332,6 @@ class ProductItem extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        listProducts: state.products.listProduct,
         listComments: state.cmt,
         productItem: state.products.productItem,
         ...state.modal
@@ -324,9 +342,6 @@ const mapDispatchToProps = (dispatch) => {
     return {
         getProductDetail: (id) => {
             dispatch(actions.fetchAPIProductItem(id))
-        },
-        getAllProducts: () => {
-            dispatch(actions.fetchAPIALLProduct())
         },
         getAllComment: () => {
             dispatch(fetchAllCommentProduct())

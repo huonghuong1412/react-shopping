@@ -42,6 +42,9 @@ class Login extends Component {
 
     render() {
         var { email, password, firebaseError } = this.state;
+        if(firebaseError) {
+            firebaseError = "Sai tài khoản hoặc mật khẩu"
+        };
         return (
             <>
                 <div className="login__page pt-5 pb-5">
@@ -49,12 +52,18 @@ class Login extends Component {
                         <div className="row">
                             <div className="col-12">
                                 <h3 className="account__page--title">Đăng nhập</h3>
-                                <span style={{ textAlign: 'center', width: '100%', display: 'block' }}>
-                                    Demo: tk: user1@gmail.com, mk: user1user1</span>
+                                <span style={{ textAlign: 'center', width: '100%', display: 'block', fontSize: '1.4rem', marginTop: '15px' }}>
+                                    Tài khoản: user1@gmail.com, Mật khẩu: user1user1</span>
                             </div>
-                            <div className="col-12">
-                                <h3 className="account__page--title">{firebaseError}</h3>
-                            </div>
+                            {
+                                firebaseError ? (
+                                    <div className="col-12">
+                                        <h3 className="account__page--title">{firebaseError}</h3>
+                                    </div>
+                                ) : (
+                                    ""
+                                )
+                            }
                             <div className="col-12">
                                 <div className="customer-login">
                                     <div onSubmit={this.handleSubmit} id="customer_login">
